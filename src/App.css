@@ -1,0 +1,58 @@
+.App {
+  display: block;
+  text-align: center;
+  flex-direction: row;
+  margin: 0.25em;
+}
+
+.board {
+  margin: 0.25em;
+  display: block;
+}
+.label {
+  width: 1.75em;
+  height: 1.75em;
+  float: left;
+  display: inline;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  font-size: 1.0em;
+  line-height: 0.5em;
+  margin-top: .5em;
+  margin-left: .625em;
+  margin-right: .50625em;
+}
+
+.square {
+  border-style: solid;
+  border-color: black;
+  border-width:0.5px;
+  width: 2.75em;
+  height: 2.75em;
+  float: left;
+  display: inline;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+
+}
+.light {
+  background-color: beige;
+}
+.dark {
+  background-color: forestgreen;
+}
+.row  {
+  clear: left;
+  float: left;
+  display: flex;
+}
+
+.unit {
+  font-size: 3.0em;
+  line-height: .75em;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
