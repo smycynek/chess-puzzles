@@ -41,30 +41,33 @@ export const Board = ({ data }) => {
   };
 
   return (
-    <div className="board" style={{ display: 'block' }}>
-      {squareMap.map((rank, index) => (
-        <div className="row">
+    <div className="mat" style={{ display: 'block' }}>
+      <div className="board" style={{ display: 'block' }}>
+        {squareMap.map((rank, index) => (
+          <div className="row">
 
-          {rank.map((square, idx) => (
-            <div
-              className={`square ${squareColor(square.rank, square.file)}`}
-              key={`${fileToDisplay(square.file)}${rankToDisplay(square.rank)}`}
-            >
-              {getUnitFromData(square, data)}
-            </div>
-          ))}
-          <span className="label">{rankToDisplay(7 - index)}</span>
+            {rank.map((square, idx) => (
+              <div
+                className={`square ${squareColor(square.rank, square.file)}`}
+                key={`${fileToDisplay(square.file)}${rankToDisplay(square.rank)}`}
+              >
+                {getUnitFromData(square, data)}
+              </div>
+            ))}
+            <span className="label">{rankToDisplay(7 - index)}</span>
+          </div>
+        ))}
+        <div className="row">
+          <div className="label">a</div>
+          <div className="label">b</div>
+          <div className="label">c</div>
+          <div className="label">d</div>
+          <div className="label">e</div>
+          <div className="label">f</div>
+          <div className="label">g</div>
+          <div className="label">h</div>
         </div>
-      ))}
-      <div className="row">
-        <div className="label">a</div>
-        <div className="label">b</div>
-        <div className="label">c</div>
-        <div className="label">d</div>
-        <div className="label">e</div>
-        <div className="label">f</div>
-        <div className="label">g</div>
-        <div className="label">h</div>
+
       </div>
       <div className="row">
         <h4>{data.question}</h4>

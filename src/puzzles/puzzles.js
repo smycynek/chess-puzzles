@@ -27,6 +27,14 @@ export const puzzle3 = function (data) {
   setUnit(units.king, white, 7, fileSymbols.c, data);
 };
 
+export const puzzle4 = function (data) {
+  setCaptions('Can black check?', 'No. (White rook pins black rook).', data);
+  setUnit(units.king, white, 1, fileSymbols.a, data);
+  setUnit(units.rook, black, 8, fileSymbols.c, data);
+  setUnit(units.king, black, 8, fileSymbols.h, data);
+  setUnit(units.rook, white, 8, fileSymbols.a, data);
+};
+
 export const defaultSetup = function (data) {
   setCaptions('Is this a valid default setup?', 'Yes.', data);
   setUnit(units.rook, black, 8, fileSymbols.a, data);
@@ -66,4 +74,4 @@ export const defaultSetup = function (data) {
   setUnit(units.pawn, white, 2, fileSymbols.h, data);
 };
 
-export const puzzles = [defaultSetup, puzzle1, puzzle2, puzzle3];
+export const puzzles = [defaultSetup, puzzle1, puzzle2, puzzle3, puzzle4];
