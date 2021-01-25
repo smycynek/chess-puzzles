@@ -47,7 +47,7 @@ function App() {
         <button type="button" onClick={handleShowHideClick}>Hide/show answer</button>
       </div>
       <div style={{ marginTop: '1em', display: 'block', clear: 'left' }}>
-        <button type="button" onClick={handleNextPuzzle}>New puzzle</button>
+        <button type="button" onClick={handleNextPuzzle}>Next puzzle</button>
       </div>
     </>);
 }
