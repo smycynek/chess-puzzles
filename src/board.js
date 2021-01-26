@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
+
 import React, { useState } from 'react';
 
 import {
@@ -61,10 +62,14 @@ export const Board = ({ data, showAnswer }) => (
         <div className="label">h</div>
       </div>
     </div>
-    <div className="row">
-      <h4>{data.question}</h4>
+    <div className="row" style={{ marginTop: '2em' }}>
+      <span className="caption">
+        {data.question}
+        {' '}
+        {showAnswer && <b><i>{data.answer}</i></b>}
+      </span>
     </div>
-    <div className="row">{showAnswer && <h4>{data.answer}</h4>}</div>
+
   </div>
 );
 

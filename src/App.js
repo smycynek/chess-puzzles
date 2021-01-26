@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/jsx-wrap-multilines */
+
 import './App.css';
 import React, { useState } from 'react';
 
@@ -50,15 +51,13 @@ function App() {
 
   return (
     <>
-      <h1>Chess Puzzles</h1>
-      <div style={{ display: 'block' }}>
+      <h1 style={{ lineHeight: '0.5em' }}>Chess Puzzles</h1>
+      <div style={{ margin: '0em', display: 'block' }}>
         <Board data={data} showAnswer={showAnswer} />
       </div>
       <div style={{ display: 'block', clear: 'left' }}>
-        <button type="button" onClick={handleShowHideClick}>Hide/show answer</button>
-      </div>
-      <div style={{ marginTop: '1em', display: 'block', clear: 'left' }}>
-        <button type="button" onClick={handleNextPuzzle}>Next puzzle</button>
+        <button className="styled-button" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
+        <button className="styled-button" type="button" onClick={handleNextPuzzle}>Next puzzle</button>
       </div>
 
       <div style={{ marginTop: '1em', display: 'block', clear: 'left' }}>

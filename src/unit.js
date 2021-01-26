@@ -1,23 +1,23 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 
-import BishopBlack from './images/Chess_bdt45.svg';
-import BishopWhite from './images/Chess_blt45.svg';
+import BishopBlack from './images/units/Chess_bdt45.svg';
+import BishopWhite from './images/units/Chess_blt45.svg';
 
-import RookBlack from './images/Chess_rdt45.svg';
-import RookWhite from './images/Chess_rlt45.svg';
+import RookBlack from './images/units/Chess_rdt45.svg';
+import RookWhite from './images/units/Chess_rlt45.svg';
 
-import KnightBlack from './images/Chess_ndt45.svg';
-import KnightWhite from './images/Chess_nlt45.svg';
+import KnightBlack from './images/units/Chess_ndt45.svg';
+import KnightWhite from './images/units/Chess_nlt45.svg';
 
-import PawnBlack from './images/Chess_pdt45.svg';
-import PawnWhite from './images/Chess_plt45.svg';
+import PawnBlack from './images/units/Chess_pdt45.svg';
+import PawnWhite from './images/units/Chess_plt45.svg';
 
-import KingBlack from './images/Chess_kdt45.svg';
-import KingWhite from './images/Chess_klt45.svg';
+import KingBlack from './images/units/Chess_kdt45.svg';
+import KingWhite from './images/units/Chess_klt45.svg';
 
-import QueenBlack from './images/Chess_qdt45.svg';
-import QueenWhite from './images/Chess_qlt45.svg';
+import QueenBlack from './images/units/Chess_qdt45.svg';
+import QueenWhite from './images/units/Chess_qlt45.svg';
 
 import { white, units } from './utility';
 
