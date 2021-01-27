@@ -6,7 +6,7 @@
 /* eslint-disable react/jsx-wrap-multilines */
 
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Board, clearBoard } from './board';
 import { puzzles } from './puzzles/puzzles';
@@ -22,6 +22,10 @@ function App() {
   const [index, setIndex] = useState(Math.floor(Math.random() * puzzles.length));
   const [showAnswer, setShowAnswer] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  useEffect(() => {
+    document.body.classList.add('tbg-textured');
+  }, []);
+
   const newPuzzleIndex = () => {
     setIndex((prev) => {
       if (prev + 1 < puzzles.length) {

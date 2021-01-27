@@ -1,15 +1,6 @@
 
-body {
-  background-image: url(./images/backgrounds/purty_wood_@2X.png);
-  background-repeat:repeat;
-  display: block;
-  margin: 2em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
+
 h1 {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -17,25 +8,13 @@ h1 {
 }
 
 span {
+  font-size: 0.75em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
 }
 .caption {
   font-size: 1.125em;
-}
-
-.styled-button {
-  margin-top: 0.5em;
-  margin-left: 0.25em;
-  margin-right: 0.25em;
-  height: 3em;
-  border-width: 0.15em;
-  border-radius: 1.0em;
-  border-style: solid;
-  background-image: url(./images/backgrounds/rockywall.png);
-  background-repeat:repeat;
-  color: black;
 }
 
 
@@ -76,16 +55,6 @@ span {
   text-align: center;
 }
 
-.light {
-  background-image: url(./images/backgrounds/bedge_grunge.png);
-  background-repeat:repeat;
-}
-
-.dark {
-  background-image: url(./images/backgrounds/pool_table.png);
-  background-repeat:repeat;
-}
-
 .row  {
   clear: left;
   float: left;
@@ -99,3 +68,51 @@ span {
   align-self: center;
   text-align: center;
 }
+
+.table-background {
+  font-size: 0.75em;
+  display: block;
+  margin: 2em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tbg-textured {
+  background-image: url(./images/backgrounds/purty_wood_@2X.png);
+  background-repeat:repeat;
+}
+
+.tbg-dark {
+  background-color: rebeccapurple;
+}
+
+.tbg-light {
+  background-color: tan;
+}
+
+.light {
+  background-image: url(./images/backgrounds/bedge_grunge.png);
+  background-repeat:repeat;
+}
+
+.dark {
+  background-image: url(./images/backgrounds/pool_table.png);
+  background-repeat:repeat;
+}
+
+.styled-button {
+  margin-top: 0.5em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  height: 3em;
+  border-width: 0.15em;
+  border-radius: 1.0em;
+  border-style: solid;
+  background-image: url(./images/backgrounds/rockywall.png);
+  background-repeat:repeat;
+  color: black;
+}
+
