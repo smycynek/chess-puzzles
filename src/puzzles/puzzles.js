@@ -30,9 +30,9 @@ export const puzzle3 = function (data) {
 export const puzzle4 = function (data) {
   setCaptions('Black to move: Can black check in one move?', 'No. (White rook pins black rook).', data);
   setUnit(units.king, white, 1, fileSymbols.a, data);
-  setUnit(units.rook, black, 8, fileSymbols.c, data);
+  setUnit(units.rook, black, 8, fileSymbols.d, data);
   setUnit(units.king, black, 8, fileSymbols.h, data);
-  setUnit(units.rook, white, 8, fileSymbols.a, data);
+  setUnit(units.rook, white, 8, fileSymbols.b, data);
 };
 
 export const puzzle5 = function (data) {
