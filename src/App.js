@@ -70,28 +70,41 @@ function App() {
         <button className="styled-button" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
         <button className="styled-button" type="button" onClick={handleNextPuzzle}>Next puzzle</button>
       </div>
-
       <div className="row expanded">
-        <img className="info-button" alt="info" src={infoButton} onClick={handleShowAboutClick} />
+        <img style={{ width: '1.5em', height: '1.5em' }} alt="info" src={infoButton} onClick={handleShowAboutClick} />
         { showAbout &&
-        <ul>
-          <li><a href="https://github.com/smycynek/chess-puzzles">https://github.com/smycynek/chess-puzzles</a></li>
-          <li>
-            Icons by
-            {' '}
-            <a href="https://en.wikipedia.org/wiki/User:Cburnett" title="en:User:Cburnett">Cburnett</a>
-            ,
-            <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>
-            ,
-            <a href="https://commons.wikimedia.org/w/index.php?curid=1496656">Wikimedia</a>
-            {' '}
-            and
-            {' '}
-            <a href="http://Artua.com">Artua.com</a>
-          </li>
-        </ul>}
+          <ul>
+            <li><a href="https://github.com/smycynek/chess-puzzles">https://github.com/smycynek/chess-puzzles</a></li>
+            <li>
+              Icons by
+              {' '}
+              <a href="https://en.wikipedia.org/wiki/User:Cburnett" title="en:User:Cburnett">Cburnett</a>
+              ,
+              <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>
+              ,
+              <a href="https://commons.wikimedia.org/w/index.php?curid=1496656">Wikimedia</a>
+              {' '}
+              and
+              {' '}
+              <a href="http://Artua.com">Artua.com</a>
+            </li>
+            <li>
+              Textures by
+              {' '}
+              <a
+                href="https://unsplash.com/@augustinewong?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+              >
+                Augustine Wong
+              </a>
+              {' '}
+              on
+              {' '}
+              <a href="https://unsplash.com/s/photos/marble-texture?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+                Unsplash
+              </a>
+            </li>
+          </ul>}
       </div>
-
     </>);
 }
 

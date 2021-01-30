@@ -61,6 +61,7 @@ span {
 
 .unit {
   width: 0.8em;
+  padding-top: 0.075em;
   font-size: 3.0em;
   line-height: .75em;
   align-items: center;
@@ -93,7 +94,7 @@ span {
 }
 
 .light {
-  background-image: url(./images/backgrounds/bedge_grunge.png);
+  background-image: url(./images/backgrounds/wong_marble.png);
   background-repeat:repeat;
 }
 
@@ -111,6 +112,7 @@ span {
 }
 
 .styled-button {
+  outline: none;
   margin-top: 0.5em;
   margin-left: 0.25em;
   margin-right: 0.25em;
@@ -123,11 +125,16 @@ span {
   color: black;
 }
 
-.expanded {
-  margin-top: 1em;
+
+.styled-button:hover {
+  border-width: 0.25em;
 }
 
-.info-button {
-  width: '1.5em';
-  height: '1.5em';
+.styled-button:active {
+  border-color: black;
+}
+
+
+.expanded {
+  margin-top: 1em;
 }
