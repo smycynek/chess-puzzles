@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable func-names */
 /* eslint-disable no-param-reassign */
 /* eslint-disable space-before-function-paren */
@@ -5,50 +6,32 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   files,
   ranks,
-  rankToDisplay,
   fileToDisplay,
   squareColor,
+  getUnitFromData,
 } from './utility';
-
-import { renderUnit } from './unit';
 
 const squareMap = ranks.map((rank) => files.map((file) => ({ file, rank })));
 
-const getUnitFromData = (val, data) => {
-  const dataRank = rankToDisplay(val.rank);
-  const dataFile = fileToDisplay(val.file);
-
-  if (data[dataRank]) {
-    const item = data[dataRank][dataFile];
-    if (item) {
-      return renderUnit(item.unit, item.color);
-    }
-    return <span />;
-  }
-  return <span />;
-};
-
-export const Board = ({ data, showAnswer }) => (
-  <div className="mat" style={{ display: 'block' }}>
-    <div className="board" style={{ display: 'block' }}>
+export const Board = ({ data }) => (
+  <div className="mat">
+    <div className="board">
       {squareMap.map((rank, index) => (
         <div className="row">
           {rank.map((square, idx) => (
             <div
               className={`square ${squareColor(square.rank, square.file)}`}
-              key={`${fileToDisplay(square.file)}${rankToDisplay(
-                square.rank,
-              )}`}
+              key={`${fileToDisplay(square.file)}${square.rank}`}
             >
               {getUnitFromData(square, data)}
             </div>
           ))}
-          <span className="label">{rankToDisplay(7 - index)}</span>
+          <span className="label">{8 - index}</span>
         </div>
       ))}
       <div className="row">
@@ -62,37 +45,5 @@ export const Board = ({ data, showAnswer }) => (
         <div className="label">h</div>
       </div>
     </div>
-    <div className="row" style={{ marginTop: '2em' }}>
-      <span className="caption">
-        {data.question}
-        {' '}
-        {showAnswer && <b><i>{data.answer}</i></b>}
-      </span>
-    </div>
-
   </div>
 );
-
-export const clearBoard = function (data) {
-  data[1] = {};
-  data[2] = {};
-  data[3] = {};
-  data[4] = {};
-  data[5] = {};
-  data[6] = {};
-  data[7] = {};
-  data[8] = {};
-};
-
-export const setCaptions = function (question, answer, data) {
-  data.question = question;
-  data.answer = answer;
-};
-
-export const setUnit = function (unit, color, rank, file, data) {
-  data[rank][file] = { unit, color };
-};
-
-export const clearUnit = function (rank, file, data) {
-  data[rank][file] = null;
-};

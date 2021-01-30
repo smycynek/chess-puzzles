@@ -2,18 +2,18 @@
 import {
   units,
   fileSymbols,
-  black, white,
+  black, white, setCaptions, setUnit, clearBoard,
 } from '../utility';
 
-import { setUnit, setCaptions } from '../board';
-
 export const puzzle1 = function (data) {
+  clearBoard(data);
   setCaptions('White to move: Can white mate?', 'No - draw.', data);
   setUnit(units.king, black, 4, fileSymbols.a, data);
   setUnit(units.king, white, 8, fileSymbols.b, data);
 };
 
 export const puzzle2 = function (data) {
+  clearBoard(data);
   setCaptions('White to move: Can white mate?', 'No - draw.', data);
   setUnit(units.king, black, 8, fileSymbols.a, data);
   setUnit(units.bishop, white, 8, fileSymbols.c, data);
@@ -21,6 +21,7 @@ export const puzzle2 = function (data) {
 };
 
 export const puzzle3 = function (data) {
+  clearBoard(data);
   setCaptions('White to move: Can white mate?', 'Yes. (Ra6++)', data);
   setUnit(units.king, black, 8, fileSymbols.a, data);
   setUnit(units.rook, white, 6, fileSymbols.b, data);
@@ -28,6 +29,7 @@ export const puzzle3 = function (data) {
 };
 
 export const puzzle4 = function (data) {
+  clearBoard(data);
   setCaptions('Black to move: Can black check in one move?', 'No. (White rook pins black rook).', data);
   setUnit(units.king, white, 1, fileSymbols.a, data);
   setUnit(units.rook, black, 8, fileSymbols.d, data);
@@ -36,6 +38,7 @@ export const puzzle4 = function (data) {
 };
 
 export const puzzle5 = function (data) {
+  clearBoard(data);
   setCaptions('White to move: Can white mate in one move?', 'Yes. (Bc6++)', data);
   setUnit(units.king, black, 8, fileSymbols.a, data);
   setUnit(units.king, white, 6, fileSymbols.b, data);
@@ -44,6 +47,7 @@ export const puzzle5 = function (data) {
 };
 
 export const puzzle6 = function (data) {
+  clearBoard(data);
   setCaptions('White to move: Can white mate? How? (This one is not mine.  It is from *Bobby Fischer Teaches Chess*).', 'Yes. (Qxg7...Rxg7,Rb8+...Rg8, g7++)', data);
   setUnit(units.rook, black, 8, fileSymbols.g, data);
   setUnit(units.king, black, 8, fileSymbols.h, data);
@@ -72,6 +76,7 @@ export const puzzle6 = function (data) {
 };
 
 const puzzle7 = function (data) {
+  clearBoard(data);
   setCaptions('White to move: What is the *worst* thing white could do here?', 'g4 or most other moves except g3. Black can then mate with Qh4++', data);
   setUnit(units.rook, black, 8, fileSymbols.a, data);
   setUnit(units.knight, black, 8, fileSymbols.b, data);
@@ -111,6 +116,7 @@ const puzzle7 = function (data) {
 };
 
 export const defaultSetup = function (data) {
+  clearBoard(data);
   setCaptions('Is this a valid default setup?', 'Yes.', data);
   setUnit(units.rook, black, 8, fileSymbols.a, data);
   setUnit(units.knight, black, 8, fileSymbols.b, data);

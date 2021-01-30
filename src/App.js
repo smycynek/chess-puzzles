@@ -8,12 +8,11 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
-import { Board, clearBoard } from './board';
+import { Board } from './board';
 import { puzzles } from './puzzles/puzzles';
 import infoButton from './images/information-button.svg';
 
 const data = {};
-clearBoard(data);
 const randomPuzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
 randomPuzzle(data);
 
@@ -39,7 +38,6 @@ function App() {
     setShowAnswer(false);
     newPuzzleIndex();
     const puzzleFunc = puzzles[index];
-    clearBoard(data);
     puzzleFunc(data);
   };
 
@@ -55,17 +53,26 @@ function App() {
 
   return (
     <>
-      <h1 style={{ lineHeight: '0.5em' }}>Chess Puzzles</h1>
-      <div style={{ margin: '0em', display: 'block' }}>
-        <Board data={data} showAnswer={showAnswer} />
+      <h1>Chess Puzzles</h1>
+      <div className="table-top">
+        <Board data={data} />
       </div>
-      <div style={{ display: 'block', clear: 'left' }}>
+
+      <div className="row expanded">
+        <span className="caption">
+          {data.question}
+          {' '}
+          {showAnswer && <b><i>{data.answer}</i></b>}
+        </span>
+      </div>
+
+      <div className="row expanded">
         <button className="styled-button" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
         <button className="styled-button" type="button" onClick={handleNextPuzzle}>Next puzzle</button>
       </div>
 
-      <div style={{ marginTop: '1em', display: 'block', clear: 'left' }}>
-        <img style={{ width: '1.5em', height: '1.5em' }} alt="info" src={infoButton} onClick={handleShowAboutClick} />
+      <div className="row expanded">
+        <img className="info-button" alt="info" src={infoButton} onClick={handleShowAboutClick} />
         { showAbout &&
         <ul>
           <li><a href="https://github.com/smycynek/chess-puzzles">https://github.com/smycynek/chess-puzzles</a></li>

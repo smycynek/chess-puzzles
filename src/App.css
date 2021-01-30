@@ -2,15 +2,13 @@
 
 
 h1 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: '0.5em';
 }
 
 span {
   font-size: 0.75em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
 }
 .caption {
@@ -62,6 +60,7 @@ span {
 }
 
 .unit {
+  width: 0.8em;
   font-size: 3.0em;
   line-height: .75em;
   align-items: center;
@@ -98,6 +97,14 @@ span {
   background-repeat:repeat;
 }
 
+.mat {
+  display: 'block'
+}
+
+.table-top {
+  margin: '0em';
+  display: 'block';
+}
 .dark {
   background-image: url(./images/backgrounds/pool_table.png);
   background-repeat:repeat;
@@ -116,3 +123,11 @@ span {
   color: black;
 }
 
+.expanded {
+  margin-top: 1em;
+}
+
+.info-button {
+  width: '1.5em';
+  height: '1.5em';
+}
