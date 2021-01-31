@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable operator-linebreak */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -11,6 +12,7 @@ import React, { useState, useEffect } from 'react';
 import { Board } from './board';
 import { puzzles } from './puzzles/puzzles';
 import infoButton from './images/information-button.svg';
+import terrain from './images/terrain.svg';
 
 const data = {};
 const randomPuzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
@@ -21,7 +23,9 @@ function App() {
   const [index, setIndex] = useState(Math.floor(Math.random() * puzzles.length));
   const [showAnswer, setShowAnswer] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [squareTextures, setSquareTextures] = useState(true);
   useEffect(() => {
+    document.body.classList.add('tbg');
     document.body.classList.add('tbg-textured');
   }, []);
 
@@ -47,6 +51,14 @@ function App() {
   };
 
   // eslint-disable-next-line no-unused-vars
+  const handleToggleTextures = (e) => {
+    document.body.classList.toggle('tbg-textured');
+    document.getElementById('btn-answer').classList.toggle('styled-button-textured');
+    document.getElementById('btn-next').classList.toggle('styled-button-textured');
+    setSquareTextures(!squareTextures);
+  };
+
+  // eslint-disable-next-line no-unused-vars
   const handleShowAboutClick = (e) => {
     setShowAbout(!showAbout);
   };
@@ -55,7 +67,7 @@ function App() {
     <>
       <h1>Chess Puzzles</h1>
       <div className="table-top">
-        <Board data={data} />
+        <Board data={data} squareTextures={squareTextures} />
       </div>
 
       <div className="row expanded">
@@ -67,11 +79,12 @@ function App() {
       </div>
 
       <div className="row expanded">
-        <button className="styled-button" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
-        <button className="styled-button" type="button" onClick={handleNextPuzzle}>Next puzzle</button>
+        <button id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
+        <button id="btn-next" className="styled-button styled-button-textured" type="button" onClick={handleNextPuzzle}>Next puzzle</button>
       </div>
       <div className="row expanded">
         <img style={{ width: '1.5em', height: '1.5em' }} alt="info" src={infoButton} onClick={handleShowAboutClick} />
+        <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="info" src={terrain} onClick={handleToggleTextures} />
         { showAbout &&
           <ul>
             <li><a href="https://github.com/smycynek/chess-puzzles">https://github.com/smycynek/chess-puzzles</a></li>

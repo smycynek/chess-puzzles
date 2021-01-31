@@ -99,7 +99,13 @@ export const fileToDisplay = (file) => fileMap[file];
 
 export const displayToFile = (file) => reverseFileMap[file];
 
-export const squareColor = (rank, file) => ((rank + file) % 2 === 0 ? dark : light);
+export const squareColor = (squareTextures, rank, file) => {
+  const color = ((rank + file) % 2 === 0 ? dark : light);
+  if (squareTextures) {
+    return `${color} ${color}-textured`;
+  }
+  return color;
+};
 
 /* eslint-disable func-names */
 /* eslint-disable no-param-reassign */

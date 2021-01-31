@@ -20,11 +20,11 @@ span {
   display: block;
   text-align: center;
   flex-direction: row;
-  margin: 0.25em;
+  margin: 0.1em;
 }
 
 .board {
-  margin: 0.25em;
+  margin: 0.15em;
   display: block;
   align-content: center;
   align-self: center;
@@ -32,8 +32,8 @@ span {
 }
 
 .label {
-  width: 2.75em;
-  height: 2.75em;
+  width: 3.25em;
+  height: 3.25em;
   float: left;
   display: inline;
   align-items: center;
@@ -44,8 +44,8 @@ span {
 }
 
 .square {
-  width: 2.75em;
-  height: 2.75em;
+  width: 3.25em;
+  height: 3.25em;
   float: left;
   display: inline;
   align-items: center;
@@ -60,8 +60,8 @@ span {
 }
 
 .unit {
-  width: 0.8em;
-  padding-top: 0.075em;
+  width: 1.05em;
+  padding-top: 0.02em;
   font-size: 3.0em;
   line-height: .75em;
   align-items: center;
@@ -72,7 +72,7 @@ span {
 .table-background {
   font-size: 0.75em;
   display: block;
-  margin: 2em;
+  margin: 1em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -85,19 +85,18 @@ span {
   background-repeat:repeat;
 }
 
-.tbg-dark {
-  background-color: rebeccapurple;
-}
-
-.tbg-light {
+.tbg {
   background-color: tan;
 }
 
 .light {
+  background-color: rgb(231, 231, 231);
+}
+
+.light-textured {
   background-image: url(./images/backgrounds/wong_marble.png);
   background-repeat:repeat;
 }
-
 .mat {
   display: 'block'
 }
@@ -106,7 +105,12 @@ span {
   margin: '0em';
   display: 'block';
 }
+
 .dark {
+  background-color: darkgreen;
+}
+
+.dark-textured{
   background-image: url(./images/backgrounds/pool_table.png);
   background-repeat:repeat;
 }
@@ -120,11 +124,14 @@ span {
   border-width: 0.15em;
   border-radius: 1.0em;
   border-style: solid;
-  background-image: url(./images/backgrounds/rockywall.png);
-  background-repeat:repeat;
+  background-color: lightgrey;
   color: black;
 }
 
+.styled-button-textured {
+  background-image: url(./images/backgrounds/rockywall.png);
+  background-repeat:repeat;
+}
 
 .styled-button:hover {
   border-width: 0.25em;

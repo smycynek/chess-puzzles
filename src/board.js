@@ -18,14 +18,14 @@ import {
 
 const squareMap = ranks.map((rank) => files.map((file) => ({ file, rank })));
 
-export const Board = ({ data }) => (
+export const Board = ({ data, squareTextures }) => (
   <div className="mat">
     <div className="board">
       {squareMap.map((rank, index) => (
         <div className="row">
           {rank.map((square, idx) => (
             <div
-              className={`square ${squareColor(square.rank, square.file)}`}
+              className={`square ${squareColor(squareTextures, square.rank, square.file)}`}
               key={`${fileToDisplay(square.file)}${square.rank}`}
             >
               {getUnitFromData(square, data)}
