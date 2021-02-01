@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable func-names */
 /* eslint-disable no-param-reassign */
@@ -18,13 +20,14 @@ import {
 
 const squareMap = ranks.map((rank) => files.map((file) => ({ file, rank })));
 
-export const Board = ({ data, squareTextures }) => (
+export const Board = ({ data, squareTextures, clickCallback }) => (
   <div className="mat">
     <div className="board">
       {squareMap.map((rank, index) => (
         <div className="row">
           {rank.map((square, idx) => (
             <div
+              onClick={() => clickCallback(square)}
               className={`square ${squareColor(squareTextures, square.rank, square.file)}`}
               key={`${fileToDisplay(square.file)}${square.rank}`}
             >

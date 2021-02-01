@@ -1,9 +1,13 @@
 
 
 
-h1 {
+.banner {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: '0.5em';
+  font-size: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.1em;
+  padding: 0em;
 }
 
 span {
@@ -20,7 +24,7 @@ span {
   display: block;
   text-align: center;
   flex-direction: row;
-  margin: 0.1em;
+  margin: 0.5em;
 }
 
 .board {
@@ -29,6 +33,10 @@ span {
   align-content: center;
   align-self: center;
   padding: 1em;
+}
+
+.selectable {
+  cursor: crosshair;
 }
 
 .label {
@@ -54,9 +62,14 @@ span {
 }
 
 .row  {
+  margin-left: 0.5em;
   clear: left;
   float: left;
   display: flex;
+}
+
+.indented {
+  margin-left: 4.5em;
 }
 
 .unit {
@@ -67,6 +80,22 @@ span {
   align-items: center;
   align-self: center;
   text-align: center;
+}
+
+.unit-button {
+  background-color: transparent;
+  border-style: none;
+  width: 3.25em;
+  height: 3.25em;
+  padding: 0;
+  margin: 0;
+}
+
+.unit-tool {
+  width: 0.8em;
+  padding-top: 0.02em;
+  font-size: 3.0em;
+  line-height: .75em;
 }
 
 .table-background {
@@ -86,6 +115,7 @@ span {
 }
 
 .tbg {
+  margin-left: 0.25em;
   background-color: tan;
 }
 
@@ -102,12 +132,12 @@ span {
 }
 
 .table-top {
-  margin: '0em';
+  margin: '0.25em';
   display: 'block';
 }
 
 .dark {
-  background-color: darkgreen;
+  background-color: rgb(0, 100, 62);
 }
 
 .dark-textured{
@@ -141,7 +171,41 @@ span {
   border-color: black;
 }
 
-
 .expanded {
   margin-top: 1em;
+}
+
+
+
+.app-tab ul > li > a {
+  background-color: transparent;
+  color: black;
+  outline: none;
+  
+}
+.app-tab ul > li > a:hover {
+  background-color: transparent;
+  outline: none;
+  color: black;
+}
+
+/* Active tab */
+.app-tab ul > li.active > a,
+.app-tab ul > li.active > a:hover,
+.app-tab ul > li.active > a:focus {
+  background-color: transparent;
+  color: black;
+  outline: none;
+}
+
+/* Disabled tab */
+.app-tab ul > li.disabled > a {
+  background-color: transparent;
+  color: grey;
+  outline: none;
+}
+
+
+.app-tab > a {
+  color: black;
 }

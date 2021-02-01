@@ -58,6 +58,11 @@ export const renderUnit = (type, color) => {
   return <img alt={`${color}-${type}`} className="unit" src={image} />;
 };
 
+export const renderTool = (type, color) => {
+  const image = getUnitImage(type, color);
+  return <img alt={`${color}-${type}`} className="unit-tool" src={image} />;
+};
+
 export const ranks = [8, 7, 6, 5, 4, 3, 2, 1];
 
 export const files = [1, 2, 3, 4, 5, 6, 7, 8];
