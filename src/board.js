@@ -13,7 +13,6 @@ import React from 'react';
 import {
   files,
   ranks,
-  fileToDisplay,
   squareColor,
   getUnitFromData,
 } from './utility';
@@ -27,9 +26,9 @@ export const Board = ({ data, squareTextures, clickCallback }) => (
         <div className="row">
           {rank.map((square, idx) => (
             <div
-              onClick={() => clickCallback(square)}
+              onClick={() => (clickCallback ? clickCallback(square) : () => {})}
               className={`square ${squareColor(squareTextures, square.rank, square.file)}`}
-              key={`${fileToDisplay(square.file)}${square.rank}`}
+              key={`${square.file}${square.rank}`}
             >
               {getUnitFromData(square, data)}
             </div>

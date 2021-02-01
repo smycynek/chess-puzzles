@@ -65,8 +65,6 @@ export const renderTool = (type, color) => {
 
 export const ranks = [8, 7, 6, 5, 4, 3, 2, 1];
 
-export const files = [1, 2, 3, 4, 5, 6, 7, 8];
-
 export const fileSymbols = {
   a: 'a',
   b: 'b',
@@ -78,16 +76,8 @@ export const fileSymbols = {
   h: 'h',
 };
 
-const fileMap = {
-  1: fileSymbols.a,
-  2: fileSymbols.b,
-  3: fileSymbols.c,
-  4: fileSymbols.d,
-  5: fileSymbols.e,
-  6: fileSymbols.f,
-  7: fileSymbols.g,
-  8: fileSymbols.h,
-};
+export const files = [fileSymbols.a, fileSymbols.b, fileSymbols.c, fileSymbols.d,
+  fileSymbols.e, fileSymbols.f, fileSymbols.g, fileSymbols.h];
 
 const reverseFileMap = {
   a: 1,
@@ -100,12 +90,8 @@ const reverseFileMap = {
   h: 8,
 };
 
-export const fileToDisplay = (file) => fileMap[file];
-
-export const displayToFile = (file) => reverseFileMap[file];
-
 export const squareColor = (squareTextures, rank, file) => {
-  const color = ((rank + file) % 2 === 0 ? dark : light);
+  const color = ((rank + reverseFileMap[file]) % 2 === 0 ? dark : light);
   if (squareTextures) {
     return `${color} ${color}-textured`;
   }
@@ -140,7 +126,7 @@ export const clearBoard = function (data) {
 
 export const getUnitFromData = (val, data) => {
   const dataRank = val.rank;
-  const dataFile = fileToDisplay(val.file);
+  const dataFile = val.file;
 
   if (data[dataRank]) {
     const item = data[dataRank][dataFile];

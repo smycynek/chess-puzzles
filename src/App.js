@@ -19,7 +19,7 @@ import { puzzles } from './puzzles/puzzles';
 import infoButton from './images/information-button.svg';
 import terrain from './images/terrain.svg';
 import {
-  clearBoard, units, black, white, fileToDisplay, renderTool,
+  clearBoard, units, black, white, renderTool,
 } from './utility';
 
 const data = {};
@@ -51,12 +51,12 @@ function App() {
   const setUserDataHandler = function (square) {
     const newUserData = { ...userData };
 
-    if ((newUserData[square.rank][fileToDisplay(square.file)])
-    && (newUserData[square.rank][fileToDisplay(square.file)].unit === selectedUnit)
-    && (newUserData[square.rank][fileToDisplay(square.file)].color === selectedColor)) {
-      newUserData[square.rank][fileToDisplay(square.file)] = null;
+    if ((newUserData[square.rank][square.file])
+    && (newUserData[square.rank][square.file].unit === selectedUnit)
+    && (newUserData[square.rank][square.file].color === selectedColor)) {
+      newUserData[square.rank][square.file] = null;
     } else {
-      newUserData[square.rank][fileToDisplay(square.file)] = { unit: selectedUnit, color: selectedColor };
+      newUserData[square.rank][square.file] = { unit: selectedUnit, color: selectedColor };
     }
     setUserData(newUserData);
   };
@@ -161,7 +161,7 @@ function App() {
         <Tab eventKey="puzzles" title="Solve">
           <h1 className="banner">Chess Puzzles</h1>
           <div className="table-top">
-            <Board data={data} squareTextures={squareTextures} clickCallback={() => {}} />
+            <Board data={data} squareTextures={squareTextures} />
           </div>
           <div className="row expanded">
             <span className="caption">
@@ -203,27 +203,25 @@ function App() {
           </div>
         </Tab>
       </Tabs>
-      <div className="row expanded">
+      <div className="row expanded caption">
         <img style={{ width: '1.5em', height: '1.5em' }} alt="info" src={infoButton} onClick={handleShowAboutClick} />
         <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="info" src={terrain} onClick={handleToggleTextures} />
         { showAbout &&
-        <ul>
+        <ul style={{ padding: '0em', marginTop: '0.75em', listStyleType: 'none' }}>
           <li><a href="https://github.com/smycynek/chess-puzzles">https://github.com/smycynek/chess-puzzles</a></li>
           <li>
-            Icons by
+            Icons:
             {' '}
             <a href="https://en.wikipedia.org/wiki/User:Cburnett" title="en:User:Cburnett">Cburnett</a>
             ,
             <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>
             ,
             <a href="https://commons.wikimedia.org/w/index.php?curid=1496656">Wikimedia</a>
-            {' '}
-            and
-            {' '}
+            ,
             <a href="http://Artua.com">Artua.com</a>
           </li>
           <li>
-            Textures by
+            Textures:
             {' '}
             <a
               href="https://unsplash.com/@augustinewong?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
