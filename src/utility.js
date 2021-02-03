@@ -124,6 +124,12 @@ export const clearBoard = function (data) {
   data[8] = {};
 };
 
+export const newBoard = function () {
+  const initData = {};
+  clearBoard(initData);
+  return initData;
+};
+
 export const getUnitFromData = (val, data) => {
   const dataRank = val.rank;
   const dataFile = val.file;
