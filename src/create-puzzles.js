@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable no-console */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable max-len */
@@ -11,21 +13,40 @@
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { useLocation, Link } from 'react-router-dom';
 
 import { Board } from './board';
+import { parsePuzzleString, renderPuzzleString } from './render-parse';
 import {
   newBoard, renderTool, units,
   black, white,
 } from './utility';
+
+const queryString = require('query-string');
 
 // eslint-disable-next-line react/prop-types
 export const CreatePuzzles = ({ squareTextures }) => {
   const [data, setData] = useState(newBoard());
   const [selectedColor, setSelectedColor] = useState(white);
   const [selectedUnit, setSelectedUnit] = useState(units.pawn);
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [editMode, setEditMode] = useState(false);
 
   const toolHint = 'Click to use this piece.';
+
+  // eslint-disable-next-line no-unused-vars
+  const handleShowHideClick = (e) => {
+    setShowAnswer(!showAnswer);
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  const handleEditModeClick = (e) => {
+    setEditMode(!editMode);
+  };
 
   const handleWhitePawnClick = () => {
     setSelectedColor(white);
@@ -99,31 +120,123 @@ export const CreatePuzzles = ({ squareTextures }) => {
     }
     setData(newUserData);
   };
+  const queryParmString = useLocation().search;
+
+  const initFromUrl = function () {
+    const queryParmDict = queryString.parse(queryParmString);
+    console.log(queryParmDict);
+    if (queryParmDict.data) {
+      const urlBoard = parsePuzzleString(queryParmDict.data);
+      urlBoard.question = queryParmDict.question;
+      urlBoard.answer = queryParmDict.answer;
+      setData(urlBoard);
+      setQuestion(queryParmDict.question);
+      setAnswer(queryParmDict.answer);
+    }
+  };
+
+  useEffect(() => {
+    initFromUrl();
+  }, []);
+  const handleChangeQuestion = (e) => {
+    setQuestion(e.target.value);
+    const newUserData = { ...data };
+    newUserData.question = e.target.value;
+    setData(newUserData);
+  };
+
+  const handleChangeAnswer = (e) => {
+    setAnswer(e.target.value);
+    const newUserData = { ...data };
+    newUserData.answer = e.target.value;
+    setData(newUserData);
+  };
+
+  const getLinkText = (id) => {
+    const link = document.getElementById(id);
+    if (link) {
+      return link.href;
+    }
+    return null;
+  };
+
+  const copyLinkText = (bufferId, linkId) => {
+    const buffer = document.getElementById(bufferId);
+    const linkText = getLinkText(linkId);
+    buffer.value = linkText;
+    buffer.select();
+    document.execCommand('copy');
+  };
 
   return (
     <>
       <div className="selectable table-top">
         <Board data={data} squareTextures={squareTextures} clickCallback={setUserDataHandler} />
       </div>
-      <div className="row indented">
-        <button title={toolHint} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleBlackBishopClick}>{renderTool(units.bishop, black)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleBlackRookClick}>{renderTool(units.rook, black)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleBlackQueenClick}>{renderTool(units.queen, black)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleBlackKingClick}>{renderTool(units.king, black)}</button>
+      <div className="row">
+        <button className="styled-button styled-button-textured" type="button" onClick={handleEditModeClick}>{editMode ? 'View' : 'Edit'}</button>
       </div>
-      <div className="row indented">
-        <button title={toolHint} className="unit-button" type="button" onClick={handleWhitePawnClick}>{renderTool(units.pawn, white)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteKnightClick}>{renderTool(units.knight, white)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteBishopClick}>{renderTool(units.bishop, white)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteRookClick}>{renderTool(units.rook, white)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteQueenClick}>{renderTool(units.queen, white)}</button>
-        <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteKingClick}>{renderTool(units.king, white)}</button>
-      </div>
-      <div className="row expanded indented">
-        <span className="caption">Ability to save and publish coming soon!</span>
-      </div>
+      {editMode &&
+      <>
+        <div className="row indented">
+          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackBishopClick}>{renderTool(units.bishop, black)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackRookClick}>{renderTool(units.rook, black)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackQueenClick}>{renderTool(units.queen, black)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackKingClick}>{renderTool(units.king, black)}</button>
+        </div>
+        <div className="row indented">
+          <button title={toolHint} className="unit-button" type="button" onClick={handleWhitePawnClick}>{renderTool(units.pawn, white)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteKnightClick}>{renderTool(units.knight, white)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteBishopClick}>{renderTool(units.bishop, white)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteRookClick}>{renderTool(units.rook, white)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteQueenClick}>{renderTool(units.queen, white)}</button>
+          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteKingClick}>{renderTool(units.king, white)}</button>
+        </div>
+
+        <div className="field">
+          <input className="transparent-input" size="50" width="100em" placeholder="Question, e.g. 'How can white mate in 2?'" type="text" value={question} onChange={handleChangeQuestion} />
+        </div>
+        <div className="field">
+          <input className="transparent-input" size="50" width="500px" placeholder="Answer, e.g. 'Qa8...Ra7'" type="text" value={answer} onChange={handleChangeAnswer} />
+        </div>
+
+        <div className="row">
+          <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
+          <input
+            style={{ fontSize: '0.25em', height: '0.25em' }}
+            className="hidden-input"
+            type="text"
+            value={getLinkText('link_1')}
+            id="id_copy_buffer"
+          />
+        </div>
+        <div className="row">
+          <button
+            className="styled-button styled-button-textured"
+            id="copyLinkButton"
+            onClick={() => copyLinkText('id_copy_buffer', 'link_1')}
+            type="button"
+          >
+            &#x1F517; Copy Puzzle Link
+          </button>
+        </div>
+      </>}
+
+      {!editMode &&
+      <>
+        <div className="row expanded">
+          <button id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
+        </div>
+        <div className="row expanded">
+          <span className="caption">
+            {question}
+            {' '}
+            {showAnswer && <b><i>{answer}</i></b>}
+          </span>
+        </div>
+      </>}
     </>
   );
 };

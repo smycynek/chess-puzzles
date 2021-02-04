@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -28,7 +30,7 @@ import { Footer } from './footer';
 import infoButton from './images/information-button.svg';
 import terrain from './images/terrain.svg';
 
-function App({ match }) {
+function App() {
   const [showAbout, setShowAbout] = useState(false);
   const [squareTextures, setSquareTextures] = useState(true);
 
@@ -40,8 +42,10 @@ function App({ match }) {
   // eslint-disable-next-line no-unused-vars
   const handleToggleTextures = (e) => {
     document.body.classList.toggle('tbg-textured');
-    document.getElementById('btn-answer').classList.toggle('styled-button-textured');
-    document.getElementById('btn-next').classList.toggle('styled-button-textured');
+    const buttons = document.getElementsByClassName('styled-button');
+    for (let idx = 0; idx < buttons.length; idx++) {
+      buttons[idx].classList.toggle('styled-button-textured');
+    }
     setSquareTextures(!squareTextures);
   };
 
@@ -54,13 +58,13 @@ function App({ match }) {
     <>
       <h1 className="banner">Chess Puzzles</h1>
       <Router>
-        <NavTab exact strict={false} to="/">View</NavTab>
-        <NavTab exact strict={false} to="/create">Create</NavTab>
+        <NavTab exact strict={false} to="/chess">Samples</NavTab>
+        <NavTab exact strict={false} to="/chess/create">View/Create</NavTab>
         <Switch>
-          <Route exact strict={false} path="/">
+          <Route exact strict={false} path="/chess">
             <StaticPuzzles squareTextures={squareTextures} />
           </Route>
-          <Route exact strict={false} path="/create">
+          <Route exact strict={false} path="/chess/create">
             <CreatePuzzles squareTextures={squareTextures} />
           </Route>
         </Switch>
