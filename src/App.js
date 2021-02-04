@@ -54,13 +54,13 @@ function App({ match }) {
     <>
       <h1 className="banner">Chess Puzzles</h1>
       <Router>
-        <NavTab exact strict={false} to="/">View</NavTab>
-        <NavTab exact strict={false} to="/create">Create</NavTab>
+        <NavTab exact strict={false} to="/chess">View</NavTab>
+        <NavTab exact strict={false} to="/chess/create">Create</NavTab>
         <Switch>
-          <Route exact strict={false} path="/">
+          <Route exact strict={false} path="/chess">
             <StaticPuzzles squareTextures={squareTextures} />
           </Route>
-          <Route exact strict={false} path="/create">
+          <Route exact strict={false} path="/chess/create">
             <CreatePuzzles squareTextures={squareTextures} />
           </Route>
         </Switch>
