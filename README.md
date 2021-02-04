@@ -1,6 +1,6 @@
 # Chess Puzzles
 
-Version 0.1.0
+Version 0.1.1
 
 Copyright 2021 Steven Mycynek
 
@@ -12,15 +12,11 @@ my own for fun.  In particular, I wanted to view
 and share chess puzzles, as I enjoyed them in
 **Bobby Fischer Teaches Chess**.
 
-Eventually, I'd like to support a back-end to store user-submitted puzzles
-and create an authoring tool in the UI, but one thing at a time :)
-
-I looked at the FEN-string notation as well as PGN (Portable Game Notation),
-but they both seemed to be not quite what I wanted for a simple position setup,
-so I store the puzzles in a hard-coded array, each puzzle being a map of maps.
-I may switch over to something more universal or flexible in the future.
+Note the two tabs -- the first has some sample hard coded puzzles.
+The second allows you to create puzzles and send them/post them.
+The entire puzzle definition is encoded into the URL string.
 
 ## Usage
 
-yarn install
-yarn start
+```yarn install```
+```yarn start```

@@ -1,5 +1,7 @@
 import { black, white, clearBoard } from './utility';
 
+const rot13Cipher = require('rot13-cipher');
+
 export const parseSquareString = (position) => {
   // Warning, no error checking currently.
   const colorChar = position[0];
@@ -59,6 +61,6 @@ const renderAllSquares = (data) => {
 };
 
 export const renderPuzzleString = (data) => {
-  const str = `question=${encodeURIComponent(data.question)}&answer=${encodeURIComponent(data.answer)}&data=${encodeURIComponent(renderAllSquares(data))}`;
+  const str = `question=${encodeURIComponent(data.question)}&answer=${encodeURIComponent(rot13Cipher(data.answer ? data.answer : ''))}&data=${encodeURIComponent(renderAllSquares(data))}`;
   return str;
 };

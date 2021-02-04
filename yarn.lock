@@ -9700,6 +9700,11 @@ rollup@^1.31.1:
     "@types/node" "*"
     acorn "^7.1.0"
 
+rot13-cipher@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rot13-cipher/-/rot13-cipher-1.0.0.tgz#959d5d6425446a5e292703ca895b935d69bf0363"
+  integrity sha512-KXW+GRWwqT1xSBl4K7WzlXX8ba+h2CjguOhPaBsZ3nBPDzaTQncL3uEAauLXS4tAqerfAoc1iIYZbo8gPhmAfA==
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"

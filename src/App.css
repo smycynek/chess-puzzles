@@ -266,6 +266,8 @@ ul {
 }
 
 .hidden-input {
+  outline: none;
+  height: '0.25em';
   background-color: transparent;
   color: transparent;
   border-style: none;

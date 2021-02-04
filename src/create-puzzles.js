@@ -25,6 +25,7 @@ import {
 } from './utility';
 
 const queryString = require('query-string');
+const rot13Cipher = require('rot13-cipher');
 
 // eslint-disable-next-line react/prop-types
 export const CreatePuzzles = ({ squareTextures }) => {
@@ -128,10 +129,10 @@ export const CreatePuzzles = ({ squareTextures }) => {
     if (queryParmDict.data) {
       const urlBoard = parsePuzzleString(queryParmDict.data);
       urlBoard.question = queryParmDict.question;
-      urlBoard.answer = queryParmDict.answer;
+      urlBoard.answer = rot13Cipher(queryParmDict.answer ? queryParmDict.answer : '');
       setData(urlBoard);
       setQuestion(queryParmDict.question);
-      setAnswer(queryParmDict.answer);
+      setAnswer(urlBoard.answer);
     }
   };
 
@@ -201,17 +202,6 @@ export const CreatePuzzles = ({ squareTextures }) => {
         <div className="field">
           <input className="transparent-input" size="50" width="500px" placeholder="Answer, e.g. 'Qa8...Ra7'" type="text" value={answer} onChange={handleChangeAnswer} />
         </div>
-
-        <div className="row">
-          <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
-          <input
-            style={{ fontSize: '0.25em', height: '0.25em' }}
-            type="text"
-            className="hidden-input"
-            value={getLinkText('link_1')}
-            id="id_copy_buffer"
-          />
-        </div>
         <div className="row">
           <button
             className="styled-button styled-button-textured"
@@ -221,6 +211,15 @@ export const CreatePuzzles = ({ squareTextures }) => {
           >
             &#x1F517; Copy Puzzle Link (beta)
           </button>
+        </div>
+        <div className="row">
+          <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
+          <input
+            type="text"
+            className="hidden-input"
+            value={getLinkText('link_1')}
+            id="id_copy_buffer"
+          />
         </div>
       </>}
 
