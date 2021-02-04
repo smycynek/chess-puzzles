@@ -275,8 +275,22 @@ ul {
 
 .transparent-input {
   margin: 2px;
-  background-color: transparent;
+  background-color:transparent;
   border-width: 0.5px;
   border-color: black;
   border-radius: 0.5em;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(43, 43, 43);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(43, 43, 43);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(43, 43, 43);
 }

@@ -172,7 +172,7 @@ export const CreatePuzzles = ({ squareTextures }) => {
   return (
     <>
       <div className="selectable table-top">
-        <Board data={data} squareTextures={squareTextures} clickCallback={setUserDataHandler} />
+        <Board data={data} squareTextures={squareTextures} clickCallback={editMode ? setUserDataHandler : () => {}} />
       </div>
       <div className="row">
         <button className="styled-button styled-button-textured" type="button" onClick={handleEditModeClick}>{editMode ? 'View' : 'Edit'}</button>
@@ -197,10 +197,10 @@ export const CreatePuzzles = ({ squareTextures }) => {
         </div>
 
         <div className="field">
-          <input className="transparent-input" size="50" width="100em" placeholder="Question, e.g. 'How can white mate in 2?'" type="text" value={question} onChange={handleChangeQuestion} />
+          <input className="transparent-input" size="45" placeholder="Question, e.g. 'How can white mate in 2?'" type="text" value={question} onChange={handleChangeQuestion} />
         </div>
         <div className="field">
-          <input className="transparent-input" size="50" width="500px" placeholder="Answer, e.g. 'Qa8...Ra7'" type="text" value={answer} onChange={handleChangeAnswer} />
+          <input className="transparent-input" size="45" placeholder="Answer, e.g. 'Qa8...Ra7'" type="text" value={answer} onChange={handleChangeAnswer} />
         </div>
         <div className="row">
           <button
@@ -209,7 +209,7 @@ export const CreatePuzzles = ({ squareTextures }) => {
             onClick={() => copyLinkText('id_copy_buffer', 'link_1')}
             type="button"
           >
-            &#x1F517; Copy Puzzle Link (beta)
+            &#x1F517; Copy Puzzle Link
           </button>
         </div>
         <div className="row">
