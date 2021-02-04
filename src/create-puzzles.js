@@ -102,7 +102,6 @@ export const CreatePuzzles = ({ squareTextures }) => {
 
   return (
     <>
-      <h1 className="banner">Create a puzzle</h1>
       <div className="selectable table-top">
         <Board data={data} squareTextures={squareTextures} clickCallback={setUserDataHandler} />
       </div>

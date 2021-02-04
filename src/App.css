@@ -8,6 +8,7 @@
   margin-top: 0.5em;
   margin-bottom: 0.1em;
   padding: 0em;
+  font-weight: bold;
 }
 
 span {
@@ -213,7 +214,38 @@ span {
 a {
 color: black;
 }
+
 ul {
   margin:0;
   padding:0;
+}
+
+
+.nav-tab {
+  margin-top: 1em;
+  height: 2.75em;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue';
+  background-color:rgba(200,200,200,0.5);
+  display: inline-block;
+  padding: 10px 25px;
+  color: #666;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.nav-tab:hover {
+  border: 1px solid #ddd;
+  background-color: oldlace;
+}
+
+.nav-tab.active {
+  background-color: rgba(200,200,200,0.5);
+  color: black;
+  border: 1px solid black;
+  cursor: default;
+  font-weight: bold;
 }

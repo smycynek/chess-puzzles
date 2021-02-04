@@ -51,7 +51,6 @@ export const StaticPuzzles = ({ squareTextures }) => {
   }, []);
   return (
     <>
-      <h1 className="banner">Chess Puzzles</h1>
       <div className="table-top">
         <Board data={data} squareTextures={squareTextures} />
       </div>
