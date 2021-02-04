@@ -203,7 +203,7 @@ export const CreatePuzzles = ({ squareTextures }) => {
         </div>
 
         <div className="row">
-          <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
+          <Link id="link_1" to={`/chess/create?${renderPuzzleString(data)}`} />
           <input
             style={{ fontSize: '0.25em', height: '0.25em' }}
             className="hidden-input"
