@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
 /* eslint-disable import/prefer-default-export */
@@ -16,7 +17,6 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 
 import { useLocation, Link } from 'react-router-dom';
-
 import { Board } from './board';
 import { parsePuzzleString, renderPuzzleString } from './render-parse';
 import {
@@ -203,11 +203,11 @@ export const CreatePuzzles = ({ squareTextures }) => {
         </div>
 
         <div className="row">
-          <Link id="link_1" to={`/chess/create?${renderPuzzleString(data)}`} />
+          <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
           <input
             style={{ fontSize: '0.25em', height: '0.25em' }}
-            className="hidden-input"
             type="text"
+            className="hidden-input"
             value={getLinkText('link_1')}
             id="id_copy_buffer"
           />
@@ -219,7 +219,7 @@ export const CreatePuzzles = ({ squareTextures }) => {
             onClick={() => copyLinkText('id_copy_buffer', 'link_1')}
             type="button"
           >
-            &#x1F517; Copy Puzzle Link
+            &#x1F517; Copy Puzzle Link (beta)
           </button>
         </div>
       </>}

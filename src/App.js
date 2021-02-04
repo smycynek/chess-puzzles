@@ -18,7 +18,7 @@ import 'react-router-tabs/styles/react-router-tabs.css';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router, Route, Switch,
+  HashRouter, Route, Switch,
 } from 'react-router-dom';
 
 import { NavTab } from 'react-router-tabs';
@@ -57,18 +57,18 @@ function App() {
   return (
     <>
       <h1 className="banner">Chess Puzzles</h1>
-      <Router>
-        <NavTab exact strict={false} to="/chess">Samples</NavTab>
-        <NavTab exact strict={false} to="/chess/create">View/Create</NavTab>
+      <HashRouter basename="/chess">
+        <NavTab exact strict={false} to="/">Samples</NavTab>
+        <NavTab exact strict={false} to="/create">View/Create</NavTab>
         <Switch>
-          <Route exact strict={false} path="/chess">
+          <Route exact strict={false} path="/">
             <StaticPuzzles squareTextures={squareTextures} />
           </Route>
-          <Route exact strict={false} path="/chess/create">
+          <Route exact strict={false} path="/create">
             <CreatePuzzles squareTextures={squareTextures} />
           </Route>
         </Switch>
-      </Router>
+      </HashRouter>
       <div className="row expanded caption">
         <img style={{ width: '1.5em', height: '1.5em' }} alt="info" src={infoButton} onClick={handleShowAboutClick} />
         <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="info" src={terrain} onClick={handleToggleTextures} />
