@@ -6,9 +6,8 @@ import React from 'react';
 
 const Footer = () => (
   <ul style={{ padding: '0em', marginTop: '0.75em', listStyleType: 'none' }}>
-    <li><a href="https://github.com/smycynek/chess-puzzles">https://github.com/smycynek/chess-puzzles</a></li>
     <li>
-      Icons:
+      <b>Icons:</b>
       {' '}
       <a href="https://en.wikipedia.org/wiki/User:Cburnett" title="en:User:Cburnett">Cburnett</a>
       ,
@@ -16,10 +15,14 @@ const Footer = () => (
       ,
       <a href="https://commons.wikimedia.org/w/index.php?curid=1496656">Wikimedia</a>
       ,
-      <a href="http://Artua.com">Artua.com</a>
+      <a href="http://artua.com">artua.com</a>
+      ,
+      <a href="http://freepik.com">freepik.com</a>
+      ,
+      <a href="http://icon54.com">icon54.com</a>
     </li>
     <li>
-      Textures:
+      <b>Textures:</b>
       {' '}
       <a
         href="https://unsplash.com/@augustinewong?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"

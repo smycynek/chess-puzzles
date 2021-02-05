@@ -20,6 +20,8 @@ import Footer from './footer';
 
 import infoButton from './images/information-button.svg';
 import terrain from './images/terrain.svg';
+import home from './images/home.svg';
+import github from './images/github.svg';
 
 function App() {
   const [showAbout, setShowAbout] = useState(false);
@@ -61,6 +63,30 @@ function App() {
       <div className="row expanded caption">
         <img style={{ width: '1.5em', height: '1.5em' }} alt="info" src={infoButton} onClick={handleShowAboutClick} />
         <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="info" src={terrain} onClick={handleToggleTextures} />
+        <a href="https://stevenvictor.net">
+          <img
+            style={{
+              paddingBottom: '0.225em',
+              marginLeft: '0.5em',
+              width: '1.75em',
+              height: '1.75em',
+            }}
+            alt="home"
+            src={home}
+          />
+        </a>
+        <a href="https://github.com/smycynek/chess-puzzles">
+          <img
+            style={{
+              paddingBottom: '0.225em',
+              marginLeft: '0.5em',
+              width: '1.75em',
+              height: '1.75em',
+            }}
+            alt="github"
+            src={github}
+          />
+        </a>
         {showAbout && <Footer />}
       </div>
     </>
