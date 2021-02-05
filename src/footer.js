@@ -1,21 +1,10 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable max-len */
-/* eslint-disable func-names */
-/* eslint-disable no-plusplus */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable operator-linebreak */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/jsx-wrap-multilines */
-/* eslint-disable import/prefer-default-export */
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import React from 'react';
 
-export const Footer = () => (
+const Footer = () => (
   <ul style={{ padding: '0em', marginTop: '0.75em', listStyleType: 'none' }}>
     <li><a href="https://github.com/smycynek/chess-puzzles">https://github.com/smycynek/chess-puzzles</a></li>
     <li>
@@ -44,4 +33,7 @@ export const Footer = () => (
         Unsplash
       </a>
     </li>
-  </ul>);
+  </ul>
+);
+
+export default Footer;

@@ -1,23 +1,14 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable no-console */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable max-len */
-/* eslint-disable func-names */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable operator-linebreak */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/jsx-wrap-multilines */
+/* eslint-disable react/jsx-closing-tag-location */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
 import { useLocation, Link } from 'react-router-dom';
-import { Board } from './board';
+import Board from './board';
 import { parsePuzzleString, renderPuzzleString } from './render-parse';
 import {
   newBoard, renderTool, units,
@@ -28,7 +19,7 @@ const queryString = require('query-string');
 const rot13Cipher = require('rot13-cipher');
 
 // eslint-disable-next-line react/prop-types
-export const CreatePuzzles = ({ squareTextures }) => {
+const CreatePuzzles = ({ squareTextures }) => {
   const [data, setData] = useState(newBoard());
   const [selectedColor, setSelectedColor] = useState(white);
   const [selectedUnit, setSelectedUnit] = useState(units.pawn);
@@ -39,13 +30,11 @@ export const CreatePuzzles = ({ squareTextures }) => {
 
   const toolHint = 'Click to use this piece.';
 
-  // eslint-disable-next-line no-unused-vars
-  const handleShowHideClick = (e) => {
+  const handleShowHideClick = () => {
     setShowAnswer(!showAnswer);
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const handleEditModeClick = (e) => {
+  const handleEditModeClick = () => {
     setEditMode(!editMode);
   };
 
@@ -109,7 +98,7 @@ export const CreatePuzzles = ({ squareTextures }) => {
     setSelectedUnit(units.king);
   };
 
-  const setUserDataHandler = function (square) {
+  const setUserDataHandler = (square) => {
     const newUserData = { ...data };
 
     if ((newUserData[square.rank][square.file])
@@ -123,9 +112,8 @@ export const CreatePuzzles = ({ squareTextures }) => {
   };
   const queryParmString = useLocation().search;
 
-  const initFromUrl = function () {
+  const initFromUrl = () => {
     const queryParmDict = queryString.parse(queryParmString);
-    console.log(queryParmDict);
     if (queryParmDict.data) {
       const urlBoard = parsePuzzleString(queryParmDict.data);
       urlBoard.question = queryParmDict.question;
@@ -158,7 +146,7 @@ export const CreatePuzzles = ({ squareTextures }) => {
     if (link) {
       return link.href;
     }
-    return null;
+    return '';
   };
 
   const copyLinkText = (bufferId, linkId) => {
@@ -172,13 +160,18 @@ export const CreatePuzzles = ({ squareTextures }) => {
   return (
     <>
       <div className="selectable table-top">
-        <Board data={data} squareTextures={squareTextures} clickCallback={editMode ? setUserDataHandler : () => {}} />
+        <Board
+          data={data}
+          squareTextures={squareTextures}
+          clickCallback={editMode ? setUserDataHandler : () => {}}
+        />
       </div>
       <div className="row">
         <button className="styled-button styled-button-textured" type="button" onClick={handleEditModeClick}>{editMode ? 'View' : 'Edit'}</button>
       </div>
-      {editMode &&
-      <>
+      {
+      editMode
+      && (<>
         <div className="row indented">
           <button title={toolHint} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
           <button title={toolHint} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
@@ -215,16 +208,18 @@ export const CreatePuzzles = ({ squareTextures }) => {
         <div className="row">
           <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
           <input
+            readOnly
             type="text"
             className="hidden-input"
             value={getLinkText('link_1')}
             id="id_copy_buffer"
           />
         </div>
-      </>}
+    </>)
+}
 
-      {!editMode &&
-      <>
+      {!editMode
+      && <>
         <div className="row expanded">
           <button id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
         </div>
@@ -235,7 +230,9 @@ export const CreatePuzzles = ({ squareTextures }) => {
             {showAnswer && <b><i>{answer}</i></b>}
           </span>
         </div>
-      </>}
+         </>}
     </>
   );
 };
+
+export default CreatePuzzles;

@@ -54,9 +54,7 @@ const renderSquareString = (square, item) => {
 const renderAllSquares = (data) => {
   const unitArray = traverseMap(data);
   const renderedUnits = unitArray.map((unit) => renderSquareString(unit.square, unit.item));
-
   const renderedUnitsNonNull = renderedUnits.filter((item) => item !== '');
-
   return renderedUnitsNonNull.join(',');
 };
 

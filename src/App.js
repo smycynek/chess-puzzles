@@ -1,16 +1,7 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-console */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable max-len */
-/* eslint-disable func-names */
-/* eslint-disable operator-linebreak */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/jsx-wrap-multilines */
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-router-tabs/styles/react-router-tabs.css';
@@ -23,9 +14,9 @@ import {
 
 import { NavTab } from 'react-router-tabs';
 
-import { StaticPuzzles } from './static-puzzles';
-import { CreatePuzzles } from './create-puzzles';
-import { Footer } from './footer';
+import StaticPuzzles from './static-puzzles';
+import CreatePuzzles from './create-puzzles';
+import Footer from './footer';
 
 import infoButton from './images/information-button.svg';
 import terrain from './images/terrain.svg';
@@ -39,18 +30,16 @@ function App() {
     document.body.classList.add('tbg-textured');
   }, []);
 
-  // eslint-disable-next-line no-unused-vars
-  const handleToggleTextures = (e) => {
+  const handleToggleTextures = () => {
     document.body.classList.toggle('tbg-textured');
     const buttons = document.getElementsByClassName('styled-button');
-    for (let idx = 0; idx < buttons.length; idx++) {
+    for (let idx = 0; idx < buttons.length; idx += 1) {
       buttons[idx].classList.toggle('styled-button-textured');
     }
     setSquareTextures(!squareTextures);
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const handleShowAboutClick = (e) => {
+  const handleShowAboutClick = () => {
     setShowAbout(!showAbout);
   };
 
@@ -74,7 +63,8 @@ function App() {
         <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="info" src={terrain} onClick={handleToggleTextures} />
         {showAbout && <Footer />}
       </div>
-    </>);
+    </>
+  );
 }
 
 export default App;

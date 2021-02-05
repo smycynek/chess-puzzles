@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/react-in-jsx-scope */
+
+import React from 'react';
+
 import BishopBlack from './images/units/Chess_bdt45.svg';
 import BishopWhite from './images/units/Chess_blt45.svg';
 
@@ -98,22 +100,21 @@ export const squareColor = (squareTextures, rank, file) => {
   return color;
 };
 
-/* eslint-disable func-names */
 /* eslint-disable no-param-reassign */
-export const setCaptions = function (question, answer, data) {
+export function setCaptions(question, answer, data) {
   data.question = question;
   data.answer = answer;
-};
+}
 
-export const setUnit = function (unit, color, rank, file, data) {
+export function setUnit(unit, color, rank, file, data) {
   data[rank][file] = { unit, color };
-};
+}
 
-export const clearUnit = function (rank, file, data) {
+export function clearUnit(rank, file, data) {
   data[rank][file] = null;
-};
+}
 
-export const clearBoard = function (data) {
+export function clearBoard(data) {
   data[1] = {};
   data[2] = {};
   data[3] = {};
@@ -122,13 +123,13 @@ export const clearBoard = function (data) {
   data[6] = {};
   data[7] = {};
   data[8] = {};
-};
+}
 
-export const newBoard = function () {
+export function newBoard() {
   const initData = {};
   clearBoard(initData);
   return initData;
-};
+}
 
 export const getUnitFromData = (val, data) => {
   const dataRank = val.rank;
