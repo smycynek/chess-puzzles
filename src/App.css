@@ -70,6 +70,14 @@ span {
   display: flex;
 }
 
+.field  {
+  margin-left: 0.5em;
+  clear: left;
+  float: left;
+  display: flex;
+}
+
+
 .indented {
   margin-left: 4.5em;
 }
@@ -152,9 +160,9 @@ span {
   margin-top: 0.5em;
   margin-left: 0.25em;
   margin-right: 0.25em;
-  height: 3em;
+  height: 2.5em;
   border-width: 0.15em;
-  border-radius: 1.0em;
+  border-radius: 0.5em;
   border-style: solid;
   background-color: lightgrey;
   color: black;
@@ -228,13 +236,15 @@ ul {
   align-self: center;
   text-align: center;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue';
-  background-color:rgba(200,200,200,0.5);
+  background-color: rgba(200,200,200,0.0);
   display: inline-block;
   padding: 10px 25px;
   color: #666;
   border-bottom: 1px solid #ddd;
   text-decoration: none;
   border: 1px solid #ddd;
+  border-radius: 0.5em;
+  line-height: 1.1em;
 }
 
 .nav-tab:hover {
@@ -242,10 +252,45 @@ ul {
   background-color: oldlace;
 }
 
+.field {
+  display: flex;
+
+}
+
 .nav-tab.active {
-  background-color: rgba(200,200,200,0.5);
+  background-color: rgba(200,200,200,0.2);
   color: black;
   border: 1px solid black;
   cursor: default;
   font-weight: bold;
+}
+
+.hidden-input {
+  outline: none;
+  height: '0.25em';
+  background-color: transparent;
+  color: transparent;
+  border-style: none;
+}
+
+.transparent-input {
+  margin: 2px;
+  background-color:transparent;
+  border-width: 0.5px;
+  border-color: black;
+  border-radius: 0.5em;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(43, 43, 43);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(43, 43, 43);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(43, 43, 43);
 }
