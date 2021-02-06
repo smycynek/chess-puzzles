@@ -37,10 +37,6 @@ span {
   padding: 1em;
 }
 
-.selectable {
-  cursor: crosshair;
-}
-
 .label {
   width: 3.25em;
   height: 3.25em;
