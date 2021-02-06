@@ -154,6 +154,13 @@ span {
   background-repeat:repeat;
 }
 
+.main-button {
+  background-color: transparent;
+  border-style: none;
+  margin: 0.0em;
+  padding: 0.0em;
+}
+
 .styled-button {
   outline: none;
   margin-top: 0.5em;

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-filename-extension */
@@ -171,7 +170,8 @@ const CreatePuzzles = ({ squareTextures }) => {
       </div>
       {
       editMode
-      && (<>
+      && (
+<>
         <div className="row indented">
           <button title={toolHint} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
           <button title={toolHint} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
@@ -215,13 +215,15 @@ const CreatePuzzles = ({ squareTextures }) => {
             id="id_copy_buffer"
           />
         </div>
-    </>)
+    </>
+      )
 }
 
       {!editMode
-      && <>
+      && (
+<>
         <div className="row expanded">
-          <button id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
+          <button id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
         </div>
         <div className="row expanded">
           <span className="caption">
@@ -230,7 +232,8 @@ const CreatePuzzles = ({ squareTextures }) => {
             {showAnswer && <b><i>{answer}</i></b>}
           </span>
         </div>
-         </>}
+         </>
+      )}
     </>
   );
 };

@@ -53,7 +53,7 @@ const StaticPuzzles = ({ squareTextures }) => {
       </div>
 
       <div className="row expanded">
-        <button id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
+        <button id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
         <button id="btn-next" className="styled-button styled-button-textured" type="button" onClick={handleNextPuzzle}>Next puzzle</button>
       </div>
     </>

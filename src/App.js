@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -61,8 +59,22 @@ function App() {
         </Switch>
       </HashRouter>
       <div className="row expanded caption">
-        <img style={{ width: '1.5em', height: '1.5em' }} alt="info" src={infoButton} onClick={handleShowAboutClick} />
-        <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="info" src={terrain} onClick={handleToggleTextures} />
+        <button
+          arial-label="About this application"
+          className="main-button"
+          onClick={handleShowAboutClick}
+          type="button"
+        >
+          <img style={{ width: '1.5em', height: '1.5em' }} alt="about info" src={infoButton} />
+        </button>
+        <button
+          arial-label="Toggle textures"
+          className="main-button"
+          type="button"
+          onClick={handleToggleTextures}
+        >
+          <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="textureToggle" src={terrain} />
+        </button>
         <a href="https://stevenvictor.net">
           <img
             style={{
