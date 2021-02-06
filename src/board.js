@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 
@@ -20,13 +18,14 @@ const Board = ({ data, squareTextures, clickCallback }) => (
       {squareMap.map((rank, index) => (
         <div key={rank[0].rank} className="row">
           {rank.map((square) => (
-            <div
+            <button
+              type="button"
               onClick={() => (clickCallback ? clickCallback(square) : () => {})}
               className={`square ${squareColor(squareTextures, square.rank, square.file)}`}
               key={`${square.file}${square.rank}`}
             >
               {getUnitFromData(square, data)}
-            </div>
+            </button>
           ))}
           <span className="label">{8 - index}</span>
         </div>
