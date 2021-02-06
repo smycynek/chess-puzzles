@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -49,8 +47,8 @@ function App() {
     <>
       <h1 className="banner">Chess Puzzles</h1>
       <HashRouter basename="/chess">
-        <NavTab exact strict={false} to="/">Samples</NavTab>
-        <NavTab exact strict={false} to="/create">View/Create</NavTab>
+        <NavTab title="Sample puzzles" exact strict={false} to="/">Samples</NavTab>
+        <NavTab title="View puzzles from others or create your own." exact strict={false} to="/create">View/Create</NavTab>
         <Switch>
           <Route exact strict={false} path="/">
             <StaticPuzzles squareTextures={squareTextures} />
@@ -61,9 +59,25 @@ function App() {
         </Switch>
       </HashRouter>
       <div className="row expanded caption">
-        <img style={{ width: '1.5em', height: '1.5em' }} alt="info" src={infoButton} onClick={handleShowAboutClick} />
-        <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="info" src={terrain} onClick={handleToggleTextures} />
-        <a href="https://stevenvictor.net">
+        <button
+          title="About this application"
+          arial-label="About this application"
+          className="main-button"
+          onClick={handleShowAboutClick}
+          type="button"
+        >
+          <img style={{ width: '1.5em', height: '1.5em' }} alt="about info" src={infoButton} />
+        </button>
+        <button
+          title="Toggle textures"
+          arial-label="Toggle textures"
+          className="main-button"
+          type="button"
+          onClick={handleToggleTextures}
+        >
+          <img style={{ marginLeft: '0.5em', width: '1.5em', height: '1.5em' }} alt="textureToggle" src={terrain} />
+        </button>
+        <a title="homepage" href="https://stevenvictor.net">
           <img
             style={{
               paddingBottom: '0.225em',
@@ -75,7 +89,7 @@ function App() {
             src={home}
           />
         </a>
-        <a href="https://github.com/smycynek/chess-puzzles">
+        <a title="github" href="https://github.com/smycynek/chess-puzzles">
           <img
             style={{
               paddingBottom: '0.225em',

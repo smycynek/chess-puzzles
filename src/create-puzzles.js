@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-filename-extension */
@@ -15,6 +14,9 @@ import {
   black, white,
 } from './utility';
 
+import eye from './images/eye.svg';
+import edit from './images/edit.svg';
+
 const queryString = require('query-string');
 const rot13Cipher = require('rot13-cipher');
 
@@ -28,7 +30,7 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [answer, setAnswer] = useState('');
   const [editMode, setEditMode] = useState(false);
 
-  const toolHint = 'Click to use this piece.';
+  const toolHint = 'Click to select';
 
   const handleShowHideClick = () => {
     setShowAnswer(!showAnswer);
@@ -167,26 +169,29 @@ const CreatePuzzles = ({ squareTextures }) => {
         />
       </div>
       <div className="row">
-        <button className="styled-button styled-button-textured" type="button" onClick={handleEditModeClick}>{editMode ? 'View' : 'Edit'}</button>
+        <button title="Toggle edit/view mode" aria-label="Toggle edit/view mode" type="button" className="main-button" onClick={handleEditModeClick}>
+          { editMode ? <img style={{ width: '1.75em', height: '1.75em' }} alt="view" src={eye} /> : <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} /> }
+          </button>
       </div>
       {
       editMode
-      && (<>
+      && (
+<>
         <div className="row indented">
-          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackBishopClick}>{renderTool(units.bishop, black)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackRookClick}>{renderTool(units.rook, black)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackQueenClick}>{renderTool(units.queen, black)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleBlackKingClick}>{renderTool(units.king, black)}</button>
+          <button aria-label={`${toolHint} black pawn`} title={`${toolHint} black pawn`} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
+          <button aria-label={`${toolHint} black knight`} title={`${toolHint} black knight`} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
+          <button aria-label={`${toolHint} black bishop`} title={`${toolHint} black bishop`} className="unit-button" type="button" onClick={handleBlackBishopClick}>{renderTool(units.bishop, black)}</button>
+          <button aria-label={`${toolHint} black rook`} title={`${toolHint} black rook`} className="unit-button" type="button" onClick={handleBlackRookClick}>{renderTool(units.rook, black)}</button>
+          <button aria-label={`${toolHint} black queen`} title={`${toolHint} black queen`} className="unit-button" type="button" onClick={handleBlackQueenClick}>{renderTool(units.queen, black)}</button>
+          <button aria-label={`${toolHint} black king`} title={`${toolHint} black king`} className="unit-button" type="button" onClick={handleBlackKingClick}>{renderTool(units.king, black)}</button>
         </div>
         <div className="row indented">
-          <button title={toolHint} className="unit-button" type="button" onClick={handleWhitePawnClick}>{renderTool(units.pawn, white)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteKnightClick}>{renderTool(units.knight, white)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteBishopClick}>{renderTool(units.bishop, white)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteRookClick}>{renderTool(units.rook, white)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteQueenClick}>{renderTool(units.queen, white)}</button>
-          <button title={toolHint} className="unit-button" type="button" onClick={handleWhiteKingClick}>{renderTool(units.king, white)}</button>
+          <button aria-label={`${toolHint} white pawn`} title={`${toolHint} white pawn`} className="unit-button" type="button" onClick={handleWhitePawnClick}>{renderTool(units.pawn, white)}</button>
+          <button aria-label={`${toolHint} white knight`} title={`${toolHint} white knight`} className="unit-button" type="button" onClick={handleWhiteKnightClick}>{renderTool(units.knight, white)}</button>
+          <button aria-label={`${toolHint} white bishop`} title={`${toolHint} white bishop`} className="unit-button" type="button" onClick={handleWhiteBishopClick}>{renderTool(units.bishop, white)}</button>
+          <button aria-label={`${toolHint} white rook`} title={`${toolHint} white rook`} className="unit-button" type="button" onClick={handleWhiteRookClick}>{renderTool(units.rook, white)}</button>
+          <button aria-label={`${toolHint} white queen`} title={`${toolHint} white queen`} className="unit-button" type="button" onClick={handleWhiteQueenClick}>{renderTool(units.queen, white)}</button>
+          <button aria-label={`${toolHint} white king`} title={`${toolHint} white king`} className="unit-button" type="button" onClick={handleWhiteKingClick}>{renderTool(units.king, white)}</button>
         </div>
 
         <div className="field">
@@ -197,6 +202,7 @@ const CreatePuzzles = ({ squareTextures }) => {
         </div>
         <div className="row">
           <button
+            title="Generate and copy URL containing puzzle"
             className="styled-button styled-button-textured"
             id="copyLinkButton"
             onClick={() => copyLinkText('id_copy_buffer', 'link_1')}
@@ -215,13 +221,15 @@ const CreatePuzzles = ({ squareTextures }) => {
             id="id_copy_buffer"
           />
         </div>
-    </>)
+    </>
+      )
 }
 
       {!editMode
-      && <>
+      && (
+<>
         <div className="row expanded">
-          <button id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>Hide/show answer</button>
+          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
         </div>
         <div className="row expanded">
           <span className="caption">
@@ -230,7 +238,8 @@ const CreatePuzzles = ({ squareTextures }) => {
             {showAnswer && <b><i>{answer}</i></b>}
           </span>
         </div>
-         </>}
+         </>
+      )}
     </>
   );
 };
