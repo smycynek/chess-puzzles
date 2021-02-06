@@ -19,6 +19,7 @@ const Board = ({ data, squareTextures, clickCallback }) => (
         <div key={rank[0].rank} className="row">
           {rank.map((square) => (
             <button
+              title={`${square.file}${square.rank}`}
               type="button"
               onClick={() => (clickCallback ? clickCallback(square) : () => {})}
               className={`square ${squareColor(squareTextures, square.rank, square.file)}`}

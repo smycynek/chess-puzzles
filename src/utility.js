@@ -57,7 +57,7 @@ const getUnitImage = (type, color) => {
 // eslint-disable-next-line import/prefer-default-export
 export const renderUnit = (type, color) => {
   const image = getUnitImage(type, color);
-  return <img alt={`${color}-${type}`} className="unit" src={image} />;
+  return <img title={`${color}-${type}`} alt={`${color}-${type}`} className="unit" src={image} />;
 };
 
 export const renderTool = (type, color) => {
