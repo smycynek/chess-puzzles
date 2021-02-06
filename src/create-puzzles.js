@@ -159,7 +159,7 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   return (
     <>
-      <div className="selectable table-top">
+      <div className="table-top">
         <Board
           data={data}
           squareTextures={squareTextures}
