@@ -17,6 +17,7 @@ span {
   sans-serif;
 }
 .caption {
+  margin-left: 1em;
   width: 25em;
   font-size: 1.125em;
 }
