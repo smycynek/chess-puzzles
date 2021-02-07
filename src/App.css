@@ -234,6 +234,10 @@ ul {
   padding:0;
 }
 
+.edit-hint {
+  font-weight: bolder;
+  font-size: 1.0em;
+}
 
 .nav-tab {
   margin-top: 1em;

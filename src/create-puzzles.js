@@ -1,5 +1,5 @@
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable react/jsx-indent */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -29,7 +29,15 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
   const [editMode, setEditMode] = useState(false);
+  const [editHint, setEditHint] = useState(false);
 
+  const highlightEdit = () => {
+    setEditHint(true);
+    function reverse() {
+      setEditHint(false);
+    }
+    setTimeout(reverse, 1000);
+  };
   const toolHint = 'Click to select';
 
   const handleShowHideClick = () => {
@@ -161,7 +169,10 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   return (
     <>
-      <div className="table-top">
+      <div
+        className="table-top"
+        onClick={() => (!editMode ? highlightEdit() : false)}
+      >
         <Board
           data={data}
           squareTextures={squareTextures}
@@ -169,14 +180,15 @@ const CreatePuzzles = ({ squareTextures }) => {
         />
       </div>
       <div className="row">
+        {editHint && <span className="edit-hint">Click edit to update puzzle: </span>}
         <button title="Toggle edit/view mode" aria-label="Toggle edit/view mode" type="button" className="main-button" onClick={handleEditModeClick}>
           { editMode ? <img style={{ width: '1.75em', height: '1.75em' }} alt="view" src={eye} /> : <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} /> }
-          </button>
+        </button>
       </div>
       {
       editMode
       && (
-<>
+      <>
         <div className="row indented">
           <button aria-label={`${toolHint} black pawn`} title={`${toolHint} black pawn`} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
           <button aria-label={`${toolHint} black knight`} title={`${toolHint} black knight`} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
@@ -221,13 +233,13 @@ const CreatePuzzles = ({ squareTextures }) => {
             id="id_copy_buffer"
           />
         </div>
-    </>
+      </>
       )
 }
 
       {!editMode
       && (
-<>
+      <>
         <div className="row expanded">
           <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
         </div>
@@ -238,7 +250,7 @@ const CreatePuzzles = ({ squareTextures }) => {
             {showAnswer && <b><i>{answer}</i></b>}
           </span>
         </div>
-         </>
+      </>
       )}
     </>
   );
