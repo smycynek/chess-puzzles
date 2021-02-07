@@ -22,6 +22,9 @@ span {
   font-size: 1.125em;
 }
 
+.it {
+  font-style: italic;
+}
 
 .App {
   display: block;

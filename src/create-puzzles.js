@@ -165,7 +165,7 @@ const CreatePuzzles = ({ squareTextures }) => {
     }
     return '';
   };
-
+  /*
   const copyLinkText = (bufferId, linkId) => {
     const buffer = document.getElementById(bufferId);
     const linkText = getLinkText(linkId);
@@ -173,6 +173,7 @@ const CreatePuzzles = ({ squareTextures }) => {
     buffer.select();
     document.execCommand('copy');
   };
+  */
 
   return (
     <>
@@ -239,15 +240,10 @@ const CreatePuzzles = ({ squareTextures }) => {
           <input className="transparent-input" size="45" placeholder="Answer, e.g. 'Qa8...Ra7'" type="text" value={answer} onChange={handleChangeAnswer} />
         </div>
         <div className="row">
-          <button
-            title="Generate and copy URL containing puzzle"
-            className="styled-button styled-button-textured"
-            id="copyLinkButton"
-            onClick={() => copyLinkText('id_copy_buffer', 'link_1')}
-            type="button"
-          >
-            &#x1F517; Copy Puzzle Link
-          </button>
+          <span className="caption it">
+            The puzzle changes are encoded into the URL -- use your share button to post
+            to a text or social media.
+          </span>
         </div>
         <div className="row">
           <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
