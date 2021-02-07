@@ -180,10 +180,29 @@ const CreatePuzzles = ({ squareTextures }) => {
         />
       </div>
       <div className="row">
-        {editHint && <span className="edit-hint">Click edit to update puzzle: </span>}
+        {editHint && <span className="edit-hint">Click edit icon to update puzzle</span>}
+      </div>
+      <div className="row">
         <button title="Toggle edit/view mode" aria-label="Toggle edit/view mode" type="button" className="main-button" onClick={handleEditModeClick}>
           { editMode ? <img style={{ width: '1.75em', height: '1.75em' }} alt="view" src={eye} /> : <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} /> }
         </button>
+
+        {!editMode
+      && (
+      <>
+        <div className="row expanded">
+          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
+        </div>
+        <div className="row expanded">
+          <span className="caption">
+            {question}
+            {' '}
+            {showAnswer && <b><i>{answer}</i></b>}
+          </span>
+        </div>
+      </>
+      )}
+
       </div>
       {
       editMode
@@ -236,22 +255,6 @@ const CreatePuzzles = ({ squareTextures }) => {
       </>
       )
 }
-
-      {!editMode
-      && (
-      <>
-        <div className="row expanded">
-          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
-        </div>
-        <div className="row expanded">
-          <span className="caption">
-            {question}
-            {' '}
-            {showAnswer && <b><i>{answer}</i></b>}
-          </span>
-        </div>
-      </>
-      )}
     </>
   );
 };

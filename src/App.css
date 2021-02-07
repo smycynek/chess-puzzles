@@ -163,7 +163,7 @@ span {
 
 .styled-button {
   outline: none;
-  margin-top: 0.5em;
+  margin-top: 0.0em;
   margin-left: 0.25em;
   margin-right: 0.25em;
   height: 2.5em;
@@ -235,8 +235,11 @@ ul {
 }
 
 .edit-hint {
+  margin: 0.0em;
+  padding: 0.0em;
   font-weight: bolder;
   font-size: 1.0em;
+  line-height: 0.25em;
 }
 
 .nav-tab {
