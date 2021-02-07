@@ -108,8 +108,8 @@ const CreatePuzzles = ({ squareTextures }) => {
     setSelectedUnit(units.king);
   };
 
-  const getCurrentURL = () => `/chess/#/chess/create?${renderPuzzleString(data)}`;
-  const updateUrl = () => window.history.replaceState(null, 'Chess Puzzles', getCurrentURL());
+  const getCurrentURL = (newData) => `/chess/#/chess/create?${renderPuzzleString(newData)}`;
+  const updateUrl = (newData) => window.history.replaceState(null, 'Chess Puzzles', getCurrentURL(newData));
 
   const setUserDataHandler = (square) => {
     const newUserData = { ...data };
@@ -122,7 +122,7 @@ const CreatePuzzles = ({ squareTextures }) => {
       newUserData[square.rank][square.file] = { unit: selectedUnit, color: selectedColor };
     }
     setData(newUserData);
-    updateUrl();
+    updateUrl(newUserData);
   };
   const queryParmString = useLocation().search;
 
@@ -147,7 +147,7 @@ const CreatePuzzles = ({ squareTextures }) => {
     const newUserData = { ...data };
     newUserData.question = e.target.value;
     setData(newUserData);
-    updateUrl();
+    updateUrl(newUserData);
   };
 
   const handleChangeAnswer = (e) => {
@@ -155,7 +155,7 @@ const CreatePuzzles = ({ squareTextures }) => {
     const newUserData = { ...data };
     newUserData.answer = e.target.value;
     setData(newUserData);
-    updateUrl();
+    updateUrl(newUserData);
   };
 
   const getLinkText = (id) => {
