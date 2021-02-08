@@ -6,7 +6,7 @@ import React from 'react';
 import edit from './images/edit.svg';
 
 const About = () => (
-  <>
+  <div style={{ width: '30em' }}>
     <h2 className="sub-heading">Created by</h2>
     <ul className="info-list">
       <li>
@@ -29,23 +29,29 @@ const About = () => (
     <h2 className="sub-heading">Tips</h2>
     <ul className="info-list">
       <li>
-        Browse and try to solve sample puzzles in the first tab.
-        In the second tab, view puzzles others have created, like
-        {' '}
-        <a href="https://stevenvictor.net/chess/#/chess/create?question=Sample%20question%3A%20Is%20this%20a%20valid%20setup%3F&answer=Fnzcyr%20nafjre%3A%20Ab%20--%202%20ovfubcf%20ba%20gur%20fnzr%20pbybe%20vf%20vyyrtny.&data=wKh1%2CwPa2%2CwPb2%2CbBe3%2CbBf4%2CbPf7%2CbPg7%2CbPh7%2CbKh8">
-          <strong>this one</strong>
-        </a>
-        .
-        In the second tab, puzzles and changes are encoded entirely into the URL.
-        The puzzle doesn&apos;t
-        persist anywhere on the Internet except in the text of the link.
-        Click the &apos;edit&apos;
-        {' '}
-        <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} />
-        {' '}
-        button
-        to make changes -- the URL will update automatically, and
-        you can then text it or re-post it with your browser&apos;s &apos;share&apos; button.
+        <p>
+          Browse and try to solve sample puzzles in the first tab.
+          In the second tab, view puzzles others have created, like
+          {' '}
+          <a href="https://stevenvictor.net/chess/#/chess/create?question=Sample%20question%3A%20Is%20this%20a%20valid%20setup%3F&answer=Fnzcyr%20nafjre%3A%20Ab%20--%202%20ovfubcf%20ba%20gur%20fnzr%20pbybe%20vf%20vyyrtny.&data=wKh1%2CwPa2%2CwPb2%2CbBe3%2CbBf4%2CbPf7%2CbPg7%2CbPh7%2CbKh8">
+            <strong>this one</strong>
+          </a>
+          .
+        </p>
+        <p>
+          In the second tab, puzzles and changes are encoded entirely into the URL.
+          The puzzle doesn&apos;t
+          persist anywhere on the Internet except in the text of the link.
+        </p>
+        <p>
+          Click the &apos;edit&apos;
+          {' '}
+          <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} />
+          {' '}
+          button
+          to make changes -- the URL will update automatically, and
+          you can then text it or re-post it with your browser&apos;s &apos;share&apos; button.
+        </p>
       </li>
     </ul>
     <h2 className="sub-heading">Credit to</h2>
@@ -81,7 +87,7 @@ const About = () => (
         </a>
       </li>
     </ul>
-  </>
+  </div>
 );
 
 export default About;
