@@ -1,6 +1,5 @@
 
 
-
 .banner {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: '0.5em';
@@ -11,6 +10,24 @@
   font-weight: bold;
 }
 
+.sub-heading {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: '0.3em';
+  font-size: 1.2em;
+  margin-top: 0.75em;
+  margin-bottom: 0.00em;
+  padding: 0em;
+  font-weight: bold;
+  
+}
+.info-list {
+ list-style-type: none;
+ padding-left: 0.5em;
+ margin-left: 1.0em;
+ margin-right: 0.5em;
+ margin-bottom: 1.5em;
+ padding: 0.0em;
+}
 span {
   font-size: 0.75em;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue',
@@ -34,11 +51,11 @@ span {
 }
 
 .board {
-  margin: 0.15em;
+  margin: 0.125em;
   display: block;
   align-content: center;
   align-self: center;
-  padding: 1em;
+  padding-top: 1em;
 }
 
 .label {
@@ -114,7 +131,8 @@ span {
 .table-background {
   font-size: 0.75em;
   display: block;
-  margin: 1em;
+  padding: 0.0em;
+  margin: 0.125em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -145,7 +163,7 @@ span {
 }
 
 .table-top {
-  margin: '0.25em';
+  margin: '0.125em';
   display: 'block';
 }
 
