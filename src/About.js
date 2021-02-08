@@ -3,6 +3,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import React from 'react';
+import edit from './images/edit.svg';
 
 const About = () => (
   <>
@@ -38,7 +39,12 @@ const About = () => (
         In the second tab, puzzles and changes are encoded entirely into the URL.
         The puzzle doesn&apos;t
         persist anywhere on the Internet except in the text of the link.
-        Click the &apos;edit&apos; button to make changes -- the URL will update automatically, and
+        Click the &apos;edit&apos;
+        {' '}
+        <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} />
+        {' '}
+        button
+        to make changes -- the URL will update automatically, and
         you can then text it or re-post it with your browser&apos;s &apos;share&apos; button.
       </li>
     </ul>
