@@ -240,12 +240,6 @@ const CreatePuzzles = ({ squareTextures }) => {
           <input className="transparent-input" size="45" placeholder="Answer, e.g. 'Qa8...Ra7'" type="text" value={answer} onChange={handleChangeAnswer} />
         </div>
         <div className="row">
-          <span className="caption it">
-            The puzzle changes are encoded into the URL -- use your share button to post
-            to a text or social media.
-          </span>
-        </div>
-        <div className="row">
           <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
           <input
             readOnly
