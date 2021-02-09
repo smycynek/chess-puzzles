@@ -58,7 +58,7 @@ function App() {
       <div className="row expanded caption">
         <button
           title="Toggle textures"
-          arial-label="Toggle textures"
+          aria-label="Toggle textures"
           className="main-button"
           type="button"
           onClick={handleToggleTextures}
