@@ -1,7 +1,12 @@
 
+h1, h2, h3, head, body, span, p, a, button, ul, li, label, input, .nav-tab {
+  font-family: 'Arial', sans-serif;
+}
 
+h1,h2,h3 {
+  margin-left: 0.25em;
+}
 .banner {
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: '0.5em';
   font-size: 1.75em;
   margin-top: 0.5em;
@@ -11,7 +16,6 @@
 }
 
 .sub-heading {
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: '0.3em';
   font-size: 1.40em;
   margin-top: 0.75em;
@@ -34,7 +38,6 @@ span {
   sans-serif;
 }
 .caption {
-  margin-left: 1em;
   width: 25em;
   font-size: 1.125em;
 }
@@ -60,14 +63,15 @@ span {
 
 .label {
   width: 3.25em;
-  height: 3.25em;
+  height:3.25em;
   float: left;
   display: inline;
   align-items: center;
   align-self: center;
   text-align: center;
-  line-height: 3em;
+  line-height: 4.0em;
   font-weight: bold;
+  font-size: 1.0em;
 }
 
 .square {
@@ -99,7 +103,7 @@ span {
 
 
 .indented {
-  margin-left: 4.5em;
+  margin-left: 3.75em;
 }
 
 .unit {
@@ -133,11 +137,6 @@ span {
   display: block;
   padding: 0.0em;
   margin: 0.125em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .tbg-textured {
@@ -186,7 +185,6 @@ span {
 .styled-button {
   outline: none;
   margin-top: 0.0em;
-  margin-left: 0.25em;
   margin-right: 0.25em;
   height: 2.5em;
   border-width: 0.15em;
@@ -265,12 +263,12 @@ ul {
 }
 
 .nav-tab {
+  margin-left: 0.5em;
   margin-top: 1em;
   height: 2.75em;
   align-items: center;
   align-self: center;
   text-align: center;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue';
   background-color: rgba(200,200,200,0.0);
   display: inline-block;
   padding: 10px 25px;
