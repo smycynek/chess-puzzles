@@ -3,7 +3,7 @@
 .banner {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: '0.5em';
-  font-size: 1.5em;
+  font-size: 1.75em;
   margin-top: 0.5em;
   margin-bottom: 0.1em;
   padding: 0em;
@@ -13,9 +13,9 @@
 .sub-heading {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: '0.3em';
-  font-size: 1.2em;
+  font-size: 1.40em;
   margin-top: 0.75em;
-  margin-bottom: 0.00em;
+  margin-bottom: 0.25em;
   padding: 0em;
   font-weight: bold;
   

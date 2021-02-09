@@ -5,6 +5,8 @@ import {
   black, white, setCaptions, setUnit, clearBoard,
 } from '../utility';
 
+import { fromQueryString } from '../render-parse';
+
 function puzzle1(data) {
   clearBoard(data);
   setCaptions('White to move: Can white mate?', 'No - draw.', data);
@@ -155,7 +157,12 @@ function defaultSetup(data) {
   setUnit(units.pawn, white, 2, fileSymbols.h, data);
 }
 
+function fromURL1(data) {
+  const queryString = 'question=White%20to%20move%3A&answer=As6%23&data=wKh1%2CbBc1%2CbBd1%2CwPg2%2CwPh2%2CwNe4%2CbPd5%2CbPc6%2CbPb6%2CwRg6%2CwPg7%2CbPf7%2CbPh7%2CbQb7%2CwRe7%2CbRa8%2CbRb8%2CbKg8';
+  Object.assign(data, fromQueryString(queryString));
+}
+
 const puzzles = [defaultSetup, puzzle1,
-  puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7];
+  puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7, fromURL1];
 
 export default puzzles;

@@ -10,16 +10,16 @@ const About = () => (
     <h2 className="sub-heading">Created by</h2>
     <ul className="info-list">
       <li>
-        <strong>Steven Victor Mycynek 2021</strong>
+        Steven Victor Mycynek 2021
       </li>
       <li>
-        <a className="it" title="homepage" href="https://stevenvictor.net">
-          <strong>stevenvictor.net</strong>
+        <a title="homepage" href="https://stevenvictor.net">
+          stevenvictor.net
         </a>
       </li>
       <li>
-        <a className="it" title="github" href="https://github.com/smycynek/chess-puzzles">
-          <strong>github.com/smycynek/chess-puzzles</strong>
+        <a title="github" href="https://github.com/smycynek/chess-puzzles">
+          github.com/smycynek/chess-puzzles
         </a>
       </li>
       <li className="it">
@@ -51,6 +51,19 @@ const About = () => (
           button
           to make changes -- the URL will update automatically, and
           you can then text it or re-post it with your browser&apos;s &apos;share&apos; button.
+        </p>
+        <p>
+          Works with
+          {' '}
+          <a
+            href="https://tinyurl.com/app"
+          >
+            tinyurl!
+          </a>
+        </p>
+        <p>
+          Brighten someone&apos;s day with a chess puzzle, or send me one you
+          created!
         </p>
       </li>
     </ul>

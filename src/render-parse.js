@@ -1,5 +1,7 @@
 import { black, white, clearBoard } from './utility';
 
+const queryString = require('query-string');
+
 const rot13Cipher = require('rot13-cipher');
 
 export const parseSquareString = (position) => {
@@ -61,4 +63,12 @@ const renderAllSquares = (data) => {
 export const renderPuzzleString = (data) => {
   const str = `question=${encodeURIComponent(data.question)}&answer=${encodeURIComponent(rot13Cipher(data.answer ? data.answer : ''))}&data=${encodeURIComponent(renderAllSquares(data))}`;
   return str;
+};
+
+export const fromQueryString = (qString) => {
+  const urlData = queryString.parse(decodeURIComponent(qString));
+  const data = parsePuzzleString(urlData.data);
+  data.question = urlData.question;
+  data.answer = rot13Cipher(urlData.answer);
+  return data;
 };
