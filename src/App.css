@@ -1,5 +1,5 @@
 
-h1, h2, h3, head, body, span, p, a, button, ul, li, label, .nav-tab {
+h1, h2, h3, head, body, span, p, a, button, ul, li, label, input, .nav-tab {
   font-family: 'Arial', sans-serif;
 }
 
@@ -103,7 +103,7 @@ span {
 
 
 .indented {
-  margin-left: 4.5em;
+  margin-left: 3.75em;
 }
 
 .unit {
