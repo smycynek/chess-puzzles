@@ -162,7 +162,12 @@ function fromURL1(data) {
   Object.assign(data, fromQueryString(queryString));
 }
 
+function fromURL2(data) {
+  const queryString = 'question=Explain%20who%20will%20likely%20win%20if%20white%20is%20to%20move.%20%20If%20Black%20is%20to%20move%3F&answer=Vs%20juvgr%20vf%20gb%20zbir%2C%20gur%20oynpx%20xvat%20jvyy%20abg%20pngpu%20hc%20gb%20gur%20juvgr%20cnja%20orsber%20vg%20cebzbgrf.%20%20Vs%20oynpx%20vf%20gb%20zbir%2C%20vg%20pna%20pngpu%20hc%20(ehyr%20bs%20fdhnerf).%20%20Vg\'f%20cbffvoyr%20juvgr%20pbhyq%20fgvyy%20jva%20vs%20oynpx%20vf%20gb%20zbir%2C%20ohg%20vg\'f%20uvtuyl%20hayvxryl.&data=wKh1%2CwPd3%2CbPd4%2CbPf4%2CbKa5%2CwPc6';
+  Object.assign(data, fromQueryString(queryString));
+}
+
 const puzzles = [defaultSetup, puzzle1,
-  puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7, fromURL1];
+  puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7, fromURL1, fromURL2];
 
 export default puzzles;
