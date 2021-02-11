@@ -16,8 +16,8 @@ Note the tabs -- the first has some sample hard-coded puzzles.
 The second allows you to create puzzles and send them/post them.
 The entire puzzle definition is encoded into the URL string -- use
 your *share* button to post them to text, email, or social media.  
-Since the sharing is peer to peer, there's no need for any back-end or
-login.
+Since the sharing is peer to peer, there's no need for any 
+back-end or login.
 
 ## Usage
 
