@@ -146,7 +146,7 @@ span {
 
 .tbg {
   margin-left: 0.25em;
-  background-color: rgb(224, 190, 127);
+  background-color: rgb(234,194,136);
 }
 
 .light {
@@ -187,30 +187,41 @@ span {
   margin-top: 0.0em;
   margin-right: 1.25em;
   height: 2.5em;
-  border-width: 0.15em;
+  border-width: 1.5px;
   border-radius: 0.5em;
   border-style: solid;
-  background-color: lightgrey;
+  background-color: rgba(234,194,136,0.2);
+  border-color: black;
   color: black;
 }
 
 .styled-button-textured {
-  background-image: url(./images/backgrounds/rockywall.png);
+  background-image: transparent;
   background-repeat:repeat;
 }
 
 .styled-button:hover {
-  border-width: 0.25em;
+  border-width: 1.5px;
+  background-color: rgba(234,194,136,0.7);
+  border-color: black;
+  font-weight: bold;
 }
 
 .styled-button:active {
+  background-color: rgba(234,194,136,0.7);
+  border-width: 1.5px;
   border-color: black;
+  font-weight: bold;
 }
 
 .expanded {
   margin-top: 1em;
 }
 
+.normal-link {
+  color: black;
+  text-decoration: underline;
+}
 
 .app-tab ul > li > a {
   background-color: transparent;
@@ -269,20 +280,20 @@ ul {
   align-items: center;
   align-self: center;
   text-align: center;
-  background-color: rgba(200,200,200,0.0);
+  background-color: rgba(234,194,136,0.2);
   display: inline-block;
   padding: 10px 25px;
-  color: #666;
-  border-bottom: 1px solid #ddd;
+  color:black;
   text-decoration: none;
-  border: 1px solid #ddd;
+  border: 1.5px solid black;
   border-radius: 0.5em;
   line-height: 1.1em;
 }
 
 .nav-tab:hover {
-  border: 1px solid #ddd;
-  background-color: oldlace;
+  font-weight: bold;
+  border: 1.5px solid black;
+  background-color: rgba(234,194,136,0.2);
 }
 
 .field {
@@ -291,9 +302,9 @@ ul {
 }
 
 .nav-tab.active {
-  background-color: rgba(200,200,200,0.2);
+  background-color: rgba(234,194,136,0.7);
   color: black;
-  border: 1px solid black;
+  border: 1.5px solid black;
   cursor: default;
   font-weight: bold;
 }

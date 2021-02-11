@@ -13,12 +13,12 @@ const About = () => (
         Steven Victor Mycynek 2021
       </li>
       <li>
-        <a title="homepage" href="https://stevenvictor.net">
+        <a className="normal-link" title="homepage" href="https://stevenvictor.net">
           stevenvictor.net
         </a>
       </li>
       <li>
-        <a title="github" href="https://github.com/smycynek/chess-puzzles">
+        <a className="normal-link" title="github" href="https://github.com/smycynek/chess-puzzles">
           github.com/smycynek/chess-puzzles
         </a>
       </li>
@@ -33,8 +33,8 @@ const About = () => (
           Browse and try to solve sample puzzles in the first tab.
           In the second tab, view puzzles others have created, like
           {' '}
-          <a href="https://stevenvictor.net/chess/#/chess/create?question=Sample%20question%3A%20Is%20this%20a%20valid%20setup%3F&answer=Fnzcyr%20nafjre%3A%20Ab%20--%202%20ovfubcf%20ba%20gur%20fnzr%20pbybe%20vf%20vyyrtny.&data=wKh1%2CwPa2%2CwPb2%2CbBe3%2CbBf4%2CbPf7%2CbPg7%2CbPh7%2CbKh8">
-            <strong>this one</strong>
+          <a normal-link href="https://stevenvictor.net/chess/#/chess/create?question=Sample%20question%3A%20Is%20this%20a%20valid%20setup%3F&answer=Fnzcyr%20nafjre%3A%20Ab%20--%202%20ovfubcf%20ba%20gur%20fnzr%20pbybe%20vf%20vyyrtny.&data=wKh1%2CwPa2%2CwPb2%2CbBe3%2CbBf4%2CbPf7%2CbPg7%2CbPh7%2CbKh8">
+            this one
           </a>
           .
         </p>
@@ -44,7 +44,9 @@ const About = () => (
           persist anywhere on the Internet except in the text of the link.
         </p>
         <p>
-          Click the &apos;edit&apos;
+          Click the
+          {' '}
+          <em>edit</em>
           {' '}
           <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} />
           {' '}
@@ -72,22 +74,23 @@ const About = () => (
       <li>
         <strong>Icons:</strong>
         {' '}
-        <a href="https://en.wikipedia.org/wiki/User:Cburnett" title="en:User:Cburnett">Cburnett</a>
+        <a className="normal-link" href="https://en.wikipedia.org/wiki/User:Cburnett" title="en:User:Cburnett">Cburnett</a>
         ,
-        <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>
+        <a className="normal-link" href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>
         ,
-        <a href="https://commons.wikimedia.org/w/index.php?curid=1496656">Wikimedia</a>
+        <a className="normal-link" href="https://commons.wikimedia.org/w/index.php?curid=1496656">Wikimedia</a>
         ,
-        <a href="http://artua.com">artua.com</a>
+        <a className="normal-link" href="http://artua.com">artua.com</a>
         ,
-        <a href="http://freepik.com">freepik.com</a>
+        <a className="normal-link" href="http://freepik.com">freepik.com</a>
         ,
-        <a href="http://icon54.com">icon54.com</a>
+        <a className="normal-link" href="http://icon54.com">icon54.com</a>
       </li>
       <li>
         <strong>Textures:</strong>
         {' '}
         <a
+          className="normal-link"
           href="https://unsplash.com/@augustinewong?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
         >
           Augustine Wong
@@ -95,7 +98,10 @@ const About = () => (
         {' '}
         on
         {' '}
-        <a href="https://unsplash.com/s/photos/marble-texture?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+        <a
+          className="normal-link"
+          href="https://unsplash.com/s/photos/marble-texture?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+        >
           Unsplash
         </a>
       </li>
