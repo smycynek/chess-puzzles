@@ -167,7 +167,11 @@ function fromURL2(data) {
   Object.assign(data, fromQueryString(queryString));
 }
 
+function fromURL3(data) {
+  const queryString = 'question=White%20to%20move%20--%20any%20ideas%3F&answer=Op3%2B%20--%20fxrjref%20gur%20oynpx%20xvat%20naq%20nyybjf%20sbe%20n%20dhrra%20pncgher.&data=wKh1%2CwBf1%2CwPg2%2CwPh2%2CbNb2%2CbNb3%2CbPc4%2CwBa5%2CwNg5%2CwPb6%2CwRh6%2CbKg7%2CbPh7%2CbBf7%2CbBa7%2CwPb7%2CbQh8';
+  Object.assign(data, fromQueryString(queryString));
+}
 const puzzles = [defaultSetup, puzzle1,
-  puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7, fromURL1, fromURL2];
+  puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7, fromURL1, fromURL2, fromURL3];
 
 export default puzzles;
