@@ -33,7 +33,7 @@ const About = () => (
           Browse and try to solve sample puzzles in the first tab.
           In the second tab, view puzzles others have created, like
           {' '}
-          <a normal-link href="https://stevenvictor.net/chess/#/chess/create?question=Sample%20question%3A%20Is%20this%20a%20valid%20setup%3F&answer=Fnzcyr%20nafjre%3A%20Ab%20--%202%20ovfubcf%20ba%20gur%20fnzr%20pbybe%20vf%20vyyrtny.&data=wKh1%2CwPa2%2CwPb2%2CbBe3%2CbBf4%2CbPf7%2CbPg7%2CbPh7%2CbKh8">
+          <a className="normal-link" href="https://stevenvictor.net/chess/#/chess/create?question=Sample%20question%3A%20Is%20this%20a%20valid%20setup%3F&answer=Fnzcyr%20nafjre%3A%20Ab%20--%202%20ovfubcf%20ba%20gur%20fnzr%20pbybe%20vf%20vyyrtny.&data=wKh1%2CwPa2%2CwPb2%2CbBe3%2CbBf4%2CbPf7%2CbPg7%2CbPh7%2CbKh8">
             this one
           </a>
           .
@@ -52,12 +52,17 @@ const About = () => (
           {' '}
           button
           to make changes -- the URL will update automatically, and
-          you can then text it or re-post it with your browser&apos;s &apos;share&apos; button.
+          you can then text it or re-post it with your browser&apos;s
+          {' '}
+          <em>share</em>
+          {' '}
+          button.
         </p>
         <p>
           Works with
           {' '}
           <a
+            className="normal-link"
             href="https://tinyurl.com/app"
           >
             tinyurl!
