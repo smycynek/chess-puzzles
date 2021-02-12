@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prop-types */
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
@@ -8,7 +9,6 @@ import Board from './board';
 import puzzles from './puzzles/puzzles';
 import { newBoard } from './utility';
 
-// eslint-disable-next-line react/prop-types
 const StaticPuzzles = ({ squareTextures }) => {
   const [index, setIndex] = useState(Math.floor(Math.random() * puzzles.length));
   const [showAnswer, setShowAnswer] = useState(false);
@@ -25,14 +25,10 @@ const StaticPuzzles = ({ squareTextures }) => {
   const handleNextPuzzle = () => {
     setShowAnswer(false);
     newPuzzleIndex();
-    const puzzleFunc = puzzles[index];
-    const newData = { ...data };
-    puzzleFunc(newData);
-    setData(newData);
+    setData(puzzles[index]());
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const handleShowHideClick = (e) => {
+  const handleShowHideClick = () => {
     setShowAnswer(!showAnswer);
   };
 

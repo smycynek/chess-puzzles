@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
+/* eslint-disable no-param-reassign */
 
 import React from 'react';
 
@@ -54,7 +55,6 @@ const getUnitImage = (type, color) => {
   }
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const renderUnit = (type, color) => {
   const image = getUnitImage(type, color);
   return <img title={`${color}-${type}`} alt={`${color}-${type}`} className="unit" src={image} />;
@@ -100,7 +100,6 @@ export const squareColor = (squareTextures, rank, file) => {
   return color;
 };
 
-/* eslint-disable no-param-reassign */
 export function setCaptions(question, answer, data) {
   data.question = question;
   data.answer = answer;

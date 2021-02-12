@@ -1,11 +1,25 @@
-import { black, white, clearBoard } from './utility';
+import { black, white, newBoard } from './utility';
 
 const queryString = require('query-string');
-
 const rot13Cipher = require('rot13-cipher');
 
 export const parseSquareString = (position) => {
-  // Warning, no error checking currently.
+  // Warning, not much error checking
+  if (position.length !== 4) {
+    // eslint-disable-next-line no-console
+    console.log('Error, bad position string');
+    return {
+      unit: {
+        color: 'black',
+        unit: 'P',
+      },
+      square: {
+        rank: 1,
+        file: 'a',
+      },
+    };
+  }
+
   const colorChar = position[0];
   const unitChar = position[1];
   const fileChar = position[2];
@@ -25,8 +39,7 @@ export const parseSquareString = (position) => {
 };
 
 export const parsePuzzleString = (puzzle) => {
-  const board = {};
-  clearBoard(board);
+  const board = newBoard();
   const puzzleData = puzzle.split(',');
   const data = puzzleData.map((m) => parseSquareString(m));
   // eslint-disable-next-line no-return-assign

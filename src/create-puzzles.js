@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prop-types */
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
@@ -11,7 +12,7 @@ import Board from './board';
 import { parsePuzzleString, renderPuzzleString } from './render-parse';
 import {
   newBoard, renderTool, units,
-  black, white,
+  black, white, setUnit, clearUnit,
 } from './utility';
 
 import eye from './images/eye.svg';
@@ -20,7 +21,6 @@ import edit from './images/edit.svg';
 const queryString = require('query-string');
 const rot13Cipher = require('rot13-cipher');
 
-// eslint-disable-next-line react/prop-types
 const CreatePuzzles = ({ squareTextures }) => {
   const [data, setData] = useState(newBoard());
   const [selectedColor, setSelectedColor] = useState(white);
@@ -117,9 +117,9 @@ const CreatePuzzles = ({ squareTextures }) => {
     if ((newUserData[square.rank][square.file])
     && (newUserData[square.rank][square.file].unit === selectedUnit)
     && (newUserData[square.rank][square.file].color === selectedColor)) {
-      newUserData[square.rank][square.file] = null;
+      clearUnit(square.rank, square.file, newUserData);
     } else {
-      newUserData[square.rank][square.file] = { unit: selectedUnit, color: selectedColor };
+      setUnit(selectedUnit, selectedColor, square.rank, square.file, newUserData);
     }
     setData(newUserData);
     updateUrl(newUserData);
