@@ -75,7 +75,7 @@ const About = () => (
       </li>
     </ul>
     <h2 className="sub-heading">Credit to</h2>
-    <ul className="info-list">
+    <ul className="info-list" style={{ marginBottom: '0.0em' }}>
       <li>
         <strong>Icons:</strong>
         {' '}

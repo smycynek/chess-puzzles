@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Board from './board';
 import { parsePuzzleString, renderPuzzleString } from './render-parse';
 import {
@@ -135,6 +135,8 @@ const CreatePuzzles = ({ squareTextures }) => {
       setData(urlBoard);
       setQuestion(queryParmDict.question);
       setAnswer(urlBoard.answer);
+    } else {
+      setEditMode(true);
     }
   };
 
@@ -157,23 +159,6 @@ const CreatePuzzles = ({ squareTextures }) => {
     setData(newUserData);
     updateUrl(newUserData);
   };
-
-  const getLinkText = (id) => {
-    const link = document.getElementById(id);
-    if (link) {
-      return link.href;
-    }
-    return '';
-  };
-  /*
-  const copyLinkText = (bufferId, linkId) => {
-    const buffer = document.getElementById(bufferId);
-    const linkText = getLinkText(linkId);
-    buffer.value = linkText;
-    buffer.select();
-    document.execCommand('copy');
-  };
-  */
 
   return (
     <>
@@ -238,16 +223,6 @@ const CreatePuzzles = ({ squareTextures }) => {
         </div>
         <div className="field">
           <input className="transparent-input" size="45" placeholder="Answer, e.g. 'Qa8...Ra7'" type="text" value={answer} onChange={handleChangeAnswer} />
-        </div>
-        <div className="row">
-          <Link id="link_1" to={`/create?${renderPuzzleString(data)}`} />
-          <input
-            readOnly
-            type="text"
-            className="hidden-input"
-            value={getLinkText('link_1')}
-            id="id_copy_buffer"
-          />
         </div>
       </>
       )
