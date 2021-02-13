@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
@@ -17,6 +19,9 @@ import {
 
 import eye from './images/eye.svg';
 import edit from './images/edit.svg';
+import twitter from './images/twitter.svg';
+import facebook from './images/facebook.svg';
+import sms from './images/sms.svg';
 
 const queryString = require('query-string');
 const rot13Cipher = require('rot13-cipher');
@@ -30,6 +35,9 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [answer, setAnswer] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [editHint, setEditHint] = useState(false);
+  const [twitterLink, setTwitterLink] = useState(`http://twitter.com/share?text=ChessPuzzles&url=${encodeURIComponent(window.location)}&hashtags=chesspuzzles`);
+  const [facebookLink, setFacebookLink] = useState(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location)}`);
+  const [textLink, setTextLink] = useState(`sms:&body=${encodeURIComponent(window.location)}`);
 
   const highlightEdit = () => {
     setEditHint(true);
@@ -109,7 +117,28 @@ const CreatePuzzles = ({ squareTextures }) => {
   };
 
   const getCurrentURL = (newData) => `/chess/#/chess/create?${renderPuzzleString(newData)}`;
-  const updateUrl = (newData) => window.history.replaceState(null, 'Chess Puzzles', getCurrentURL(newData));
+
+  const getTwitterUrl = () => {
+    const fullStr = encodeURIComponent(window.location);
+    return `http://twitter.com/share?text=ChessPuzzles&url=${fullStr}&hashtags=chesspuzzles`;
+  };
+
+  const getFacebookUrl = () => {
+    const fullStr = encodeURIComponent(window.location);
+    return `https://www.facebook.com/sharer/sharer.php?u=${fullStr}`;
+  };
+
+  const getTextUrl = () => {
+    const fullStr = encodeURIComponent(window.location);
+    return `sms:&body=${fullStr}`;
+  };
+
+  const updateUrl = (newData) => {
+    window.history.replaceState(null, 'Chess Puzzles', getCurrentURL(newData));
+    setTwitterLink(getTwitterUrl());
+    setFacebookLink(getFacebookUrl());
+    setTextLink(getTextUrl());
+  };
 
   const setUserDataHandler = (square) => {
     const newUserData = { ...data };
@@ -227,6 +256,24 @@ const CreatePuzzles = ({ squareTextures }) => {
       </>
       )
 }
+      { !editMode && (
+        <>
+          <div className="row expanded">
+            <h3 className="sub-sub-heading">Share</h3>
+          </div>
+          <div className="row expanded">
+            <a className="side-link" href={twitterLink} target="_blank" rel="noopener noreferrer">
+              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={twitter} />
+            </a>
+            <a className="side-link" href={facebookLink} target="_blank" rel="noopener noreferrer">
+              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={facebook} />
+            </a>
+            <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
+              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={sms} />
+            </a>
+          </div>
+        </>
+      )}
     </>
   );
 };

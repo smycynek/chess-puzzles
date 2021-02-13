@@ -56,7 +56,7 @@ const About = () => (
           {' '}
           <em>share</em>
           {' '}
-          button.
+          button or the social media link buttons.
         </p>
         <p>
           Works with

@@ -51,22 +51,23 @@ function App() {
             <CreatePuzzles squareTextures={squareTextures} />
           </Route>
           <Route exact strict={false} path="/about">
-            <About />
+            <>
+              <About />
+              <div className="row expanded caption">
+                <button
+                  title="Toggle textures"
+                  aria-label="Toggle textures"
+                  className="main-button"
+                  type="button"
+                  onClick={handleToggleTextures}
+                >
+                  <img style={{ width: '1.5em', height: '1.5em' }} alt="textureToggle" src={terrain} />
+                </button>
+              </div>
+            </>
           </Route>
         </Switch>
       </HashRouter>
-      <div className="row expanded caption">
-        <button
-          title="Toggle textures"
-          aria-label="Toggle textures"
-          className="main-button"
-          type="button"
-          onClick={handleToggleTextures}
-        >
-          <img style={{ width: '1.5em', height: '1.5em' }} alt="textureToggle" src={terrain} />
-        </button>
-
-      </div>
     </>
   );
 }
