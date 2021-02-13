@@ -22,9 +22,12 @@ import edit from './images/edit.svg';
 import twitter from './images/twitter.svg';
 import facebook from './images/facebook.svg';
 import sms from './images/sms.svg';
+import email from './images/email.svg';
 
 const queryString = require('query-string');
 const rot13Cipher = require('rot13-cipher');
+
+const headline = 'Try%20this%20chess%20puzzle.';
 
 const CreatePuzzles = ({ squareTextures }) => {
   const [data, setData] = useState(newBoard());
@@ -35,9 +38,10 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [answer, setAnswer] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [editHint, setEditHint] = useState(false);
-  const [twitterLink, setTwitterLink] = useState(`http://twitter.com/share?text=ChessPuzzles&url=${encodeURIComponent(window.location)}&hashtags=chesspuzzles`);
+  const [twitterLink, setTwitterLink] = useState(`http://twitter.com/share?text=${headline}&url=${encodeURIComponent(window.location)}&hashtags=chesspuzzles`);
   const [facebookLink, setFacebookLink] = useState(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location)}`);
-  const [textLink, setTextLink] = useState(`sms:&body=${encodeURIComponent(window.location)}`);
+  const [textLink, setTextLink] = useState(`sms:&body=${headline}%20${encodeURIComponent(window.location)}`);
+  const [emailLink, setEmailLink] = useState(`mailto:?subject=${headline}&body=${encodeURIComponent(window.location)}`);
 
   const highlightEdit = () => {
     setEditHint(true);
@@ -116,11 +120,13 @@ const CreatePuzzles = ({ squareTextures }) => {
     setSelectedUnit(units.king);
   };
 
+  const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+
   const getCurrentURL = (newData) => `/chess/#/chess/create?${renderPuzzleString(newData)}`;
 
   const getTwitterUrl = () => {
     const fullStr = encodeURIComponent(window.location);
-    return `http://twitter.com/share?text=ChessPuzzles&url=${fullStr}&hashtags=chesspuzzles`;
+    return `http://twitter.com/share?text=${headline}&url=${fullStr}&hashtags=chesspuzzles`;
   };
 
   const getFacebookUrl = () => {
@@ -130,7 +136,12 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   const getTextUrl = () => {
     const fullStr = encodeURIComponent(window.location);
-    return `sms:&body=${fullStr}`;
+    return `sms:&body=${headline}%20${fullStr}`;
+  };
+
+  const getEmailLink = () => {
+    const fullStr = encodeURIComponent(window.location);
+    return `mailto:?subject=${headline}&body=${fullStr}`;
   };
 
   const updateUrl = (newData) => {
@@ -138,6 +149,7 @@ const CreatePuzzles = ({ squareTextures }) => {
     setTwitterLink(getTwitterUrl());
     setFacebookLink(getFacebookUrl());
     setTextLink(getTextUrl());
+    setEmailLink(getEmailLink());
   };
 
   const setUserDataHandler = (square) => {
@@ -266,11 +278,17 @@ const CreatePuzzles = ({ squareTextures }) => {
               <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={twitter} />
             </a>
             <a className="side-link" href={facebookLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={facebook} />
+              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to facebook" src={facebook} />
             </a>
-            <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={sms} />
+            <a className="side-link" href={emailLink} target="_blank" rel="noopener noreferrer">
+              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to email" src={email} />
             </a>
+            {isMobile
+              && (
+              <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
+                <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
+              </a>
+              )}
           </div>
         </>
       )}
