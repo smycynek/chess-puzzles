@@ -59,62 +59,82 @@ const CreatePuzzles = ({ squareTextures }) => {
     setEditMode(!editMode);
   };
 
-  const handleWhitePawnClick = () => {
+  const toolSelect = (e) => {
+    const buttons = document.getElementsByClassName('unit-button');
+    for (let idx = 0; idx < buttons.length; idx += 1) {
+      buttons[idx].classList.remove('selected');
+    }
+    e.currentTarget.classList.toggle('selected');
+  };
+
+  const handleWhitePawnClick = (e) => {
+    toolSelect(e);
     setSelectedColor(white);
     setSelectedUnit(units.pawn);
   };
 
-  const handleWhiteBishopClick = () => {
+  const handleWhiteBishopClick = (e) => {
+    toolSelect(e);
     setSelectedColor(white);
     setSelectedUnit(units.bishop);
   };
 
-  const handleWhiteKnightClick = () => {
+  const handleWhiteKnightClick = (e) => {
+    toolSelect(e);
     setSelectedColor(white);
     setSelectedUnit(units.knight);
   };
 
-  const handleWhiteRookClick = () => {
+  const handleWhiteRookClick = (e) => {
+    toolSelect(e);
     setSelectedColor(white);
     setSelectedUnit(units.rook);
   };
 
-  const handleWhiteQueenClick = () => {
+  const handleWhiteQueenClick = (e) => {
+    toolSelect(e);
     setSelectedColor(white);
     setSelectedUnit(units.queen);
   };
 
-  const handleWhiteKingClick = () => {
+  const handleWhiteKingClick = (e) => {
+    toolSelect(e);
     setSelectedColor(white);
     setSelectedUnit(units.king);
   };
 
-  const handleBlackPawnClick = () => {
+  const handleBlackPawnClick = (e) => {
+    toolSelect(e);
     setSelectedColor(black);
     setSelectedUnit(units.pawn);
   };
 
-  const handleBlackBishopClick = () => {
+  const handleBlackBishopClick = (e) => {
+    toolSelect(e);
     setSelectedColor(black);
     setSelectedUnit(units.bishop);
   };
 
-  const handleBlackKnightClick = () => {
+  const handleBlackKnightClick = (e) => {
+    toolSelect(e);
     setSelectedColor(black);
     setSelectedUnit(units.knight);
   };
 
-  const handleBlackRookClick = () => {
+  const handleBlackRookClick = (e) => {
+    toolSelect(e);
     setSelectedColor(black);
     setSelectedUnit(units.rook);
   };
 
-  const handleBlackQueenClick = () => {
+  const handleBlackQueenClick = (e) => {
+    toolSelect(e);
     setSelectedColor(black);
     setSelectedUnit(units.queen);
   };
 
-  const handleBlackKingClick = () => {
+  const handleBlackKingClick = (e) => {
+    toolSelect(e);
     setSelectedColor(black);
     setSelectedUnit(units.king);
   };
@@ -251,7 +271,7 @@ const CreatePuzzles = ({ squareTextures }) => {
           <button aria-label={`${toolHint} black king`} title={`${toolHint} black king`} className="unit-button" type="button" onClick={handleBlackKingClick}>{renderTool(units.king, black)}</button>
         </div>
         <div className="row indented">
-          <button aria-label={`${toolHint} white pawn`} title={`${toolHint} white pawn`} className="unit-button" type="button" onClick={handleWhitePawnClick}>{renderTool(units.pawn, white)}</button>
+          <button id="whitePawnTool" aria-label={`${toolHint} white pawn`} title={`${toolHint} white pawn`} className="unit-button selected" type="button" onClick={handleWhitePawnClick}>{renderTool(units.pawn, white)}</button>
           <button aria-label={`${toolHint} white knight`} title={`${toolHint} white knight`} className="unit-button" type="button" onClick={handleWhiteKnightClick}>{renderTool(units.knight, white)}</button>
           <button aria-label={`${toolHint} white bishop`} title={`${toolHint} white bishop`} className="unit-button" type="button" onClick={handleWhiteBishopClick}>{renderTool(units.bishop, white)}</button>
           <button aria-label={`${toolHint} white rook`} title={`${toolHint} white rook`} className="unit-button" type="button" onClick={handleWhiteRookClick}>{renderTool(units.rook, white)}</button>

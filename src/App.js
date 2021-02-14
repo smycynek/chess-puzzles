@@ -26,10 +26,6 @@ function App() {
 
   const handleToggleTextures = () => {
     document.body.classList.toggle('tbg-textured');
-    const buttons = document.getElementsByClassName('styled-button');
-    for (let idx = 0; idx < buttons.length; idx += 1) {
-      buttons[idx].classList.toggle('styled-button-textured');
-    }
     setSquareTextures(!squareTextures);
   };
 
