@@ -16,8 +16,6 @@ import StaticPuzzles from './static-puzzles';
 import CreatePuzzles from './create-puzzles';
 import About from './About';
 
-import terrain from './images/terrain.svg';
-
 function App() {
   const [squareTextures, setSquareTextures] = useState(true);
 
@@ -57,11 +55,11 @@ function App() {
                 <button
                   title="Toggle textures"
                   aria-label="Toggle textures"
-                  className="main-button"
+                  className="styled-button"
                   type="button"
                   onClick={handleToggleTextures}
                 >
-                  <img style={{ width: '1.5em', height: '1.5em' }} alt="textureToggle" src={terrain} />
+                  Toggle Textures
                 </button>
               </div>
             </>

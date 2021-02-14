@@ -1,9 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import React from 'react';
-import edit from './images/edit.svg';
 
 const About = () => (
   <div style={{ width: '30em' }}>
@@ -44,13 +44,11 @@ const About = () => (
           persist anywhere on the Internet except in the text of the link.
         </p>
         <p>
-          Click the
+          Toggle the
           {' '}
-          <em>edit</em>
+          <span style={{ fontVariant: 'small-caps' }}>VIEW</span>
           {' '}
-          <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} />
-          {' '}
-          button
+          slider
           to make changes -- the URL will update automatically, and
           you can then text it or re-post it with your browser&apos;s
           {' '}
@@ -75,21 +73,21 @@ const About = () => (
       </li>
     </ul>
     <h2 className="sub-heading">Credit to</h2>
-    <ul className="info-list" style={{ marginBottom: '0.0em' }}>
+    <ul className="info-list">
       <li>
         <strong>Icons:</strong>
         {' '}
         <a className="normal-link" href="https://en.wikipedia.org/wiki/User:Cburnett" title="en:User:Cburnett">Cburnett</a>
         ,
+        {' '}
         <a className="normal-link" href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>
         ,
+        {' '}
         <a className="normal-link" href="https://commons.wikimedia.org/w/index.php?curid=1496656">Wikimedia</a>
         ,
-        <a className="normal-link" href="http://artua.com">artua.com</a>
-        ,
+        {' '}
         <a className="normal-link" href="http://freepik.com">freepik.com</a>
-        ,
-        <a className="normal-link" href="http://icon54.com">icon54.com</a>
+
       </li>
       <li>
         <strong>Textures:</strong>
@@ -111,6 +109,7 @@ const About = () => (
         </a>
       </li>
     </ul>
+    <h2 className="sub-heading">Preferences</h2>
   </div>
 );
 

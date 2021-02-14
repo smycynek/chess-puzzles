@@ -211,11 +211,6 @@ span {
   color: black;
 }
 
-.styled-button-textured {
-  background-image: transparent;
-  background-repeat:repeat;
-}
-
 .styled-button:hover {
   border-width: 1.5px;
   background-color: rgba(234,194,136,0.7);
@@ -341,7 +336,6 @@ ul {
   border-radius: 0.5em;
 }
 
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgb(43, 43, 43);
   opacity: 1; /* Firefox */
@@ -353,4 +347,64 @@ ul {
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: rgb(43, 43, 43);
+}
+
+.sliderbox {
+  margin-left: 0.5em;
+  position: relative;
+  display: inline-block;
+  width: 58px;
+  height: 14px;
+}
+
+.sliderbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  content: "";
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  -webkit-transition: .4s;
+  transition: .4s;
+  color: black;
+  text-align: center;
+  border-color: black;
+  border-radius: 34px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: -2px;
+  bottom: -1px;
+  background-color: black;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: transparent;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(45px);
+  -ms-transform: translateX(45px);
+  transform: translateX(45px);
 }

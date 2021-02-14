@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -17,8 +18,6 @@ import {
   black, white, setUnit, clearUnit,
 } from './utility';
 
-import eye from './images/eye.svg';
-import edit from './images/edit.svg';
 import twitter from './images/twitter.svg';
 import facebook from './images/facebook.svg';
 import sms from './images/sms.svg';
@@ -214,13 +213,15 @@ const CreatePuzzles = ({ squareTextures }) => {
         />
       </div>
       <div className="row">
-        {editHint && <span className="edit-hint">Click edit icon to update puzzle</span>}
+        <label className="sliderbox">
+          <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
+          <span className="slider">{editMode ? ' EDIT' : 'VIEW'}</span>
+        </label>
       </div>
       <div className="row">
-        <button title="Toggle edit/view mode" aria-label="Toggle edit/view mode" type="button" className="main-button" onClick={handleEditModeClick}>
-          { editMode ? <img style={{ width: '1.75em', height: '1.75em' }} alt="view" src={eye} /> : <img style={{ width: '1.75em', height: '1.75em' }} alt="edit" src={edit} /> }
-        </button>
-
+        {editHint && <span className="edit-hint">Toggle the view slider to update puzzle</span>}
+      </div>
+      <div className="row">
         {!editMode
       && (
       <>
@@ -236,7 +237,6 @@ const CreatePuzzles = ({ squareTextures }) => {
         </div>
       </>
       )}
-
       </div>
       {
       editMode
