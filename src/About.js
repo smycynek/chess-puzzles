@@ -46,7 +46,7 @@ const About = () => (
         <p>
           Toggle the
           {' '}
-          <span style={{ fontVariant: 'small-caps' }}>VIEW</span>
+          <span style={{ fontVariant: 'small-caps' }}>VIEW/EDIT</span>
           {' '}
           slider
           to make changes -- the URL will update automatically, and
