@@ -226,7 +226,6 @@ const CreatePuzzles = ({ squareTextures }) => {
   return (
     <>
       <div
-        className="table-top"
         onClick={() => (!editMode ? highlightEdit() : false)}
       >
         <Board

@@ -37,7 +37,7 @@ const StaticPuzzles = ({ squareTextures }) => {
   }, []);
   return (
     <>
-      <div className="table-top">
+      <div>
         <Board data={data} squareTextures={squareTextures} />
       </div>
       <div className="row expanded">

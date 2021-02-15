@@ -16,8 +16,7 @@ const About = () => (
         <a className="normal-link" title="homepage" href="https://stevenvictor.net">
           stevenvictor.net
         </a>
-      </li>
-      <li>
+        {' | ' }
         <a className="normal-link" title="github" href="https://github.com/smycynek/chess-puzzles">
           github.com/smycynek/chess-puzzles
         </a>
@@ -55,16 +54,6 @@ const About = () => (
           <em>share</em>
           {' '}
           button or the social media link buttons.
-        </p>
-        <p>
-          Works with
-          {' '}
-          <a
-            className="normal-link"
-            href="https://tinyurl.com/app"
-          >
-            tinyurl!
-          </a>
         </p>
         <p>
           Brighten someone&apos;s day with a chess puzzle, or send me one you
@@ -109,7 +98,7 @@ const About = () => (
         </a>
       </li>
     </ul>
-    <h2 className="sub-heading">Preferences</h2>
+    <h2 className="sub-heading" style={{ paddingBottom: '0.0em', marginBottom: '0.0em' }}>Preferences</h2>
   </div>
 );
 

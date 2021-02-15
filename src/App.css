@@ -1,4 +1,11 @@
 
+
+@media screen and (min-width:568px) {
+  html {
+      zoom: 1.4;
+  }
+}
+
 h1, h2, h3, head, body, span, p, a, button, ul, li, label, input, .nav-tab {
   font-family: 'Arial', sans-serif;
 }
@@ -69,6 +76,7 @@ span {
 }
 
 .board {
+  width: 29.25em;
   margin: 0.125em;
   display: block;
   align-content: center;
@@ -179,14 +187,6 @@ span {
 .light-textured {
   background-image: url(./images/backgrounds/wong_marble.png);
   background-repeat:repeat;
-}
-.mat {
-  display: 'block'
-}
-
-.table-top {
-  margin: '0.125em';
-  display: 'block';
 }
 
 .dark {

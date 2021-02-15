@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="container" style={{ padding: '0px' }}>
       <h1 className="banner">Chess Puzzles</h1>
       <HashRouter basename="/chess">
         <NavTab title="Sample puzzles" exact strict={false} to="/">Samples</NavTab>
@@ -62,7 +62,7 @@ function App() {
           </Route>
         </Switch>
       </HashRouter>
-    </>
+    </div>
   );
 }
 
