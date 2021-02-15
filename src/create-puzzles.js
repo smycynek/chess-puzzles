@@ -28,6 +28,9 @@ const rot13Cipher = require('rot13-cipher');
 
 const headline = 'Try%20this%20chess%20puzzle.';
 
+const twitterBase = 'http://twitter.com/share?text=';
+const facebookBase = 'https://www.facebook.com/sharer/sharer.php?u=';
+
 const CreatePuzzles = ({ squareTextures }) => {
   const [data, setData] = useState(newBoard());
   const [selectedColor, setSelectedColor] = useState(white);
@@ -37,8 +40,8 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [answer, setAnswer] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [editHint, setEditHint] = useState(false);
-  const [twitterLink, setTwitterLink] = useState(`http://twitter.com/share?text=${headline}&url=${encodeURIComponent(window.location)}&hashtags=chesspuzzles`);
-  const [facebookLink, setFacebookLink] = useState(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location)}`);
+  const [twitterLink, setTwitterLink] = useState(`${twitterBase}${headline}&url=${encodeURIComponent(window.location)}&hashtags=chesspuzzle`);
+  const [facebookLink, setFacebookLink] = useState(`${facebookBase}${encodeURIComponent(window.location)}`);
   const [textLink, setTextLink] = useState(`sms:&body=${headline}%20${encodeURIComponent(window.location)}`);
   const [emailLink, setEmailLink] = useState(`mailto:?subject=${headline}&body=${encodeURIComponent(window.location)}`);
 
@@ -145,12 +148,12 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   const getTwitterUrl = () => {
     const fullStr = encodeURIComponent(window.location);
-    return `http://twitter.com/share?text=${headline}&url=${fullStr}&hashtags=chesspuzzles`;
+    return `${twitterBase}${headline}&url=${fullStr}&hashtags=chesspuzzle`;
   };
 
   const getFacebookUrl = () => {
     const fullStr = encodeURIComponent(window.location);
-    return `https://www.facebook.com/sharer/sharer.php?u=${fullStr}`;
+    return `${facebookBase}${fullStr}`;
   };
 
   const getTextUrl = () => {
@@ -279,7 +282,7 @@ const CreatePuzzles = ({ squareTextures }) => {
           <button aria-label={`${toolHint} white king`} title={`${toolHint} white king`} className="unit-button" type="button" onClick={handleWhiteKingClick}>{renderTool(units.king, white)}</button>
         </div>
 
-        <div className="field">
+        <div className="field" style={{ marginTop: '1em' }}>
           <input className="transparent-input" size="45" placeholder="Question, e.g. 'How can white mate in 2?'" type="text" value={question} onChange={handleChangeQuestion} />
         </div>
         <div className="field">

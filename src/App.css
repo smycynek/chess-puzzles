@@ -139,8 +139,8 @@ span {
   padding: 0.0em;
   border-style: solid;
   border-color: transparent;
-  border-width: 2px;
-  border-radius: 5px;
+  border-width: 1.5px;
+  border-radius: 0.5em;
 }
 
 .selected {
@@ -315,11 +315,6 @@ ul {
   background-color: rgba(234,194,136,0.2);
 }
 
-.field {
-  display: flex;
-
-}
-
 .nav-tab.active {
   background-color: rgba(234,194,136,0.7);
   color: black;
@@ -328,20 +323,13 @@ ul {
   font-weight: bold;
 }
 
-.hidden-input {
-  outline: none;
-  height: '0.25em';
-  background-color: transparent;
-  color: transparent;
-  border-style: none;
-}
-
 .transparent-input {
   margin: 2px;
   background-color:transparent;
   border-width: 1.5px;
   border-color: black;
   border-radius: 0.5em;
+  outline-style: none;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -371,6 +359,7 @@ ul {
   height: 0;
 }
 
+/* Area containing text label */
 .slider {
   content: "";
   position: absolute;
@@ -387,28 +376,23 @@ ul {
   border-color: black;
   border-radius: 34px;
   border-style: solid;
-  border-width: 1px;
+  border-width: 1.5px;
+  line-height: 1.35em;
+  font-size: 0.75em;
 }
 
+/* Circular part that moves */
 .slider:before {
   position: absolute;
   content: "";
-  height: 14px;
-  width: 14px;
+  height: 13px;
+  width: 13px;
   left: -2px;
   bottom: -1px;
   background-color: black;
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: transparent;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px black;
 }
 
 input:checked + .slider:before {
