@@ -1,10 +1,9 @@
 
-
 @media screen and (min-width:568px) {
-  html {
-      zoom: 1.5;
+    html {
+        zoom: 1.5;
+    }
   }
-}
 
 h1, h2, h3, head, body, span, p, a, button, ul, li, label, input, .nav-tab {
   font-family: 'Arial', sans-serif;
@@ -22,11 +21,32 @@ h1,h2,h3 {
   font-weight: bold;
 }
 
-.sub-heading {
+
+h2 {
   line-height: '0.3em';
-  font-size: 1.40em;
+  font-size: 1.50em;
   margin-top: 0.75em;
   margin-bottom: 0.25em;
+  padding: 0em;
+  font-weight: bold;
+}
+
+h3 {
+  line-height: '0.1em';
+  font-size: 1.30em;
+  margin-top: 0.5em;
+  margin-bottom: 0.0em;
+  padding: 0em;
+  font-weight: bold;
+  margin-left: 1.0em;
+}
+
+h4 {
+  line-height: '0.1em';
+  font-size: 1.1em;
+  margin-top: 0.2em;
+  margin-bottom: 0.0em;
+  margin-left: 1.0em;
   padding: 0em;
   font-weight: bold;
 }
@@ -37,23 +57,22 @@ h1,h2,h3 {
   padding-top: 0.0em;
 }
 
-.sub-sub-heading {
-  line-height: '0.1em';
-  font-size: 1.10em;
-  margin-top: 0.75em;
-  margin-bottom: 0.0em;
-  padding: 0em;
-  font-weight: bold;
-}
 
 .info-list {
  list-style-type: none;
- padding-left: 0.5em;
- margin-left: 1.0em;
- margin-right: 0.5em;
- margin-bottom: 1.5em;
- padding: 0.0em;
 }
+
+.info-item {
+  padding-left: 0.5em;
+  margin-left: 1.0em;
+  margin-right: 0.5em;
+  margin-bottom: 1.5em;
+  padding: 0.0em;
+}
+.sub-item {
+  margin-left: 1.5em;
+}
+
 span {
   font-size: 0.75em;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue',
@@ -76,11 +95,8 @@ span {
 }
 
 .board {
-  width: 29.25em;
   margin: 0.125em;
   display: block;
-  align-content: center;
-  align-self: center;
   padding-top: 1em;
 }
 
@@ -285,13 +301,23 @@ ul {
 }
 
 .edit-hint {
-  margin: 0.0em;
-  padding: 0.0em;
+  margin: 0.25em;
+  padding: 0.25em;
   font-weight: bolder;
   font-size: 1.0em;
-  line-height: 0.25em;
+  line-height: 0.5em;
+  color: red;
 }
 
+.space
+{
+  margin: 0.25em;
+  padding: 0.25em;
+  font-weight: bolder;
+  font-size: 1.0em;
+  line-height: 0.5em;
+  color: transparent;
+}
 .nav-tab {
   margin-left: 0.5em;
   margin-top: 1em;

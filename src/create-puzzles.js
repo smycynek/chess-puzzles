@@ -242,6 +242,7 @@ const CreatePuzzles = ({ squareTextures }) => {
       </div>
       <div className="row">
         {editHint && <span className="edit-hint">Toggle the view slider to update puzzle</span>}
+        {!editHint && <span className="space">.</span>}
       </div>
       <div className="row">
         {!editMode
