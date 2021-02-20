@@ -262,7 +262,7 @@ const CreatePuzzles = ({ squareTextures }) => {
       && (
       <>
         <div className="row">
-          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
+          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
         </div>
         <div className="row expanded">
           <span className="caption info-item">

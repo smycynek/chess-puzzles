@@ -14,7 +14,7 @@ const About = () => (
       tab
       has puzzles for you to browse -- see if you can figure them out, and then click the
       {' '}
-      <strong>Show answer</strong>
+      <strong>Show Answer</strong>
       {' '}
       button.
     </p>
