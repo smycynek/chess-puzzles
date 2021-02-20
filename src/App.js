@@ -4,7 +4,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-router-tabs/styles/react-router-tabs.css';
 
-import './App.css';
+import './css/app.css';
 
 import React, { useState, useEffect } from 'react';
 import {

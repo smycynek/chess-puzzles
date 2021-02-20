@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import './css/app.css';
 
 import React, { useState, useEffect } from 'react';
 

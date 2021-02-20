@@ -7,7 +7,7 @@
 /* eslint-disable react/prop-types */
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import './css/app.css';
 
 import React, { useState, useEffect } from 'react';
 
@@ -261,7 +261,7 @@ const CreatePuzzles = ({ squareTextures }) => {
         {!editMode
       && (
       <>
-        <div className="row expanded">
+        <div className="row">
           <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
         </div>
         <div className="row expanded">

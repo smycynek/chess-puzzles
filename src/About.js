@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import './css/app.css';
 
 import React from 'react';
 
