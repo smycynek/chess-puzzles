@@ -3,6 +3,7 @@
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+
 import React from 'react';
 
 const About = () => (
@@ -24,9 +25,9 @@ const About = () => (
       friends or online via a URL as well as edit them or create your own.
       Just click the
       {' '}
-      <span style={{ fontVariant: 'small-caps' }}>
-        VIEW-EDIT
-      </span>
+      <strong>
+        View/Edit
+      </strong>
       {' '}
       slider to go between view and edit modes.
     </p>

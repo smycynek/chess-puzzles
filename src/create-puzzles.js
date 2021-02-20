@@ -8,6 +8,7 @@
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+
 import React, { useState, useEffect } from 'react';
 
 import { useLocation } from 'react-router-dom';
@@ -237,14 +238,24 @@ const CreatePuzzles = ({ squareTextures }) => {
       <div className="row">
         <label className="sliderbox">
           <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
-          <span className="slider">{editMode ? ' EDIT' : 'VIEW'}</span>
+          <span className="slider">{editMode ? ' Edit' : 'View'}</span>
         </label>
       </div>
       <div className="row">
         {editMode && <span>Tap the tools below and squares above to edit the board </span>}
       </div>
       <div className="row">
-        {editHint && <span className="edit-hint">Toggle the view slider to update puzzle</span>}
+        {editHint && (
+        <span className="edit-hint">
+          Toggle the
+          <strong>
+            {' '}
+            View
+            {' '}
+          </strong>
+          slider to update puzzle
+        </span>
+        )}
       </div>
       <div className="row">
         {!editMode
@@ -254,7 +265,7 @@ const CreatePuzzles = ({ squareTextures }) => {
           <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
         </div>
         <div className="row expanded">
-          <span className="caption">
+          <span className="caption info-item">
             {question}
             {' '}
             {showAnswer && <b><i>{answer}</i></b>}
@@ -296,7 +307,7 @@ const CreatePuzzles = ({ squareTextures }) => {
       { !editMode && (
         <>
           <div className="row expanded">
-            <h3 className="sub-sub-heading">Share</h3>
+            <h3>Share</h3>
           </div>
           <div className="row expanded">
             <a className="side-link" href={twitterLink} target="_blank" rel="noopener noreferrer">
