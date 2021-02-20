@@ -2,13 +2,64 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import './css/app.css';
+
 import React from 'react';
 
 const About = () => (
   <div style={{ width: '30em' }}>
+    <h2>Samples Tab</h2>
+    <p className="info-item">
+      The Samples
+      tab
+      has puzzles for you to browse -- see if you can figure them out, and then click the
+      {' '}
+      <strong>Show Answer</strong>
+      {' '}
+      button.
+    </p>
+    <h2>View/Create Tab</h2>
+    <p className="info-item">
+      The View/Create
+      tab lets you view puzzles you&apos;ve gotten from
+      friends or online via a URL as well as edit them or create your own.
+      Just click the
+      {' '}
+      <strong>
+        View/Edit
+      </strong>
+      {' '}
+      slider to go between view and edit modes.
+    </p>
+    <h3>
+      View Mode
+    </h3>
+    <p className="info-item sub-item">
+      This is pretty much like the sample view mode, but note the additional buttons
+      to share the puzzle on social media.  You can also use your device&apos;s
+      {' '}
+      <strong>share</strong>
+      {' '}
+      button.
+    </p>
+    <h3>
+      Edit Mode
+    </h3>
+
+    <p className="info-item sub-item">
+      Here, you can create your own chess position or edit an existing one -- as well as
+      add a puzzle question and answer.  Just tap one of the chess piece tools and tap a square
+      on the board (no drag support yet, sorry!).  Double-tap to clear a square.
+    </p>
+    <h2 className="sub-heading">Geeky stuff</h2>
+    <p className="info-item">
+      User-created puzzles and changes are encoded entirely into the URL that you send and receive.
+      The puzzle doesn&apos;t
+      persist anywhere on the Internet except in the text of the link, so you don&apos;t
+      need a login or account any any site to share puzzles.
+    </p>
     <h2 className="sub-heading">Created by</h2>
-    <ul className="info-list">
+    <ul className="info-list info-item">
       <li>
         Steven Victor Mycynek 2021
       </li>
@@ -16,8 +67,7 @@ const About = () => (
         <a className="normal-link" title="homepage" href="https://stevenvictor.net">
           stevenvictor.net
         </a>
-      </li>
-      <li>
+        {' | ' }
         <a className="normal-link" title="github" href="https://github.com/smycynek/chess-puzzles">
           github.com/smycynek/chess-puzzles
         </a>
@@ -26,54 +76,8 @@ const About = () => (
         No ads, no logins, just content.
       </li>
     </ul>
-    <h2 className="sub-heading">Tips</h2>
-    <ul className="info-list">
-      <li>
-        <p>
-          Browse and try to solve sample puzzles in the first tab.
-          In the second tab, view puzzles others have created, like
-          {' '}
-          <a className="normal-link" href="https://stevenvictor.net/chess/#/chess/create?question=Sample%20question%3A%20Is%20this%20a%20valid%20setup%3F&answer=Fnzcyr%20nafjre%3A%20Ab%20--%202%20ovfubcf%20ba%20gur%20fnzr%20pbybe%20vf%20vyyrtny.&data=wKh1%2CwPa2%2CwPb2%2CbBe3%2CbBf4%2CbPf7%2CbPg7%2CbPh7%2CbKh8">
-            this one
-          </a>
-          .
-        </p>
-        <p>
-          In the second tab, puzzles and changes are encoded entirely into the URL.
-          The puzzle doesn&apos;t
-          persist anywhere on the Internet except in the text of the link.
-        </p>
-        <p>
-          Toggle the
-          {' '}
-          <span style={{ fontVariant: 'small-caps' }}>VIEW/EDIT</span>
-          {' '}
-          slider
-          to make changes -- the URL will update automatically, and
-          you can then text it or re-post it with your browser&apos;s
-          {' '}
-          <em>share</em>
-          {' '}
-          button or the social media link buttons.
-        </p>
-        <p>
-          Works with
-          {' '}
-          <a
-            className="normal-link"
-            href="https://tinyurl.com/app"
-          >
-            tinyurl!
-          </a>
-        </p>
-        <p>
-          Brighten someone&apos;s day with a chess puzzle, or send me one you
-          created!
-        </p>
-      </li>
-    </ul>
     <h2 className="sub-heading">Credit to</h2>
-    <ul className="info-list">
+    <ul className="info-list info-item">
       <li>
         <strong>Icons:</strong>
         {' '}
@@ -109,7 +113,7 @@ const About = () => (
         </a>
       </li>
     </ul>
-    <h2 className="sub-heading">Preferences</h2>
+    <h2 className="sub-heading" style={{ paddingBottom: '0.0em', marginBottom: '0.0em' }}>Preferences</h2>
   </div>
 );
 

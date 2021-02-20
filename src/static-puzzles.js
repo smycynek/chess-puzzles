@@ -2,7 +2,8 @@
 /* eslint-disable react/prop-types */
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import './css/app.css';
+
 import React, { useState, useEffect } from 'react';
 
 import Board from './board';
@@ -37,8 +38,12 @@ const StaticPuzzles = ({ squareTextures }) => {
   }, []);
   return (
     <>
-      <div className="table-top">
+      <div>
         <Board data={data} squareTextures={squareTextures} />
+      </div>
+      <div className="row expanded">
+        <button title="Hide/show answer" id="btn-answer" className="styled-button" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
+        <button title="Show next puzzle" id="btn-next" className="styled-button" type="button" onClick={handleNextPuzzle}>Next Puzzle</button>
       </div>
       <div className="row expanded">
         <span className="caption">
@@ -46,11 +51,6 @@ const StaticPuzzles = ({ squareTextures }) => {
           {' '}
           {showAnswer && <b><i>{data.answer}</i></b>}
         </span>
-      </div>
-
-      <div className="row expanded">
-        <button title="Hide/show answer" id="btn-answer" className="styled-button" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
-        <button title="Show next puzzle" id="btn-next" className="styled-button" type="button" onClick={handleNextPuzzle}>Next puzzle</button>
       </div>
     </>
   );
