@@ -25,7 +25,7 @@ function puzzle2() {
 
 function puzzle3() {
   const data = newBoard();
-  setCaptions('White to move: Can white mate?', 'Yes. (Ra6++)', data);
+  setCaptions('White to move: Can white mate?', 'Yes. (Ra6#)', data);
   setUnit(units.king, black, 8, fileSymbols.a, data);
   setUnit(units.rook, white, 6, fileSymbols.b, data);
   setUnit(units.king, white, 7, fileSymbols.c, data);
@@ -44,7 +44,7 @@ function puzzle4() {
 
 function puzzle5() {
   const data = newBoard();
-  setCaptions('White to move: Can white mate in one move?', 'Yes. (Bc6++)', data);
+  setCaptions('White to move: Can white mate in one move?', 'Yes. (Bc6)', data);
   setUnit(units.king, black, 8, fileSymbols.a, data);
   setUnit(units.king, white, 6, fileSymbols.b, data);
   setUnit(units.bishop, white, 7, fileSymbols.c, data);
@@ -54,7 +54,7 @@ function puzzle5() {
 
 function puzzle6() {
   const data = newBoard();
-  setCaptions('White to move: Can white mate? How? (This one is not mine.  It is from *Bobby Fischer Teaches Chess*).', 'Yes. (Qxg7...Rxg7,Rb8+...Rg8, g7++)', data);
+  setCaptions('White to move: Can white mate? How? (This one is not mine.  It is from *Bobby Fischer Teaches Chess*).', 'Yes. (Qxg7...Rxg7,Rb8+...Rg8, g7#)', data);
   setUnit(units.rook, black, 8, fileSymbols.g, data);
   setUnit(units.king, black, 8, fileSymbols.h, data);
   setUnit(units.pawn, black, 7, fileSymbols.c, data);
@@ -84,7 +84,7 @@ function puzzle6() {
 
 function puzzle7() {
   const data = newBoard();
-  setCaptions('White to move: What is the *worst* thing white could do here?', 'g4 or most other moves except g3. Black can then mate with Qh4++', data);
+  setCaptions('White to move: What is the *worst* thing white could do here?', 'g4 or most other moves except g3. Black can then mate with Qh4#', data);
   setUnit(units.rook, black, 8, fileSymbols.a, data);
   setUnit(units.knight, black, 8, fileSymbols.b, data);
   setUnit(units.bishop, black, 8, fileSymbols.c, data);
