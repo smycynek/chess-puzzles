@@ -16,7 +16,7 @@ function puzzle1() {
 
 function puzzle2() {
   const data = newBoard();
-  setCaptions('White to move: Can white mate?', 'No - draw.', data);
+  setCaptions('White to move: Can white mate here?', 'No - draw.', data);
   setUnit(units.king, black, 8, fileSymbols.a, data);
   setUnit(units.bishop, white, 8, fileSymbols.c, data);
   setUnit(units.king, white, 6, fileSymbols.c, data);
@@ -25,7 +25,7 @@ function puzzle2() {
 
 function puzzle3() {
   const data = newBoard();
-  setCaptions('White to move: Can white mate?', 'Yes. (Ra6#)', data);
+  setCaptions('White to move: Can white mate here either?', 'Yes. (Ra6#)', data);
   setUnit(units.king, black, 8, fileSymbols.a, data);
   setUnit(units.rook, white, 6, fileSymbols.b, data);
   setUnit(units.king, white, 7, fileSymbols.c, data);
@@ -44,7 +44,7 @@ function puzzle4() {
 
 function puzzle5() {
   const data = newBoard();
-  setCaptions('White to move: Can white mate in one move?', 'Yes. (Bc6)', data);
+  setCaptions('White to move: Can white mate in one move?', 'Yes. (Bc6#)', data);
   setUnit(units.king, black, 8, fileSymbols.a, data);
   setUnit(units.king, white, 6, fileSymbols.b, data);
   setUnit(units.bishop, white, 7, fileSymbols.c, data);
@@ -178,7 +178,19 @@ function fromURL3() {
   const queryString = 'question=White%20to%20move%20--%20any%20ideas%3F&answer=Op3%2B%20--%20fxrjref%20gur%20oynpx%20xvat%20naq%20nyybjf%20sbe%20n%20dhrra%20pncgher.&data=wKh1%2CwBf1%2CwPg2%2CwPh2%2CbNb2%2CbNb3%2CbPc4%2CwBa5%2CwNg5%2CwPb6%2CwRh6%2CbKg7%2CbPh7%2CbBf7%2CbBa7%2CwPb7%2CbQh8';
   return fromQueryString(queryString);
 }
+
+function fromURL4() {
+  const queryString = 'question=What%20might%20be%20a%20good%20move%20for%20white%3F&answer=Ot5%2B.%20Guvf%20qenjf%20gur%20xvat%20njnl%20sebz%20gur%20oynpx%20ebbx%2C%20nyybjvat%20gur%20juvgr%20ebbx%20gb%20pncgher%20vg%20fnsryl.&data=wKh1%2CwNg3%2CbNe3%2CbBh5%2CwBf6%2CbKh6%2CbPg6%2CbRh7%2CwRa7';
+  return fromQueryString(queryString);
+}
+
+function fromURL5() {
+  const queryString = 'question=Black%20to%20move%20and%20win:&answer=s1%3DA%23&data=wNg1%2CwQh1%2CwKh2%2CbBg2%2CbPf2%2CbRg3%2CwBc3%2CbKh4%2CwRg5%2CwPc5%2CwNh5%2CwRg6%2CwPb6%2CbBe7';
+  return fromQueryString(queryString);
+}
+
 const puzzles = [defaultSetup, puzzle1,
-  puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7, fromURL1, fromURL2, fromURL3];
+  puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7,
+  fromURL1, fromURL2, fromURL3, fromURL4, fromURL5];
 
 export default puzzles;
