@@ -1,0 +1,1646 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Board can render 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        aria-label="Chess Board"
+        class="board"
+      >
+        <div
+          class="row"
+        >
+          <button
+            aria-label="a8"
+            class="square light"
+            draggable="true"
+            id="a8"
+            title="a8"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="b8"
+            class="square dark"
+            draggable="true"
+            id="b8"
+            title="b8"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="c8"
+            class="square light"
+            draggable="true"
+            id="c8"
+            title="c8"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="d8"
+            class="square dark"
+            draggable="true"
+            id="d8"
+            title="d8"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="e8"
+            class="square light"
+            draggable="true"
+            id="e8"
+            title="e8"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="f8"
+            class="square dark"
+            draggable="true"
+            id="f8"
+            title="f8"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="g8"
+            class="square light"
+            draggable="true"
+            id="g8"
+            title="g8"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="h8"
+            class="square dark"
+            draggable="true"
+            id="h8"
+            title="h8"
+            type="button"
+          >
+            <img
+              alt="black-K"
+              class="unit"
+              draggable="true"
+              id="blackKh8"
+              src="Chess_kdt45.svg"
+              title="black-K"
+            />
+          </button>
+          <span
+            aria-label="rank"
+            class="label"
+          >
+            8
+          </span>
+        </div>
+        <div
+          class="row"
+        >
+          <button
+            aria-label="a7"
+            class="square dark"
+            draggable="true"
+            id="a7"
+            title="a7"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="b7"
+            class="square light"
+            draggable="true"
+            id="b7"
+            title="b7"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="c7"
+            class="square dark"
+            draggable="true"
+            id="c7"
+            title="c7"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="d7"
+            class="square light"
+            draggable="true"
+            id="d7"
+            title="d7"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="e7"
+            class="square dark"
+            draggable="true"
+            id="e7"
+            title="e7"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="f7"
+            class="square light"
+            draggable="true"
+            id="f7"
+            title="f7"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="g7"
+            class="square dark"
+            draggable="true"
+            id="g7"
+            title="g7"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="h7"
+            class="square light"
+            draggable="true"
+            id="h7"
+            title="h7"
+            type="button"
+          >
+            <span />
+          </button>
+          <span
+            aria-label="rank"
+            class="label"
+          >
+            7
+          </span>
+        </div>
+        <div
+          class="row"
+        >
+          <button
+            aria-label="a6"
+            class="square light"
+            draggable="true"
+            id="a6"
+            title="a6"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="b6"
+            class="square dark"
+            draggable="true"
+            id="b6"
+            title="b6"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="c6"
+            class="square light"
+            draggable="true"
+            id="c6"
+            title="c6"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="d6"
+            class="square dark"
+            draggable="true"
+            id="d6"
+            title="d6"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="e6"
+            class="square light"
+            draggable="true"
+            id="e6"
+            title="e6"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="f6"
+            class="square dark"
+            draggable="true"
+            id="f6"
+            title="f6"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="g6"
+            class="square light"
+            draggable="true"
+            id="g6"
+            title="g6"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="h6"
+            class="square dark"
+            draggable="true"
+            id="h6"
+            title="h6"
+            type="button"
+          >
+            <span />
+          </button>
+          <span
+            aria-label="rank"
+            class="label"
+          >
+            6
+          </span>
+        </div>
+        <div
+          class="row"
+        >
+          <button
+            aria-label="a5"
+            class="square dark"
+            draggable="true"
+            id="a5"
+            title="a5"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="b5"
+            class="square light"
+            draggable="true"
+            id="b5"
+            title="b5"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="c5"
+            class="square dark"
+            draggable="true"
+            id="c5"
+            title="c5"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="d5"
+            class="square light"
+            draggable="true"
+            id="d5"
+            title="d5"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="e5"
+            class="square dark"
+            draggable="true"
+            id="e5"
+            title="e5"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="f5"
+            class="square light"
+            draggable="true"
+            id="f5"
+            title="f5"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="g5"
+            class="square dark"
+            draggable="true"
+            id="g5"
+            title="g5"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="h5"
+            class="square light"
+            draggable="true"
+            id="h5"
+            title="h5"
+            type="button"
+          >
+            <span />
+          </button>
+          <span
+            aria-label="rank"
+            class="label"
+          >
+            5
+          </span>
+        </div>
+        <div
+          class="row"
+        >
+          <button
+            aria-label="a4"
+            class="square light"
+            draggable="true"
+            id="a4"
+            title="a4"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="b4"
+            class="square dark"
+            draggable="true"
+            id="b4"
+            title="b4"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="c4"
+            class="square light"
+            draggable="true"
+            id="c4"
+            title="c4"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="d4"
+            class="square dark"
+            draggable="true"
+            id="d4"
+            title="d4"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="e4"
+            class="square light"
+            draggable="true"
+            id="e4"
+            title="e4"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="f4"
+            class="square dark"
+            draggable="true"
+            id="f4"
+            title="f4"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="g4"
+            class="square light"
+            draggable="true"
+            id="g4"
+            title="g4"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="h4"
+            class="square dark"
+            draggable="true"
+            id="h4"
+            title="h4"
+            type="button"
+          >
+            <span />
+          </button>
+          <span
+            aria-label="rank"
+            class="label"
+          >
+            4
+          </span>
+        </div>
+        <div
+          class="row"
+        >
+          <button
+            aria-label="a3"
+            class="square dark"
+            draggable="true"
+            id="a3"
+            title="a3"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="b3"
+            class="square light"
+            draggable="true"
+            id="b3"
+            title="b3"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="c3"
+            class="square dark"
+            draggable="true"
+            id="c3"
+            title="c3"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="d3"
+            class="square light"
+            draggable="true"
+            id="d3"
+            title="d3"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="e3"
+            class="square dark"
+            draggable="true"
+            id="e3"
+            title="e3"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="f3"
+            class="square light"
+            draggable="true"
+            id="f3"
+            title="f3"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="g3"
+            class="square dark"
+            draggable="true"
+            id="g3"
+            title="g3"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="h3"
+            class="square light"
+            draggable="true"
+            id="h3"
+            title="h3"
+            type="button"
+          >
+            <span />
+          </button>
+          <span
+            aria-label="rank"
+            class="label"
+          >
+            3
+          </span>
+        </div>
+        <div
+          class="row"
+        >
+          <button
+            aria-label="a2"
+            class="square light"
+            draggable="true"
+            id="a2"
+            title="a2"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="b2"
+            class="square dark"
+            draggable="true"
+            id="b2"
+            title="b2"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="c2"
+            class="square light"
+            draggable="true"
+            id="c2"
+            title="c2"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="d2"
+            class="square dark"
+            draggable="true"
+            id="d2"
+            title="d2"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="e2"
+            class="square light"
+            draggable="true"
+            id="e2"
+            title="e2"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="f2"
+            class="square dark"
+            draggable="true"
+            id="f2"
+            title="f2"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="g2"
+            class="square light"
+            draggable="true"
+            id="g2"
+            title="g2"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="h2"
+            class="square dark"
+            draggable="true"
+            id="h2"
+            title="h2"
+            type="button"
+          >
+            <span />
+          </button>
+          <span
+            aria-label="rank"
+            class="label"
+          >
+            2
+          </span>
+        </div>
+        <div
+          class="row"
+        >
+          <button
+            aria-label="a1"
+            class="square dark"
+            draggable="true"
+            id="a1"
+            title="a1"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="b1"
+            class="square light"
+            draggable="true"
+            id="b1"
+            title="b1"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="c1"
+            class="square dark"
+            draggable="true"
+            id="c1"
+            title="c1"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="d1"
+            class="square light"
+            draggable="true"
+            id="d1"
+            title="d1"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="e1"
+            class="square dark"
+            draggable="true"
+            id="e1"
+            title="e1"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="f1"
+            class="square light"
+            draggable="true"
+            id="f1"
+            title="f1"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="g1"
+            class="square dark"
+            draggable="true"
+            id="g1"
+            title="g1"
+            type="button"
+          >
+            <span />
+          </button>
+          <button
+            aria-label="h1"
+            class="square light"
+            draggable="true"
+            id="h1"
+            title="h1"
+            type="button"
+          >
+            <img
+              alt="white-K"
+              class="unit"
+              draggable="true"
+              id="whiteKh1"
+              src="Chess_klt45.svg"
+              title="white-K"
+            />
+          </button>
+          <span
+            aria-label="rank"
+            class="label"
+          >
+            1
+          </span>
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            aria-label="file"
+            class="label"
+          >
+            a
+          </div>
+          <div
+            aria-label="file"
+            class="label"
+          >
+            b
+          </div>
+          <div
+            aria-label="file"
+            class="label"
+          >
+            c
+          </div>
+          <div
+            aria-label="file"
+            class="label"
+          >
+            d
+          </div>
+          <div
+            aria-label="file"
+            class="label"
+          >
+            e
+          </div>
+          <div
+            aria-label="file"
+            class="label"
+          >
+            f
+          </div>
+          <div
+            aria-label="file"
+            class="label"
+          >
+            g
+          </div>
+          <div
+            aria-label="file"
+            class="label"
+          >
+            h
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      aria-label="Chess Board"
+      class="board"
+    >
+      <div
+        class="row"
+      >
+        <button
+          aria-label="a8"
+          class="square light"
+          draggable="true"
+          id="a8"
+          title="a8"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="b8"
+          class="square dark"
+          draggable="true"
+          id="b8"
+          title="b8"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="c8"
+          class="square light"
+          draggable="true"
+          id="c8"
+          title="c8"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="d8"
+          class="square dark"
+          draggable="true"
+          id="d8"
+          title="d8"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="e8"
+          class="square light"
+          draggable="true"
+          id="e8"
+          title="e8"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="f8"
+          class="square dark"
+          draggable="true"
+          id="f8"
+          title="f8"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="g8"
+          class="square light"
+          draggable="true"
+          id="g8"
+          title="g8"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="h8"
+          class="square dark"
+          draggable="true"
+          id="h8"
+          title="h8"
+          type="button"
+        >
+          <img
+            alt="black-K"
+            class="unit"
+            draggable="true"
+            id="blackKh8"
+            src="Chess_kdt45.svg"
+            title="black-K"
+          />
+        </button>
+        <span
+          aria-label="rank"
+          class="label"
+        >
+          8
+        </span>
+      </div>
+      <div
+        class="row"
+      >
+        <button
+          aria-label="a7"
+          class="square dark"
+          draggable="true"
+          id="a7"
+          title="a7"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="b7"
+          class="square light"
+          draggable="true"
+          id="b7"
+          title="b7"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="c7"
+          class="square dark"
+          draggable="true"
+          id="c7"
+          title="c7"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="d7"
+          class="square light"
+          draggable="true"
+          id="d7"
+          title="d7"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="e7"
+          class="square dark"
+          draggable="true"
+          id="e7"
+          title="e7"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="f7"
+          class="square light"
+          draggable="true"
+          id="f7"
+          title="f7"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="g7"
+          class="square dark"
+          draggable="true"
+          id="g7"
+          title="g7"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="h7"
+          class="square light"
+          draggable="true"
+          id="h7"
+          title="h7"
+          type="button"
+        >
+          <span />
+        </button>
+        <span
+          aria-label="rank"
+          class="label"
+        >
+          7
+        </span>
+      </div>
+      <div
+        class="row"
+      >
+        <button
+          aria-label="a6"
+          class="square light"
+          draggable="true"
+          id="a6"
+          title="a6"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="b6"
+          class="square dark"
+          draggable="true"
+          id="b6"
+          title="b6"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="c6"
+          class="square light"
+          draggable="true"
+          id="c6"
+          title="c6"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="d6"
+          class="square dark"
+          draggable="true"
+          id="d6"
+          title="d6"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="e6"
+          class="square light"
+          draggable="true"
+          id="e6"
+          title="e6"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="f6"
+          class="square dark"
+          draggable="true"
+          id="f6"
+          title="f6"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="g6"
+          class="square light"
+          draggable="true"
+          id="g6"
+          title="g6"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="h6"
+          class="square dark"
+          draggable="true"
+          id="h6"
+          title="h6"
+          type="button"
+        >
+          <span />
+        </button>
+        <span
+          aria-label="rank"
+          class="label"
+        >
+          6
+        </span>
+      </div>
+      <div
+        class="row"
+      >
+        <button
+          aria-label="a5"
+          class="square dark"
+          draggable="true"
+          id="a5"
+          title="a5"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="b5"
+          class="square light"
+          draggable="true"
+          id="b5"
+          title="b5"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="c5"
+          class="square dark"
+          draggable="true"
+          id="c5"
+          title="c5"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="d5"
+          class="square light"
+          draggable="true"
+          id="d5"
+          title="d5"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="e5"
+          class="square dark"
+          draggable="true"
+          id="e5"
+          title="e5"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="f5"
+          class="square light"
+          draggable="true"
+          id="f5"
+          title="f5"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="g5"
+          class="square dark"
+          draggable="true"
+          id="g5"
+          title="g5"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="h5"
+          class="square light"
+          draggable="true"
+          id="h5"
+          title="h5"
+          type="button"
+        >
+          <span />
+        </button>
+        <span
+          aria-label="rank"
+          class="label"
+        >
+          5
+        </span>
+      </div>
+      <div
+        class="row"
+      >
+        <button
+          aria-label="a4"
+          class="square light"
+          draggable="true"
+          id="a4"
+          title="a4"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="b4"
+          class="square dark"
+          draggable="true"
+          id="b4"
+          title="b4"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="c4"
+          class="square light"
+          draggable="true"
+          id="c4"
+          title="c4"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="d4"
+          class="square dark"
+          draggable="true"
+          id="d4"
+          title="d4"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="e4"
+          class="square light"
+          draggable="true"
+          id="e4"
+          title="e4"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="f4"
+          class="square dark"
+          draggable="true"
+          id="f4"
+          title="f4"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="g4"
+          class="square light"
+          draggable="true"
+          id="g4"
+          title="g4"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="h4"
+          class="square dark"
+          draggable="true"
+          id="h4"
+          title="h4"
+          type="button"
+        >
+          <span />
+        </button>
+        <span
+          aria-label="rank"
+          class="label"
+        >
+          4
+        </span>
+      </div>
+      <div
+        class="row"
+      >
+        <button
+          aria-label="a3"
+          class="square dark"
+          draggable="true"
+          id="a3"
+          title="a3"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="b3"
+          class="square light"
+          draggable="true"
+          id="b3"
+          title="b3"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="c3"
+          class="square dark"
+          draggable="true"
+          id="c3"
+          title="c3"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="d3"
+          class="square light"
+          draggable="true"
+          id="d3"
+          title="d3"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="e3"
+          class="square dark"
+          draggable="true"
+          id="e3"
+          title="e3"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="f3"
+          class="square light"
+          draggable="true"
+          id="f3"
+          title="f3"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="g3"
+          class="square dark"
+          draggable="true"
+          id="g3"
+          title="g3"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="h3"
+          class="square light"
+          draggable="true"
+          id="h3"
+          title="h3"
+          type="button"
+        >
+          <span />
+        </button>
+        <span
+          aria-label="rank"
+          class="label"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="row"
+      >
+        <button
+          aria-label="a2"
+          class="square light"
+          draggable="true"
+          id="a2"
+          title="a2"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="b2"
+          class="square dark"
+          draggable="true"
+          id="b2"
+          title="b2"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="c2"
+          class="square light"
+          draggable="true"
+          id="c2"
+          title="c2"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="d2"
+          class="square dark"
+          draggable="true"
+          id="d2"
+          title="d2"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="e2"
+          class="square light"
+          draggable="true"
+          id="e2"
+          title="e2"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="f2"
+          class="square dark"
+          draggable="true"
+          id="f2"
+          title="f2"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="g2"
+          class="square light"
+          draggable="true"
+          id="g2"
+          title="g2"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="h2"
+          class="square dark"
+          draggable="true"
+          id="h2"
+          title="h2"
+          type="button"
+        >
+          <span />
+        </button>
+        <span
+          aria-label="rank"
+          class="label"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="row"
+      >
+        <button
+          aria-label="a1"
+          class="square dark"
+          draggable="true"
+          id="a1"
+          title="a1"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="b1"
+          class="square light"
+          draggable="true"
+          id="b1"
+          title="b1"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="c1"
+          class="square dark"
+          draggable="true"
+          id="c1"
+          title="c1"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="d1"
+          class="square light"
+          draggable="true"
+          id="d1"
+          title="d1"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="e1"
+          class="square dark"
+          draggable="true"
+          id="e1"
+          title="e1"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="f1"
+          class="square light"
+          draggable="true"
+          id="f1"
+          title="f1"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="g1"
+          class="square dark"
+          draggable="true"
+          id="g1"
+          title="g1"
+          type="button"
+        >
+          <span />
+        </button>
+        <button
+          aria-label="h1"
+          class="square light"
+          draggable="true"
+          id="h1"
+          title="h1"
+          type="button"
+        >
+          <img
+            alt="white-K"
+            class="unit"
+            draggable="true"
+            id="whiteKh1"
+            src="Chess_klt45.svg"
+            title="white-K"
+          />
+        </button>
+        <span
+          aria-label="rank"
+          class="label"
+        >
+          1
+        </span>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          aria-label="file"
+          class="label"
+        >
+          a
+        </div>
+        <div
+          aria-label="file"
+          class="label"
+        >
+          b
+        </div>
+        <div
+          aria-label="file"
+          class="label"
+        >
+          c
+        </div>
+        <div
+          aria-label="file"
+          class="label"
+        >
+          d
+        </div>
+        <div
+          aria-label="file"
+          class="label"
+        >
+          e
+        </div>
+        <div
+          aria-label="file"
+          class="label"
+        >
+          f
+        </div>
+        <div
+          aria-label="file"
+          class="label"
+        >
+          g
+        </div>
+        <div
+          aria-label="file"
+          class="label"
+        >
+          h
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

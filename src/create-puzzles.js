@@ -188,6 +188,25 @@ const CreatePuzzles = ({ squareTextures }) => {
     setData(newUserData);
     updateUrl(newUserData);
   };
+
+  const setDragUseDataHandler = (source, target) => {
+    console.log('DH!');
+    console.log(source);
+    console.log(target);
+    const newUserData = { ...data };
+    const targetSquare = { file: target[0], rank: Number(target[1]) }; // improve
+    const sourceSquare = { file: source[6], rank: Number(source[7]) };
+    const sourceUnit = { color: source.substr(0, 5), unit: source[5] };
+
+    console.log(sourceSquare);
+    console.log(sourceUnit);
+    console.log(targetSquare);
+    clearUnit(sourceSquare.rank, sourceSquare.file, newUserData);
+    setUnit(sourceUnit.unit, sourceUnit.color, targetSquare.rank, targetSquare.file, newUserData);
+
+    setData(newUserData);
+    updateUrl(newUserData);
+  };
   const queryParmString = useLocation().search;
 
   const initFromUrl = () => {
@@ -233,6 +252,7 @@ const CreatePuzzles = ({ squareTextures }) => {
           data={data}
           squareTextures={squareTextures}
           clickCallback={editMode ? setUserDataHandler : () => {}}
+          dragCallback={editMode ? setDragUseDataHandler : () => {}}
         />
       </div>
       <div className="row">

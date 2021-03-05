@@ -4,7 +4,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/app.css';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import Board from './board';
 import puzzles from './puzzles/puzzles';
@@ -22,11 +22,12 @@ const StaticPuzzles = ({ squareTextures }) => {
       return 0;
     });
   };
-
+  const btnRef = useRef(null);
   const handleNextPuzzle = () => {
     setShowAnswer(false);
     newPuzzleIndex();
     setData(puzzles[index]());
+    btnRef.current.blur();
   };
 
   const handleShowHideClick = () => {
@@ -43,7 +44,7 @@ const StaticPuzzles = ({ squareTextures }) => {
       </div>
       <div className="row expanded">
         <button title="Hide/show answer" id="btn-answer" className="styled-button" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
-        <button title="Show next puzzle" id="btn-next" className="styled-button" type="button" onClick={handleNextPuzzle}>Next Puzzle</button>
+        <button ref={btnRef} title="Show next puzzle" id="btn-next" className="styled-button" type="button" onClick={handleNextPuzzle}>Next Puzzle</button>
       </div>
       <div className="row expanded">
         <span className="caption">

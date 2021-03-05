@@ -55,9 +55,13 @@ const getUnitImage = (type, color) => {
   }
 };
 
-export const renderUnit = (type, color) => {
+const drag = (ev) => {
+  ev.dataTransfer.setData('unit', ev.target.id);
+};
+
+export const renderUnit = (type, color, dataRank, dataFile) => {
   const image = getUnitImage(type, color);
-  return <img title={`${color}-${type}`} alt={`${color}-${type}`} className="unit" src={image} />;
+  return <img onDragStart={(event) => drag(event)} id={`${color}${type}${dataFile}${dataRank}`} draggable title={`${color}-${type}`} alt={`${color}-${type}`} className="unit" src={image} />;
 };
 
 export const renderTool = (type, color) => {
@@ -137,7 +141,7 @@ export const getUnitFromData = (val, data) => {
   if (data[dataRank]) {
     const item = data[dataRank][dataFile];
     if (item) {
-      return renderUnit(item.unit, item.color);
+      return renderUnit(item.unit, item.color, dataRank, dataFile);
     }
     return <span />;
   }
