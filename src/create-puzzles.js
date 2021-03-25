@@ -190,23 +190,46 @@ const CreatePuzzles = ({ squareTextures }) => {
   };
 
   const setDragUseDataHandler = (source, target) => {
+    if (!source) {
+      return;
+    }
     console.log('DH!');
     console.log(source);
     console.log(target);
     const newUserData = { ...data };
-    const targetSquare = { file: target[0], rank: Number(target[1]) }; // improve
-    const sourceSquare = { file: source[6], rank: Number(source[7]) };
-    const sourceUnit = { color: source.substr(0, 5), unit: source[5] };
+    let sourceSquare;
+    let sourceUnit;
+    if (source.length > 6) {
+      sourceSquare = { file: source[6], rank: Number(source[7]) };
+      sourceUnit = { color: source.substr(0, 5), unit: source[5] };
+    } else {
+      sourceSquare = null;
+      sourceUnit = { color: source.substr(0, 5), unit: source[5] };
+      setSelectedUnit(sourceUnit.unit);
+      setSelectedColor(sourceUnit.color);
+    }
+    let targetSquare;
+    if (target.startsWith('rank') || target.startsWith('file')) {
+      targetSquare = null;
+    } else if (target.length <= 4) {
+      targetSquare = { file: target[0], rank: Number(target[1]) };
+    } else {
+      targetSquare = { file: target[6], rank: Number(target[7]) };
+    }
 
     console.log(sourceSquare);
     console.log(sourceUnit);
     console.log(targetSquare);
-    clearUnit(sourceSquare.rank, sourceSquare.file, newUserData);
-    setUnit(sourceUnit.unit, sourceUnit.color, targetSquare.rank, targetSquare.file, newUserData);
-
+    if (sourceSquare) {
+      clearUnit(sourceSquare.rank, sourceSquare.file, newUserData);
+    }
+    if (targetSquare) {
+      setUnit(sourceUnit.unit, sourceUnit.color, targetSquare.rank, targetSquare.file, newUserData);
+    }
     setData(newUserData);
     updateUrl(newUserData);
   };
+
   const queryParmString = useLocation().search;
 
   const initFromUrl = () => {
@@ -243,6 +266,11 @@ const CreatePuzzles = ({ squareTextures }) => {
     updateUrl(newUserData);
   };
 
+  const dragTool = (ev) => {
+    toolSelect(ev);
+    ev.dataTransfer.setData('unit', ev.target.id.substr(2));
+  };
+
   return (
     <>
       <div
@@ -252,7 +280,7 @@ const CreatePuzzles = ({ squareTextures }) => {
           data={data}
           squareTextures={squareTextures}
           clickCallback={editMode ? setUserDataHandler : () => {}}
-          dragCallback={editMode ? setDragUseDataHandler : () => {}}
+          dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
         />
       </div>
       <div className="row">
@@ -262,7 +290,7 @@ const CreatePuzzles = ({ squareTextures }) => {
         </label>
       </div>
       <div className="row">
-        {editMode && <span>Tap the tools below and squares above to edit the board </span>}
+        {editMode && <span>Tap or drag the tools below and squares above to edit the board </span>}
       </div>
       <div className="row">
         {editHint && (
@@ -299,20 +327,20 @@ const CreatePuzzles = ({ squareTextures }) => {
       && (
       <>
         <div className="row indented">
-          <button aria-label={`${toolHint} black pawn`} title={`${toolHint} black pawn`} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
-          <button aria-label={`${toolHint} black knight`} title={`${toolHint} black knight`} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
-          <button aria-label={`${toolHint} black bishop`} title={`${toolHint} black bishop`} className="unit-button" type="button" onClick={handleBlackBishopClick}>{renderTool(units.bishop, black)}</button>
-          <button aria-label={`${toolHint} black rook`} title={`${toolHint} black rook`} className="unit-button" type="button" onClick={handleBlackRookClick}>{renderTool(units.rook, black)}</button>
-          <button aria-label={`${toolHint} black queen`} title={`${toolHint} black queen`} className="unit-button" type="button" onClick={handleBlackQueenClick}>{renderTool(units.queen, black)}</button>
-          <button aria-label={`${toolHint} black king`} title={`${toolHint} black king`} className="unit-button" type="button" onClick={handleBlackKingClick}>{renderTool(units.king, black)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} black pawn`} title={`${toolHint} black pawn`} className="unit-button" type="button" onClick={handleBlackPawnClick}>{renderTool(units.pawn, black)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} black knight`} title={`${toolHint} black knight`} className="unit-button" type="button" onClick={handleBlackKnightClick}>{renderTool(units.knight, black)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} black bishop`} title={`${toolHint} black bishop`} className="unit-button" type="button" onClick={handleBlackBishopClick}>{renderTool(units.bishop, black)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} black rook`} title={`${toolHint} black rook`} className="unit-button" type="button" onClick={handleBlackRookClick}>{renderTool(units.rook, black)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} black queen`} title={`${toolHint} black queen`} className="unit-button" type="button" onClick={handleBlackQueenClick}>{renderTool(units.queen, black)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} black king`} title={`${toolHint} black king`} className="unit-button" type="button" onClick={handleBlackKingClick}>{renderTool(units.king, black)}</button>
         </div>
         <div className="row indented">
-          <button id="whitePawnTool" aria-label={`${toolHint} white pawn`} title={`${toolHint} white pawn`} className="unit-button selected" type="button" onClick={handleWhitePawnClick}>{renderTool(units.pawn, white)}</button>
-          <button aria-label={`${toolHint} white knight`} title={`${toolHint} white knight`} className="unit-button" type="button" onClick={handleWhiteKnightClick}>{renderTool(units.knight, white)}</button>
-          <button aria-label={`${toolHint} white bishop`} title={`${toolHint} white bishop`} className="unit-button" type="button" onClick={handleWhiteBishopClick}>{renderTool(units.bishop, white)}</button>
-          <button aria-label={`${toolHint} white rook`} title={`${toolHint} white rook`} className="unit-button" type="button" onClick={handleWhiteRookClick}>{renderTool(units.rook, white)}</button>
-          <button aria-label={`${toolHint} white queen`} title={`${toolHint} white queen`} className="unit-button" type="button" onClick={handleWhiteQueenClick}>{renderTool(units.queen, white)}</button>
-          <button aria-label={`${toolHint} white king`} title={`${toolHint} white king`} className="unit-button" type="button" onClick={handleWhiteKingClick}>{renderTool(units.king, white)}</button>
+          <button onDragStart={(event) => dragTool(event)} id="whitePawnTool" aria-label={`${toolHint} white pawn`} title={`${toolHint} white pawn`} className="unit-button selected" type="button" onClick={handleWhitePawnClick}>{renderTool(units.pawn, white)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} white knight`} title={`${toolHint} white knight`} className="unit-button" type="button" onClick={handleWhiteKnightClick}>{renderTool(units.knight, white)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} white bishop`} title={`${toolHint} white bishop`} className="unit-button" type="button" onClick={handleWhiteBishopClick}>{renderTool(units.bishop, white)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} white rook`} title={`${toolHint} white rook`} className="unit-button" type="button" onClick={handleWhiteRookClick}>{renderTool(units.rook, white)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} white queen`} title={`${toolHint} white queen`} className="unit-button" type="button" onClick={handleWhiteQueenClick}>{renderTool(units.queen, white)}</button>
+          <button onDragStart={(event) => dragTool(event)} aria-label={`${toolHint} white king`} title={`${toolHint} white king`} className="unit-button" type="button" onClick={handleWhiteKingClick}>{renderTool(units.king, white)}</button>
         </div>
 
         <div className="field" style={{ marginTop: '1em' }}>
