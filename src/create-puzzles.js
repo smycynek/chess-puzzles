@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
@@ -290,7 +291,7 @@ const CreatePuzzles = ({ squareTextures }) => {
         </label>
       </div>
       <div className="row">
-        {editMode && <span>Tap or drag the tools below and squares above to edit the board </span>}
+        {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
       </div>
       <div className="row">
         {editHint && (
