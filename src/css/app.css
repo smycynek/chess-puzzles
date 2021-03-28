@@ -237,6 +237,12 @@ h4 {
 
 .styled-button:hover {
   border-width: 1.5px;
+  background-color: rgba(117,97,68,0.2);
+  border-color: black;
+}
+
+.styled-button:focus {
+  border-width: 1.5px;
   background-color: rgba(117,97,68,0.3);
   border-color: black;
 }

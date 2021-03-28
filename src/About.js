@@ -49,7 +49,8 @@ const About = () => (
     <p className="info-item sub-item">
       Here, you can create your own chess position or edit an existing one -- as well as
       add a puzzle question and answer.  Just tap one of the chess piece tools and tap a square
-      on the board (no drag support yet, sorry!).  Double-tap to clear a square.
+      on the board.  Double-tap to clear a square.  Drag and drop support is currently desktop-only
+      and is a bit limited -- drag to one of the rank or file labels to remove a piece.
     </p>
     <h2 className="sub-heading">Geeky stuff</h2>
     <p className="info-item">

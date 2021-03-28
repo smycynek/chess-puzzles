@@ -1,30 +1,34 @@
-import { black, white, newBoard } from './utility';
+/* eslint-disable no-alert */
+/* eslint-disable no-throw-literal */
+import {
+  black, white, newBoard, units, fileSymbols,
+} from './utility';
 
 const queryString = require('query-string');
 const rot13Cipher = require('rot13-cipher');
 
 export const parseSquareString = (position) => {
-  // Warning, not much error checking
   if (position.length !== 4) {
     // eslint-disable-next-line no-console
-    console.log('Error, bad position string');
-    return {
-      unit: {
-        color: 'black',
-        unit: 'P',
-      },
-      square: {
-        rank: 1,
-        file: 'a',
-      },
-    };
+    throw (`Error, bad position string ${position}`);
   }
 
   const colorChar = position[0];
   const unitChar = position[1];
   const fileChar = position[2];
   const rankChar = position[3];
-
+  if (
+    ((colorChar !== 'w')
+  && (colorChar !== 'b'))
+  || ![units.king, units.queen, units.rook, units.bishop,
+    units.knight, units.pawn].includes(unitChar)
+  || ![fileSymbols.a, fileSymbols.b, fileSymbols.c, fileSymbols.d,
+    fileSymbols.e, fileSymbols.f, fileSymbols.g, fileSymbols.h].includes(fileChar)
+  || ![1, 2, 3, 4, 5, 6, 7, 8].includes(Number(rankChar))
+  ) {
+    // eslint-disable-next-line no-console
+    throw (`Error, bad position string ${position}`);
+  }
   const color = colorChar === 'w' ? white : black;
   const unit = unitChar;
   const file = fileChar;
@@ -38,6 +42,7 @@ export const parseSquareString = (position) => {
   };
 };
 
+// eslint-disable-next-line consistent-return
 export const parsePuzzleString = (puzzle) => {
   const board = newBoard();
   const puzzleData = puzzle.split(',');

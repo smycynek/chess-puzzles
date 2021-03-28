@@ -6,6 +6,7 @@ import 'react-router-tabs/styles/react-router-tabs.css';
 
 import './css/app.css';
 
+import { hot } from 'react-hot-loader/root';
 import React, { useState, useEffect } from 'react';
 import {
   HashRouter, Route, Switch,
@@ -67,4 +68,4 @@ function App() {
   );
 }
 
-export default App;
+export default hot(App);
