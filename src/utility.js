@@ -59,7 +59,8 @@ const drag = (ev) => {
   ev.dataTransfer.setData('unit', ev.target.id);
 };
 
-const dragT = (ev) => {
+const dragToolbarImage = (ev) => {
+  // Remove 'T:' prefix from id to get tool color and unit type.
   ev.dataTransfer.setData('unit', ev.target.id.substr(2));
 };
 export const renderUnit = (type, color, dataRank, dataFile) => {
@@ -69,7 +70,7 @@ export const renderUnit = (type, color, dataRank, dataFile) => {
 
 export const renderTool = (type, color) => {
   const image = getUnitImage(type, color);
-  return <img id={`T:${color}${type}`} onDragStart={(event) => dragT(event)} alt={`${color}-${type}`} className="unit-tool" src={image} />;
+  return <img id={`T:${color}${type}`} onDragStart={(event) => dragToolbarImage(event)} alt={`${color}-${type}`} className="unit-tool" src={image} />;
 };
 
 export const ranks = [8, 7, 6, 5, 4, 3, 2, 1];

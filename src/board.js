@@ -26,8 +26,6 @@ const Board = ({
   };
 
   const allowDrop = (ev) => {
-    console.log('allowDrop');
-    console.log(ev);
     ev.preventDefault();
   };
   return (
