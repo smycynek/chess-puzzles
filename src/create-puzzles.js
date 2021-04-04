@@ -146,7 +146,16 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 
-  const getCurrentURL = (newData) => `/chess/#/chess/create?${renderPuzzleString(newData)}`;
+  function randomChar() {
+    const characters = 'abcdefghijklmnopqrstuvwxyz';
+    return `${characters.charAt(Math.floor(Math.random() * characters.length))}`;
+  }
+
+  function randomFive() {
+    return `${randomChar()}${randomChar()}${randomChar()}${randomChar()}${randomChar()}`;
+  }
+
+  const getCurrentURL = (newData) => `/chess/${randomFive()}/#/chess/create?${renderPuzzleString(newData)}`;
 
   const getTwitterUrl = () => {
     const fullStr = encodeURIComponent(window.location);
