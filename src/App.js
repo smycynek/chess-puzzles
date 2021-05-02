@@ -43,7 +43,10 @@ function App() {
           <Route exact strict={false} path="/">
             <StaticPuzzles squareTextures={squareTextures} />
           </Route>
-          <Route exact strict={false} path="/create">
+          <Route strict={false} path="/create/:id">
+            <CreatePuzzles squareTextures={squareTextures} />
+          </Route>
+          <Route strict={false} path="/create">
             <CreatePuzzles squareTextures={squareTextures} />
           </Route>
           <Route exact strict={false} path="/about">
