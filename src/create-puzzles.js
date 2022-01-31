@@ -25,8 +25,8 @@ import {
 import twitter from './images/twitter.svg';
 import facebook from './images/facebook.svg';
 import sms from './images/sms.svg';
-import email from './images/email.svg';
 import cube from './images/cube.svg';
+import email from './images/email.svg';
 
 const queryString = require('query-string');
 const rot13Cipher = require('rot13-cipher');
