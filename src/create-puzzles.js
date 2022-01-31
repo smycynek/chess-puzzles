@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
@@ -24,6 +26,7 @@ import twitter from './images/twitter.svg';
 import facebook from './images/facebook.svg';
 import sms from './images/sms.svg';
 import email from './images/email.svg';
+import cube from './images/cube.svg';
 
 const queryString = require('query-string');
 const rot13Cipher = require('rot13-cipher');
@@ -46,6 +49,20 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [facebookLink, setFacebookLink] = useState(`${facebookBase}${encodeURIComponent(window.location)}`);
   const [textLink, setTextLink] = useState(`sms:&body=${headline}%20${encodeURIComponent(window.location)}`);
   const [emailLink, setEmailLink] = useState(`mailto:?subject=${headline}&body=${encodeURIComponent(window.location)}`);
+  const [glLink, setGlLink] = useState('');
+  const [updated, setUpdated] = useState(false);
+
+  useEffect(() => {
+    if (updated) {
+      console.log(glLink);
+      window.open(glLink, '_blank', 'noopener', 'noreferrer');
+      setUpdated(false);
+    }
+  });
+
+  const launchExternal = () => {
+    setUpdated(true);
+  };
 
   const highlightEdit = () => {
     setEditHint(true);
@@ -54,6 +71,7 @@ const CreatePuzzles = ({ squareTextures }) => {
     }
     setTimeout(reverse, 1000);
   };
+
   const toolHint = 'Click to select';
 
   const handleShowHideClick = () => {
@@ -179,12 +197,20 @@ const CreatePuzzles = ({ squareTextures }) => {
     return `mailto:?subject=${headline}&body=${fullStr}`;
   };
 
+  const getGlLink = () => {
+    const originalLink = window.location.href;
+    const dataPortion = originalLink.substr(originalLink.indexOf('?') + 1);
+    const newUrl = `https://stevenvictor.net/chess3d?${dataPortion}`;
+    return newUrl;
+  };
+
   const updateUrl = (newData) => {
     window.history.replaceState(null, 'Chess Puzzles', getCurrentURL(newData));
     setTwitterLink(getTwitterUrl());
     setFacebookLink(getFacebookUrl());
     setTextLink(getTextUrl());
     setEmailLink(getEmailLink());
+    setGlLink(getGlLink());
   };
 
   const setUserDataHandler = (square) => {
@@ -417,6 +443,7 @@ const CreatePuzzles = ({ squareTextures }) => {
             <a className="side-link" href={emailLink} target="_blank" rel="noopener noreferrer">
               <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to email" src={email} />
             </a>
+            {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
             {isMobile
               && (
               <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
