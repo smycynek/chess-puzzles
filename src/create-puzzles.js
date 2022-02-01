@@ -49,7 +49,7 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [facebookLink, setFacebookLink] = useState(`${facebookBase}${encodeURIComponent(window.location)}`);
   const [textLink, setTextLink] = useState(`sms:&body=${headline}%20${encodeURIComponent(window.location)}`);
   const [emailLink, setEmailLink] = useState(`mailto:?subject=${headline}&body=${encodeURIComponent(window.location)}`);
-  const [glLink, setGlLink] = useState('');
+  const [glLink, setGlLink] = useState('https://stevenvictor.net/chess3d');
   const [updated, setUpdated] = useState(false);
 
   useEffect(() => {
@@ -59,10 +59,6 @@ const CreatePuzzles = ({ squareTextures }) => {
       setUpdated(false);
     }
   });
-
-  const launchExternal = () => {
-    setUpdated(true);
-  };
 
   const highlightEdit = () => {
     setEditHint(true);
@@ -211,6 +207,11 @@ const CreatePuzzles = ({ squareTextures }) => {
     setTextLink(getTextUrl());
     setEmailLink(getEmailLink());
     setGlLink(getGlLink());
+  };
+
+  const launchExternal = () => {
+    updateUrl(data);
+    setUpdated(true);
   };
 
   const setUserDataHandler = (square) => {
