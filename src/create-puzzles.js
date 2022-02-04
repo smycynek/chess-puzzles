@@ -74,10 +74,6 @@ const CreatePuzzles = ({ squareTextures }) => {
     setShowAnswer(!showAnswer);
   };
 
-  const handleEditModeClick = () => {
-    setEditMode(!editMode);
-  };
-
   const toolSelect = (e) => {
     const buttons = document.getElementsByClassName('unit-button');
     for (let idx = 0; idx < buttons.length; idx += 1) {
@@ -209,6 +205,14 @@ const CreatePuzzles = ({ squareTextures }) => {
     setGlLink(getGlLink());
   };
 
+  const handleEditModeClick = () => {
+    setEditMode(!editMode);
+    const newUserData = { ...data };
+    newUserData.editMode = (!editMode).toString();
+    setData(newUserData);
+    updateUrl(newUserData);
+  };
+
   const launchExternal = () => {
     updateUrl(data);
     setUpdated(true);
@@ -308,14 +312,17 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   const initFromUrl = () => {
     try {
-      const queryParmDict = queryString.parse(queryParmString);
-      if (queryParmDict.data) {
-        const urlBoard = parsePuzzleString(queryParmDict.data);
-        urlBoard.question = queryParmDict.question;
-        urlBoard.answer = rot13Cipher(queryParmDict.answer ? queryParmDict.answer : '');
+      const queryParamDict = queryString.parse(queryParmString);
+      if (queryParamDict.data) {
+        const urlBoard = parsePuzzleString(queryParamDict.data);
+        urlBoard.question = queryParamDict.question;
+        urlBoard.answer = rot13Cipher(queryParamDict.answer ? queryParamDict.answer : '');
         setData(urlBoard);
-        setQuestion(queryParmDict.question);
+        setQuestion(queryParamDict.question);
         setAnswer(urlBoard.answer);
+        if (queryParamDict.editMode && (queryParamDict.editMode === 'true')) {
+          setEditMode(true);
+        }
       } else {
         setEditMode(true);
       }
