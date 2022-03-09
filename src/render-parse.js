@@ -79,7 +79,7 @@ const renderAllSquares = (data) => {
 };
 
 export const renderPuzzleString = (data) => {
-  const str = `question=${encodeURIComponent(data.question)}&answer=${encodeURIComponent(rot13Cipher(data.answer ? data.answer : ''))}&data=${encodeURIComponent(renderAllSquares(data))}`;
+  const str = `question=${encodeURIComponent(data.question)}&answer=${encodeURIComponent(rot13Cipher(data.answer ? data.answer : ''))}&data=${encodeURIComponent(renderAllSquares(data))}&editMode=${data.editMode}`;
   return str;
 };
 

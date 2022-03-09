@@ -106,3 +106,4 @@ dist
 chess/
 upload.sh
 .DS_Store
+build

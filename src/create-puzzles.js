@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
@@ -23,6 +25,7 @@ import {
 import twitter from './images/twitter.svg';
 import facebook from './images/facebook.svg';
 import sms from './images/sms.svg';
+import cube from './images/cube.svg';
 import email from './images/email.svg';
 
 const queryString = require('query-string');
@@ -46,6 +49,16 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [facebookLink, setFacebookLink] = useState(`${facebookBase}${encodeURIComponent(window.location)}`);
   const [textLink, setTextLink] = useState(`sms:&body=${headline}%20${encodeURIComponent(window.location)}`);
   const [emailLink, setEmailLink] = useState(`mailto:?subject=${headline}&body=${encodeURIComponent(window.location)}`);
+  const [glLink, setGlLink] = useState('https://stevenvictor.net/chess3d');
+  const [updated, setUpdated] = useState(false);
+
+  useEffect(() => {
+    if (updated) {
+      console.log(glLink);
+      window.open(glLink, '_blank', 'noopener', 'noreferrer');
+      setUpdated(false);
+    }
+  });
 
   const highlightEdit = () => {
     setEditHint(true);
@@ -54,14 +67,11 @@ const CreatePuzzles = ({ squareTextures }) => {
     }
     setTimeout(reverse, 1000);
   };
+
   const toolHint = 'Click to select';
 
   const handleShowHideClick = () => {
     setShowAnswer(!showAnswer);
-  };
-
-  const handleEditModeClick = () => {
-    setEditMode(!editMode);
   };
 
   const toolSelect = (e) => {
@@ -179,12 +189,33 @@ const CreatePuzzles = ({ squareTextures }) => {
     return `mailto:?subject=${headline}&body=${fullStr}`;
   };
 
+  const getGlLink = () => {
+    const originalLink = window.location.href;
+    const dataPortion = originalLink.substr(originalLink.indexOf('?') + 1);
+    const newUrl = `https://stevenvictor.net/chess3d?${dataPortion}`;
+    return newUrl;
+  };
+
   const updateUrl = (newData) => {
     window.history.replaceState(null, 'Chess Puzzles', getCurrentURL(newData));
     setTwitterLink(getTwitterUrl());
     setFacebookLink(getFacebookUrl());
     setTextLink(getTextUrl());
     setEmailLink(getEmailLink());
+    setGlLink(getGlLink());
+  };
+
+  const handleEditModeClick = () => {
+    setEditMode(!editMode);
+    const newUserData = { ...data };
+    newUserData.editMode = (!editMode).toString();
+    setData(newUserData);
+    updateUrl(newUserData);
+  };
+
+  const launchExternal = () => {
+    updateUrl(data);
+    setUpdated(true);
   };
 
   const setUserDataHandler = (square) => {
@@ -281,14 +312,17 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   const initFromUrl = () => {
     try {
-      const queryParmDict = queryString.parse(queryParmString);
-      if (queryParmDict.data) {
-        const urlBoard = parsePuzzleString(queryParmDict.data);
-        urlBoard.question = queryParmDict.question;
-        urlBoard.answer = rot13Cipher(queryParmDict.answer ? queryParmDict.answer : '');
+      const queryParamDict = queryString.parse(queryParmString);
+      if (queryParamDict.data) {
+        const urlBoard = parsePuzzleString(queryParamDict.data);
+        urlBoard.question = queryParamDict.question;
+        urlBoard.answer = rot13Cipher(queryParamDict.answer ? queryParamDict.answer : '');
         setData(urlBoard);
-        setQuestion(queryParmDict.question);
+        setQuestion(queryParamDict.question);
         setAnswer(urlBoard.answer);
+        if (queryParamDict.editMode && (queryParamDict.editMode === 'true')) {
+          setEditMode(true);
+        }
       } else {
         setEditMode(true);
       }
@@ -417,6 +451,7 @@ const CreatePuzzles = ({ squareTextures }) => {
             <a className="side-link" href={emailLink} target="_blank" rel="noopener noreferrer">
               <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to email" src={email} />
             </a>
+            {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
             {isMobile
               && (
               <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
