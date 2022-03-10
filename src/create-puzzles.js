@@ -45,6 +45,7 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [answer, setAnswer] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [editHint, setEditHint] = useState(false);
+  const [flipped, setFlipped] = useState(false);
   const [twitterLink, setTwitterLink] = useState(`${twitterBase}${headline}&url=${encodeURIComponent(window.location)}&hashtags=chesspuzzle`);
   const [facebookLink, setFacebookLink] = useState(`${facebookBase}${encodeURIComponent(window.location)}`);
   const [textLink, setTextLink] = useState(`sms:&body=${headline}%20${encodeURIComponent(window.location)}`);
@@ -294,7 +295,7 @@ const CreatePuzzles = ({ squareTextures }) => {
     console.log('DragHandler');
     const newUserData = { ...data };
     const { sourceSquare, sourceUnit } = parseSource(source);
-    const targetSquare = parseTarget(target);
+    const targetSquare = parseTarget(target, flipped);
 
     if (sourceSquare) {
       console.log('Clearing source square');
@@ -317,7 +318,9 @@ const CreatePuzzles = ({ squareTextures }) => {
         const urlBoard = parsePuzzleString(queryParamDict.data);
         urlBoard.question = queryParamDict.question;
         urlBoard.answer = rot13Cipher(queryParamDict.answer ? queryParamDict.answer : '');
+        urlBoard.flipped = queryParamDict.view === 'b';
         setData(urlBoard);
+        setFlipped(urlBoard.flipped);
         setQuestion(queryParamDict.question);
         setAnswer(urlBoard.answer);
         if (queryParamDict.editMode && (queryParamDict.editMode === 'true')) {
@@ -335,10 +338,18 @@ const CreatePuzzles = ({ squareTextures }) => {
     initFromUrl();
   }, []);
 
+  const handleFlipClick = () => {
+    setFlipped(!flipped);
+    const newUserData = { ...data };
+    newUserData.flipped = !flipped;
+    updateUrl(newUserData);
+  };
+
   const handleChangeQuestion = (e) => {
     setQuestion(e.target.value);
     const newUserData = { ...data };
     newUserData.question = e.target.value;
+    newUserData.flipped = flipped;
     setData(newUserData);
     updateUrl(newUserData);
   };
@@ -347,6 +358,7 @@ const CreatePuzzles = ({ squareTextures }) => {
     setAnswer(e.target.value);
     const newUserData = { ...data };
     newUserData.answer = e.target.value;
+    newUserData.flipped = flipped;
     setData(newUserData);
     updateUrl(newUserData);
   };
@@ -361,6 +373,7 @@ const CreatePuzzles = ({ squareTextures }) => {
         onClick={() => (!editMode ? highlightEdit() : false)}
       >
         <Board
+          flipped={flipped}
           data={data}
           squareTextures={squareTextures}
           clickCallback={editMode ? setUserDataHandler : () => {}}
@@ -371,6 +384,10 @@ const CreatePuzzles = ({ squareTextures }) => {
         <label className="sliderbox">
           <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
           <span className="slider">{editMode ? ' Edit' : 'View'}</span>
+        </label>
+        <label className="sliderbox">
+          <input type="checkbox" value={flipped} onClick={handleFlipClick} />
+          <span className="slider">{flipped ? ' Black' : 'White'}</span>
         </label>
       </div>
       <div className="row">

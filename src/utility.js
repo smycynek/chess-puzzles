@@ -100,6 +100,31 @@ const reverseFileMap = {
   h: 8,
 };
 
+export const flipRankMap = {
+  8: 1,
+  7: 2,
+  6: 3,
+  5: 4,
+  4: 5,
+  3: 6,
+  2: 7,
+  1: 8,
+};
+
+export const flipFileMap = {
+  a: 'h',
+  b: 'g',
+  c: 'f',
+  d: 'e',
+  e: 'd',
+  f: 'c',
+  g: 'b',
+  h: 'a',
+};
+
+// eslint-disable-next-line max-len
+export const flipSquare = (square) => ({ file: flipFileMap[square.file], rank: flipRankMap[square.rank] });
+
 export const squareColor = (squareTextures, rank, file) => {
   const color = ((rank + reverseFileMap[file]) % 2 === 0 ? dark : light);
   if (squareTextures) {
@@ -138,10 +163,14 @@ export function newBoard() {
   return initData;
 }
 
-export const getUnitFromData = (val, data) => {
-  const dataRank = val.rank;
-  const dataFile = val.file;
+export const getUnitFromData = (val, data, flipped) => {
+  let dataRank = val.rank;
+  let dataFile = val.file;
 
+  if (flipped) { // TODO: Can we avoid this?
+    dataRank = flipRankMap[dataRank];
+    dataFile = flipFileMap[dataFile];
+  }
   if (data[dataRank]) {
     const item = data[dataRank][dataFile];
     if (item) {

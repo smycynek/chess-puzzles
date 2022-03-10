@@ -49,6 +49,7 @@ export const parsePuzzleString = (puzzle) => {
   const data = puzzleData.map((m) => parseSquareString(m));
   // eslint-disable-next-line no-return-assign
   data.forEach((datum) => board[datum.square.rank][datum.square.file] = datum.unit);
+  board.flipped = data.flipped;
   return board;
 };
 
@@ -79,7 +80,7 @@ const renderAllSquares = (data) => {
 };
 
 export const renderPuzzleString = (data) => {
-  const str = `question=${encodeURIComponent(data.question)}&answer=${encodeURIComponent(rot13Cipher(data.answer ? data.answer : ''))}&data=${encodeURIComponent(renderAllSquares(data))}&editMode=${data.editMode}`;
+  const str = `question=${encodeURIComponent(data.question)}&answer=${encodeURIComponent(rot13Cipher(data.answer ? data.answer : ''))}&data=${encodeURIComponent(renderAllSquares(data))}&editMode=${data.editMode}&view=${data.flipped ? 'b' : 'w'}`;
   return str;
 };
 
@@ -88,5 +89,6 @@ export const fromQueryString = (qString) => {
   const data = parsePuzzleString(urlData.data);
   data.question = urlData.question;
   data.answer = rot13Cipher(urlData.answer);
+  data.flipped = urlData.view === 'b';
   return data;
 };
