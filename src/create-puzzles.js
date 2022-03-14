@@ -217,7 +217,7 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   const launchExternal = () => {
     const newUserData = { ...data };
-    newUserData.editMode = (!editMode).toString();
+    newUserData.editMode = (editMode).toString();
     newUserData.flipped = flipped;
     setData(newUserData);
     updateUrl(newUserData);
