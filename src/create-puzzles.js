@@ -210,12 +210,17 @@ const CreatePuzzles = ({ squareTextures }) => {
     setEditMode(!editMode);
     const newUserData = { ...data };
     newUserData.editMode = (!editMode).toString();
+    newUserData.flipped = flipped;
     setData(newUserData);
     updateUrl(newUserData);
   };
 
   const launchExternal = () => {
-    updateUrl(data);
+    const newUserData = { ...data };
+    newUserData.editMode = (!editMode).toString();
+    newUserData.flipped = flipped;
+    setData(newUserData);
+    updateUrl(newUserData);
     setUpdated(true);
   };
 
