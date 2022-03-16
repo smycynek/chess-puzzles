@@ -155,8 +155,6 @@ const CreatePuzzles = ({ squareTextures }) => {
     setSelectedUnit(units.king);
   };
 
-  const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
-
   // eslint-disable-next-line no-unused-vars
   function randomChar() {
     const characters = 'abcdefghijklmnopqrstuvwxyz';
@@ -473,13 +471,10 @@ const CreatePuzzles = ({ squareTextures }) => {
             <a className="side-link" href={emailLink} target="_blank" rel="noopener noreferrer">
               <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to email" src={email} />
             </a>
+            <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
+              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
+            </a>
             {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
-            {isMobile
-              && (
-              <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
-                <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
-              </a>
-              )}
           </div>
         </>
       )}
