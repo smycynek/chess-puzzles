@@ -12,9 +12,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/app.css';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { useLocation } from 'react-router-dom';
+import exportAsImage from './utils/exportAsImage';
+
 import Board from './board';
 import { parsePuzzleString, renderPuzzleString } from './render-parse';
 import {
@@ -52,7 +54,7 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [emailLink, setEmailLink] = useState(`mailto:?subject=${headline}&body=${encodeURIComponent(window.location)}`);
   const [glLink, setGlLink] = useState('https://stevenvictor.net/chess3d');
   const [updated, setUpdated] = useState(false);
-
+  const exportRef = useRef();
   useEffect(() => {
     if (updated) {
       console.log(glLink);
@@ -372,45 +374,46 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   return (
     <>
-      <div
-        onClick={() => (!editMode ? highlightEdit() : false)}
-      >
-        <Board
-          flipped={flipped}
-          data={data}
-          squareTextures={squareTextures}
-          clickCallback={editMode ? setUserDataHandler : () => {}}
-          dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
-        />
-      </div>
-      <div className="row">
-        <label className="sliderbox">
-          <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
-          <span className="slider">{editMode ? ' Edit' : 'View'}</span>
-        </label>
-        <label className="sliderbox">
-          <input type="checkbox" value={flipped} onClick={handleFlipClick} />
-          <span className="slider">{flipped ? ' Black' : 'White'}</span>
-        </label>
-      </div>
-      <div className="row">
-        {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
-      </div>
-      <div className="row">
-        {editHint && (
-        <span className="edit-hint">
-          Toggle the
-          <strong>
-            {' '}
-            View
-            {' '}
-          </strong>
-          slider to update puzzle
-        </span>
-        )}
-      </div>
-      <div className="row">
-        {!editMode
+      <div ref={exportRef}>
+        <div
+          onClick={() => (!editMode ? highlightEdit() : false)}
+        >
+          <Board
+            flipped={flipped}
+            data={data}
+            squareTextures={squareTextures}
+            clickCallback={editMode ? setUserDataHandler : () => {}}
+            dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
+          />
+        </div>
+        <div className="row">
+          <label className="sliderbox">
+            <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
+            <span className="slider">{editMode ? ' Edit' : 'View'}</span>
+          </label>
+          <label className="sliderbox">
+            <input type="checkbox" value={flipped} onClick={handleFlipClick} />
+            <span className="slider">{flipped ? ' Black' : 'White'}</span>
+          </label>
+        </div>
+        <div className="row">
+          {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
+        </div>
+        <div className="row">
+          {editHint && (
+          <span className="edit-hint">
+            Toggle the
+            <strong>
+              {' '}
+              View
+              {' '}
+            </strong>
+            slider to update puzzle
+          </span>
+          )}
+        </div>
+        <div className="row">
+          {!editMode
       && (
       <>
         <div className="row">
@@ -425,8 +428,8 @@ const CreatePuzzles = ({ squareTextures }) => {
         </div>
       </>
       )}
-      </div>
-      {
+        </div>
+        {
       editMode
       && (
       <>
@@ -456,7 +459,9 @@ const CreatePuzzles = ({ squareTextures }) => {
       </>
       )
 }
-      { !editMode && (
+        <button title="Export" id="btn-export" className="styled-button styled-button-textured" type="button" onClick={() => exportAsImage(exportRef.current, 'puzzle_download')}>Export</button>
+
+        { !editMode && (
         <>
           <div className="row expanded">
             <h3>Share</h3>
@@ -477,7 +482,8 @@ const CreatePuzzles = ({ squareTextures }) => {
             {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
           </div>
         </>
-      )}
+        )}
+      </div>
     </>
   );
 };
