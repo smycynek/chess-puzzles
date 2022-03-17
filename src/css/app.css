@@ -108,6 +108,14 @@ h4 {
   font-size: 1.0em;
 }
 
+.border {
+  margin-top: 1em;
+  width: 33em;
+  height: 33em;
+  border-color: rgba(117,97,68,0.1) !important;
+  padding: -.1em;
+}
+
 .square {
   width: 3.25em;
   height: 3.25em;
@@ -126,6 +134,16 @@ h4 {
   clear: left;
   float: left;
   display: flex;
+}
+
+.rowQuestion {
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  clear: left;
+  float: left;
+  display: flex;
+  color: rgb(60,60,60);
 }
 
 .field  {

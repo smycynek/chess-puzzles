@@ -374,7 +374,7 @@ const CreatePuzzles = ({ squareTextures }) => {
 
   return (
     <>
-      <div ref={exportRef}>
+      <div className="border" ref={exportRef}>
         <div
           onClick={() => (!editMode ? highlightEdit() : false)}
         >
@@ -385,6 +385,11 @@ const CreatePuzzles = ({ squareTextures }) => {
             clickCallback={editMode ? setUserDataHandler : () => {}}
             dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
           />
+          {!editMode && (
+          <div className="rowQuestion">
+            {question}
+          </div>
+          )}
         </div>
         <div className="row">
           <label className="sliderbox">
@@ -421,7 +426,6 @@ const CreatePuzzles = ({ squareTextures }) => {
         </div>
         <div className="row expanded">
           <span className="caption info-item">
-            {question}
             {' '}
             {showAnswer && <b><i>{answer}</i></b>}
           </span>
@@ -459,7 +463,6 @@ const CreatePuzzles = ({ squareTextures }) => {
       </>
       )
 }
-        <button title="Export" id="btn-export" className="styled-button styled-button-textured" type="button" onClick={() => exportAsImage(exportRef.current, 'puzzle_download')}>Export</button>
 
         { !editMode && (
         <>
@@ -480,7 +483,9 @@ const CreatePuzzles = ({ squareTextures }) => {
               <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
             </a>
             {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
+            <img className="side-link" onClick={() => exportAsImage(exportRef.current, 'puzzle_download')} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />
           </div>
+
         </>
         )}
       </div>
