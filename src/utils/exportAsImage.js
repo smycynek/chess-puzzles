@@ -17,6 +17,8 @@ const downloadImage = (blob, fileName) => {
 const exportAsImage = async (element, imageFileName) => {
   const html = document.getElementsByTagName('html')[0];
   const body = document.getElementsByTagName('body')[0];
+  const frameElement = document.getElementById('frame');
+  frameElement.classList.add('tbg-textured');
   let htmlWidth = html.clientWidth;
   let bodyWidth = body.clientWidth;
   const newWidth = element.scrollWidth - element.clientWidth;
@@ -33,5 +35,8 @@ const exportAsImage = async (element, imageFileName) => {
   downloadImage(image, imageFileName);
   html.style.width = null;
   body.style.width = null;
+  setTimeout(() => {
+    frameElement.classList.remove('tbg-textured');
+  }, 100);
 };
 export default exportAsImage;

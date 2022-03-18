@@ -1,3 +1,5 @@
+/* eslint-disable prefer-template */
+/* eslint-disable quotes */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable max-len */
@@ -28,6 +30,7 @@ import twitter from './images/twitter.svg';
 import facebook from './images/facebook.svg';
 import sms from './images/sms.svg';
 import cube from './images/cube.svg';
+import png from './images/png.svg';
 import email from './images/email.svg';
 
 const queryString = require('query-string');
@@ -372,9 +375,14 @@ const CreatePuzzles = ({ squareTextures }) => {
     toolSelect(ev);
   };
 
+  let formattedQuestion = question;
+  if (!formattedQuestion) {
+    formattedQuestion = flipped ? "Black to move" : "White to move";
+  }
+
   return (
     <>
-      <div className="border" ref={exportRef}>
+      <div id="frame" className="border" ref={exportRef}>
         <div
           onClick={() => (!editMode ? highlightEdit() : false)}
         >
@@ -387,7 +395,7 @@ const CreatePuzzles = ({ squareTextures }) => {
           />
           {!editMode && (
           <div className="rowQuestion">
-            {question}
+            {formattedQuestion}
           </div>
           )}
         </div>
@@ -483,7 +491,7 @@ const CreatePuzzles = ({ squareTextures }) => {
               <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
             </a>
             {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
-            <img className="side-link" onClick={() => exportAsImage(exportRef.current, 'puzzle_download')} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />
+            <img className="side-link" onClick={() => exportAsImage(exportRef.current, 'puzzle_download')} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={png} />
           </div>
 
         </>

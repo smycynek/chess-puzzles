@@ -63,26 +63,26 @@ const Board = React.forwardRef((props, exportRef) => {
           { !flipped
             ? (
               <div>
-                <div id="file-a" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">a</div>
-                <div id="file-b" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">b</div>
-                <div id="file-c" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">c</div>
-                <div id="file-d" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">d</div>
-                <div id="file-e" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">e</div>
-                <div id="file-f" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">f</div>
-                <div id="file-g" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">g</div>
-                <div id="file-h" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">h</div>
+                <div id="file-a" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">a</div>
+                <div id="file-b" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">b</div>
+                <div id="file-c" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">c</div>
+                <div id="file-d" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">d</div>
+                <div id="file-e" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">e</div>
+                <div id="file-f" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">f</div>
+                <div id="file-g" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">g</div>
+                <div id="file-h" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">h</div>
               </div>
             )
             : (
               <div>
-                <div id="file-h" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">h</div>
-                <div id="file-g" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">g</div>
-                <div id="file-f" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">f</div>
-                <div id="file-e" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">e</div>
-                <div id="file-d" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">d</div>
-                <div id="file-c" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">c</div>
-                <div id="file-b" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">b</div>
-                <div id="file-a" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="label">a</div>
+                <div id="file-h" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">h</div>
+                <div id="file-g" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">g</div>
+                <div id="file-f" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">f</div>
+                <div id="file-e" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">e</div>
+                <div id="file-d" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">d</div>
+                <div id="file-c" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">c</div>
+                <div id="file-b" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">b</div>
+                <div id="file-a" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">a</div>
               </div>
             )}
         </div>
