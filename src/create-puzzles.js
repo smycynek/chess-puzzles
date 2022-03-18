@@ -491,7 +491,7 @@ const CreatePuzzles = ({ squareTextures }) => {
               <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
             </a>
             {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
-            <img className="side-link" onClick={() => exportAsImage(exportRef.current, 'puzzle_download')} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={png} />
+            <img className="side-link" onClick={() => exportAsImage(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={png} />
           </div>
 
         </>

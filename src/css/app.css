@@ -107,6 +107,7 @@ h4 {
   font-weight: bold;
   font-size: 1.0em;
   margin-left: .5em;
+  line-height: 3.5em;
 }
 
 
@@ -115,18 +116,21 @@ h4 {
   height:3.25em;
   float: left;
   display: inline;
+  vertical-align: text-top;
   align-items: center;
   align-self: center;
   text-align: center;
-  line-height: 2.75em;
+  line-height: 2.0em;
   font-weight: bold;
   font-size: 1.0em;
+  margin-top: 0em !important;
+  padding-top: 0em !important;
 }
 .border {
   margin-top: 1em;
   width: 31.5em;
   height: 31.5em;
-  border-color: rgba(117,97,68,0.1) !important;
+  border-color: transparent !important;
   padding-left: 0.5em;
 }
 
