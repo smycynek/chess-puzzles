@@ -19,7 +19,7 @@ import {
 // eslint-disable-next-line no-unused-vars
 const Board = React.forwardRef((props, exportRef) => {
   const {
-    data, squareTextures, clickCallback, dragCallback, flipped,
+    data, clickCallback, dragCallback, flipped,
   } = props;
 
   const squareMap = ranks.map((rank) => files.map((file) => ({ file: flipped ? flipFileMap[file] : file, rank: flipped ? flipRankMap[rank] : rank })));
@@ -48,7 +48,7 @@ const Board = React.forwardRef((props, exportRef) => {
                 title={`${square.file}${square.rank}`}
                 type="button"
                 onClick={() => (clickCallback ? clickCallback(square) : () => {})}
-                className={`square ${squareColor(squareTextures, square.rank, square.file)}`}
+                className={`square ${squareColor(square.rank, square.file)}`}
                 key={`${square.file}${square.rank}`}
                 aria-label={`${square.file}${square.rank}`}
               >

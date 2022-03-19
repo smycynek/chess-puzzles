@@ -125,12 +125,9 @@ export const flipFileMap = {
 // eslint-disable-next-line max-len
 export const flipSquare = (square) => ({ file: flipFileMap[square.file], rank: flipRankMap[square.rank] });
 
-export const squareColor = (squareTextures, rank, file) => {
+export const squareColor = (rank, file) => {
   const color = ((rank + reverseFileMap[file]) % 2 === 0 ? dark : light);
-  if (squareTextures) {
-    return `${color} ${color}-textured`;
-  }
-  return color;
+  return `${color} ${color}-textured`;
 };
 
 export function setCaptions(question, answer, data) {

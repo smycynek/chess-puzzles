@@ -17,7 +17,7 @@ import './css/app.css';
 import React, { useState, useEffect, useRef } from 'react';
 
 import { useLocation } from 'react-router-dom';
-import exportAsImage from './utils/exportAsImage';
+import elementToPngDownload from './utils/elementToPngDownload';
 
 import Board from './board';
 import { parsePuzzleString, renderPuzzleString } from './render-parse';
@@ -41,7 +41,7 @@ const headline = 'Try%20this%20chess%20puzzle.';
 const twitterBase = 'http://twitter.com/share?text=';
 const facebookBase = 'https://www.facebook.com/sharer/sharer.php?u=';
 
-const CreatePuzzles = ({ squareTextures }) => {
+const CreatePuzzles = () => {
   const [data, setData] = useState(newBoard());
   const [selectedColor, setSelectedColor] = useState(white);
   const [selectedUnit, setSelectedUnit] = useState(units.pawn);
@@ -389,7 +389,6 @@ const CreatePuzzles = ({ squareTextures }) => {
           <Board
             flipped={flipped}
             data={data}
-            squareTextures={squareTextures}
             clickCallback={editMode ? setUserDataHandler : () => {}}
             dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
           />
@@ -479,19 +478,19 @@ const CreatePuzzles = ({ squareTextures }) => {
           </div>
           <div className="row expanded">
             <a className="side-link" href={twitterLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={twitter} />
+              <img title="Share to Twitter" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={twitter} />
             </a>
             <a className="side-link" href={facebookLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to facebook" src={facebook} />
+              <img title="Share to Facebook" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to facebook" src={facebook} />
             </a>
             <a className="side-link" href={emailLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to email" src={email} />
+              <img title="Share to email" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to email" src={email} />
             </a>
             <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
+              <img title="Share to SMS/text" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
             </a>
-            {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
-            <img className="side-link" onClick={() => exportAsImage(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={png} />
+            {glLink && <img title="View in 3D" className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
+            <img title="Save as PNG" className="side-link" onClick={() => elementToPngDownload(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="Save as PNG" src={png} />
           </div>
 
         </>
