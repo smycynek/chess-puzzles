@@ -7,7 +7,7 @@ import 'react-router-tabs/styles/react-router-tabs.css';
 import './css/app.css';
 
 import { hot } from 'react-hot-loader/root';
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   HashRouter, Route, Switch,
 } from 'react-router-dom';
@@ -19,10 +19,6 @@ import CreatePuzzles from './create-puzzles';
 import About from './About';
 
 function App() {
-  useEffect(() => {
-    document.body.classList.add('tbg-textured');
-  }, []);
-
   return (
     <div className="container" style={{ padding: '0px' }}>
       <h1 className="banner">Chess Puzzles</h1>
