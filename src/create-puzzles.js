@@ -379,7 +379,10 @@ const CreatePuzzles = () => {
   if (!formattedQuestion) {
     formattedQuestion = flipped ? "Black to move" : "White to move";
   }
-
+  let formattedAnswer = answer;
+  if (!showAnswer) {
+    formattedAnswer = '...';
+  }
   return (
     <>
       <div id="frame" className="border" ref={exportRef}>
@@ -397,6 +400,11 @@ const CreatePuzzles = () => {
             {formattedQuestion}
           </div>
           )}
+          {editMode && (
+          <div className="rowQuestion">
+            ...
+          </div>
+          )}
         </div>
         <div className="row">
           <label className="sliderbox">
@@ -411,6 +419,7 @@ const CreatePuzzles = () => {
         <div className="row">
           {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
         </div>
+
         <div className="row">
           {editHint && (
           <span className="edit-hint">
@@ -431,10 +440,9 @@ const CreatePuzzles = () => {
         <div className="row">
           <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
         </div>
-        <div className="row expanded">
+        <div className="row">
           <span className="caption info-item">
-            {' '}
-            {showAnswer && <b><i>{answer}</i></b>}
+            {formattedAnswer}
           </span>
         </div>
       </>
@@ -473,10 +481,10 @@ const CreatePuzzles = () => {
 
         { !editMode && (
         <>
-          <div className="row expanded">
+          <div className="row">
             <h3>Share</h3>
           </div>
-          <div className="row expanded">
+          <div className="row">
             <a className="side-link" href={twitterLink} target="_blank" rel="noopener noreferrer">
               <img title="Share to Twitter" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={twitter} />
             </a>
