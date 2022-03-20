@@ -10,7 +10,7 @@ import Board from './board';
 import puzzles from './puzzles/puzzles';
 import { newBoard } from './utility';
 
-const StaticPuzzles = ({ squareTextures }) => {
+const StaticPuzzles = () => {
   const [index, setIndex] = useState(Math.floor(Math.random() * puzzles.length));
   const [showAnswer, setShowAnswer] = useState(false);
   const [data, setData] = useState(newBoard());
@@ -39,8 +39,8 @@ const StaticPuzzles = ({ squareTextures }) => {
   }, []);
   return (
     <>
-      <div>
-        <Board data={data} squareTextures={squareTextures} dragCallback={() => {}} />
+      <div className="border">
+        <Board data={data} dragCallback={() => {}} />
       </div>
       <div className="row expanded">
         <button title="Hide/show answer" id="btn-answer" className="styled-button" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>

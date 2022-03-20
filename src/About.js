@@ -114,7 +114,6 @@ const About = () => (
         </a>
       </li>
     </ul>
-    <h2 className="sub-heading" style={{ paddingBottom: '0.0em', marginBottom: '0.0em' }}>Preferences</h2>
   </div>
 );
 

@@ -1,3 +1,5 @@
+/* eslint-disable prefer-template */
+/* eslint-disable quotes */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable max-len */
@@ -12,9 +14,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/app.css';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { useLocation } from 'react-router-dom';
+import elementToPngDownload from './utils/elementToPngDownload';
+
 import Board from './board';
 import { parsePuzzleString, renderPuzzleString } from './render-parse';
 import {
@@ -26,6 +30,7 @@ import twitter from './images/twitter.svg';
 import facebook from './images/facebook.svg';
 import sms from './images/sms.svg';
 import cube from './images/cube.svg';
+import png from './images/png.svg';
 import email from './images/email.svg';
 
 const queryString = require('query-string');
@@ -36,7 +41,7 @@ const headline = 'Try%20this%20chess%20puzzle.';
 const twitterBase = 'http://twitter.com/share?text=';
 const facebookBase = 'https://www.facebook.com/sharer/sharer.php?u=';
 
-const CreatePuzzles = ({ squareTextures }) => {
+const CreatePuzzles = () => {
   const [data, setData] = useState(newBoard());
   const [selectedColor, setSelectedColor] = useState(white);
   const [selectedUnit, setSelectedUnit] = useState(units.pawn);
@@ -52,7 +57,7 @@ const CreatePuzzles = ({ squareTextures }) => {
   const [emailLink, setEmailLink] = useState(`mailto:?subject=${headline}&body=${encodeURIComponent(window.location)}`);
   const [glLink, setGlLink] = useState('https://stevenvictor.net/chess3d');
   const [updated, setUpdated] = useState(false);
-
+  const exportRef = useRef();
   useEffect(() => {
     if (updated) {
       console.log(glLink);
@@ -370,63 +375,80 @@ const CreatePuzzles = ({ squareTextures }) => {
     toolSelect(ev);
   };
 
+  let formattedQuestion = question;
+  if (!formattedQuestion) {
+    formattedQuestion = flipped ? "Black to move" : "White to move";
+  }
+  let formattedAnswer = answer;
+  if (!showAnswer) {
+    formattedAnswer = '...';
+  }
   return (
     <>
-      <div
-        onClick={() => (!editMode ? highlightEdit() : false)}
-      >
-        <Board
-          flipped={flipped}
-          data={data}
-          squareTextures={squareTextures}
-          clickCallback={editMode ? setUserDataHandler : () => {}}
-          dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
-        />
-      </div>
-      <div className="row">
-        <label className="sliderbox">
-          <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
-          <span className="slider">{editMode ? ' Edit' : 'View'}</span>
-        </label>
-        <label className="sliderbox">
-          <input type="checkbox" value={flipped} onClick={handleFlipClick} />
-          <span className="slider">{flipped ? ' Black' : 'White'}</span>
-        </label>
-      </div>
-      <div className="row">
-        {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
-      </div>
-      <div className="row">
-        {editHint && (
-        <span className="edit-hint">
-          Toggle the
-          <strong>
-            {' '}
-            View
-            {' '}
-          </strong>
-          slider to update puzzle
-        </span>
-        )}
-      </div>
-      <div className="row">
-        {!editMode
+      <div id="frame" className="border" ref={exportRef}>
+        <div
+          onClick={() => (!editMode ? highlightEdit() : false)}
+        >
+          <Board
+            flipped={flipped}
+            data={data}
+            clickCallback={editMode ? setUserDataHandler : () => {}}
+            dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
+          />
+          {!editMode && (
+          <div className="rowQuestion">
+            {formattedQuestion}
+          </div>
+          )}
+          {editMode && (
+          <div className="rowQuestion">
+            ...
+          </div>
+          )}
+        </div>
+        <div className="row">
+          <label className="sliderbox">
+            <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
+            <span className="slider">{editMode ? ' Edit' : 'View'}</span>
+          </label>
+          <label className="sliderbox">
+            <input type="checkbox" value={flipped} onClick={handleFlipClick} />
+            <span className="slider">{flipped ? ' Black' : 'White'}</span>
+          </label>
+        </div>
+        <div className="row">
+          {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
+        </div>
+
+        <div className="row">
+          {editHint && (
+          <span className="edit-hint">
+            Toggle the
+            <strong>
+              {' '}
+              View
+              {' '}
+            </strong>
+            slider to update puzzle
+          </span>
+          )}
+        </div>
+        <div className="row">
+          {!editMode
       && (
       <>
         <div className="row">
           <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
         </div>
-        <div className="row expanded">
+        <div className="row">
           <span className="caption info-item">
-            {question}
-            {' '}
-            {showAnswer && <b><i>{answer}</i></b>}
+            {formattedAnswer}
           </span>
         </div>
       </>
       )}
-      </div>
-      {
+        </div>
+        {
       editMode
       && (
       <>
@@ -456,28 +478,32 @@ const CreatePuzzles = ({ squareTextures }) => {
       </>
       )
 }
-      { !editMode && (
+
+        { !editMode && (
         <>
-          <div className="row expanded">
+          <div className="row">
             <h3>Share</h3>
           </div>
-          <div className="row expanded">
+          <div className="row">
             <a className="side-link" href={twitterLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={twitter} />
+              <img title="Share to Twitter" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to twitter" src={twitter} />
             </a>
             <a className="side-link" href={facebookLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to facebook" src={facebook} />
+              <img title="Share to Facebook" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to facebook" src={facebook} />
             </a>
             <a className="side-link" href={emailLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to email" src={email} />
+              <img title="Share to email" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to email" src={email} />
             </a>
             <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
-              <img style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
+              <img title="Share to SMS/text" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
             </a>
-            {glLink && <img className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
+            {glLink && <img title="View in 3D" className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
+            <img title="Save as PNG" className="side-link" onClick={() => elementToPngDownload(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="Save as PNG" src={png} />
           </div>
+
         </>
-      )}
+        )}
+      </div>
     </>
   );
 };

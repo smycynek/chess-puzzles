@@ -102,10 +102,36 @@ h4 {
   display: inline;
   align-items: center;
   align-self: center;
-  text-align: center;
+  text-align: left;
   line-height: 4.0em;
   font-weight: bold;
   font-size: 1.0em;
+  margin-left: .5em;
+  line-height: 3.5em;
+}
+
+
+.labelHortz {
+  width: 3.25em;
+  height:3.25em;
+  float: left;
+  display: inline;
+  vertical-align: text-top;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  line-height: 2.0em;
+  font-weight: bold;
+  font-size: 1.0em;
+  margin-top: 0em !important;
+  padding-top: 0em !important;
+}
+.border {
+  margin-top: 1em;
+  width: 31.5em;
+  height: 31.5em;
+  border-color: transparent !important;
+  padding-left: 0.5em;
 }
 
 .square {
@@ -126,6 +152,16 @@ h4 {
   clear: left;
   float: left;
   display: flex;
+}
+
+.rowQuestion {
+  margin-left: 0.5em;
+  margin-top: -1.0em;
+  margin-bottom: 1em;
+  clear: left;
+  float: left;
+  display: flex;
+  color: rgb(60,60,60);
 }
 
 .field  {

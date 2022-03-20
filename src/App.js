@@ -7,7 +7,7 @@ import 'react-router-tabs/styles/react-router-tabs.css';
 import './css/app.css';
 
 import { hot } from 'react-hot-loader/root';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   HashRouter, Route, Switch,
 } from 'react-router-dom';
@@ -19,17 +19,9 @@ import CreatePuzzles from './create-puzzles';
 import About from './About';
 
 function App() {
-  const [squareTextures, setSquareTextures] = useState(true);
-
   useEffect(() => {
-    document.body.classList.add('tbg');
     document.body.classList.add('tbg-textured');
   }, []);
-
-  const handleToggleTextures = () => {
-    document.body.classList.toggle('tbg-textured');
-    setSquareTextures(!squareTextures);
-  };
 
   return (
     <div className="container" style={{ padding: '0px' }}>
@@ -38,32 +30,18 @@ function App() {
         <NavTab title="Sample puzzles" exact strict={false} to="/">Samples</NavTab>
         <NavTab title="View puzzles from others or create your own." exact strict={false} to="/create">View/Create</NavTab>
         <NavTab title="About this site" exact strict={false} to="/about">About</NavTab>
-
         <Switch>
           <Route exact strict={false} path="/">
-            <StaticPuzzles squareTextures={squareTextures} />
+            <StaticPuzzles />
           </Route>
           <Route strict={false} path="/create/:id">
-            <CreatePuzzles squareTextures={squareTextures} />
+            <CreatePuzzles />
           </Route>
           <Route strict={false} path="/create">
-            <CreatePuzzles squareTextures={squareTextures} />
+            <CreatePuzzles />
           </Route>
           <Route exact strict={false} path="/about">
-            <>
-              <About />
-              <div className="row expanded caption">
-                <button
-                  title="Toggle textures"
-                  aria-label="Toggle textures"
-                  className="styled-button"
-                  type="button"
-                  onClick={handleToggleTextures}
-                >
-                  Toggle Textures
-                </button>
-              </div>
-            </>
+            <About />
           </Route>
         </Switch>
       </HashRouter>
