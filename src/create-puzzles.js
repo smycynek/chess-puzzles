@@ -375,14 +375,11 @@ const CreatePuzzles = () => {
     toolSelect(ev);
   };
 
-  let formattedQuestion = question;
-  if (!formattedQuestion) {
-    formattedQuestion = flipped ? "Black to move" : "White to move";
-  }
   let formattedAnswer = answer;
   if (!showAnswer) {
     formattedAnswer = '...';
   }
+  const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
   return (
     <>
       <div id="frame" className="border" ref={exportRef}>
@@ -397,7 +394,7 @@ const CreatePuzzles = () => {
           />
           {!editMode && (
           <div className="rowQuestion">
-            {formattedQuestion}
+            {question}
           </div>
           )}
           {editMode && (
@@ -498,7 +495,7 @@ const CreatePuzzles = () => {
               <img title="Share to SMS/text" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
             </a>
             {glLink && <img title="View in 3D" className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
-            <img title="Save as PNG" className="side-link" onClick={() => elementToPngDownload(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="Save as PNG" src={png} />
+            {!isMobile && <img title="Save as PNG" className="side-link" onClick={() => elementToPngDownload(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="Save as PNG" src={png} />}
           </div>
 
         </>
