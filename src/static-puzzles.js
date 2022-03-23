@@ -40,7 +40,7 @@ const StaticPuzzles = () => {
   return (
     <>
       <div className="border">
-        <Board data={data} dragCallback={() => {}} />
+        <Board data={data} flipped={data.flipped} dragCallback={() => {}} />
       </div>
       <div className="row expanded">
         <button title="Hide/show answer" id="btn-answer" className="styled-button" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>

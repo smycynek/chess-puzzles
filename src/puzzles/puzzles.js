@@ -39,6 +39,7 @@ function puzzle4() {
   setUnit(units.rook, black, 8, fileSymbols.d, data);
   setUnit(units.king, black, 8, fileSymbols.h, data);
   setUnit(units.rook, white, 8, fileSymbols.b, data);
+  data.flipped = true;
   return data;
 }
 
@@ -185,7 +186,7 @@ function fromURL4() {
 }
 
 function fromURL5() {
-  const queryString = 'question=Black%20to%20move%20and%20win:&answer=s1%3DA%23&data=wNg1%2CwQh1%2CwKh2%2CbBg2%2CbPf2%2CbRg3%2CwBc3%2CbKh4%2CwRg5%2CwPc5%2CwNh5%2CwRg6%2CwPb6%2CbBe7';
+  const queryString = 'question=Black%20to%20move%20and%20win:&answer=s1%3DA%23&data=wNg1%2CwQh1%2CwKh2%2CbBg2%2CbPf2%2CbRg3%2CwBc3%2CbKh4%2CwRg5%2CwPc5%2CwNh5%2CwRg6%2CwPb6%2CbBe7&view=b';
   return fromQueryString(queryString);
 }
 
