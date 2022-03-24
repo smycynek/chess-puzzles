@@ -400,7 +400,7 @@ const CreatePuzzles = () => {
             {question}
           </div>
           )}
-          {editMode && (
+          {(editMode || !question) && (
           <div className="rowQuestion">
             ...
           </div>
