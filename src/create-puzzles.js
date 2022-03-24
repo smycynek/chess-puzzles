@@ -395,6 +395,7 @@ const CreatePuzzles = () => {
             clickCallback={editMode ? setUserDataHandler : () => {}}
             dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
           />
+          <div id="watermark" className="watermark-hidden">stevenvictor.net/chess</div>
           {!editMode && (
           <div className="rowQuestion">
             {question}

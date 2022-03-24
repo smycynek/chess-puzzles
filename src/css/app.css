@@ -96,7 +96,7 @@ h4 {
 }
 
 .label {
-  width: 3.25em;
+  width: 2.0em;
   height:3.25em;
   float: left;
   display: inline;
@@ -107,6 +107,8 @@ h4 {
   font-weight: bold;
   font-size: 1.0em;
   margin-left: .5em;
+  margin-right: 0.0em;
+  padding-right: 0.0em;
   line-height: 3.5em;
 }
 
@@ -437,4 +439,19 @@ input:checked + .slider:before {
   -webkit-transform: translateX(45px);
   -ms-transform: translateX(45px);
   transform: translateX(45px);
+}
+
+.watermark-hidden {
+  display:none;
+}
+
+.watermark {
+  font-size:smaller;
+  display:flex;
+  line-height: 0.5em;
+  transform: rotate(90deg);
+  color: rgba(0,0,0,0.1);
+  padding: 0px;
+  margin-top: 12em;
+  margin-left: -1.5em;
 }

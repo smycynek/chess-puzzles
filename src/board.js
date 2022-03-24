@@ -84,6 +84,7 @@ const Board = React.forwardRef((props, exportRef) => {
                 <div id="file-b" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">b</div>
                 <div id="file-a" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">a</div>
               </div>
+
             )}
         </div>
       </div>
