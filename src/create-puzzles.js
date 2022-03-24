@@ -43,14 +43,16 @@ const facebookBase = 'https://www.facebook.com/sharer/sharer.php?u=';
 
 const CreatePuzzles = () => {
   const [data, setData] = useState(newBoard());
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [flipped, setFlipped] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+
   const [selectedColor, setSelectedColor] = useState(white);
   const [selectedUnit, setSelectedUnit] = useState(units.pawn);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [question, setQuestion] = useState('');
-  const [answer, setAnswer] = useState('');
-  const [editMode, setEditMode] = useState(false);
   const [editHint, setEditHint] = useState(false);
-  const [flipped, setFlipped] = useState(false);
+
   const [twitterLink, setTwitterLink] = useState(`${twitterBase}${headline}&url=${encodeURIComponent(window.location)}&hashtags=chesspuzzle`);
   const [facebookLink, setFacebookLink] = useState(`${facebookBase}${encodeURIComponent(window.location)}`);
   const [textLink, setTextLink] = useState(`sms:&body=${headline}%20${encodeURIComponent(window.location)}`);
@@ -59,6 +61,7 @@ const CreatePuzzles = () => {
   const [updated, setUpdated] = useState(false);
   const exportRef = useRef();
   useEffect(() => {
+    // launched by share to 3d
     if (updated) {
       console.log(glLink);
       window.open(glLink, '_blank', 'noopener', 'noreferrer');
@@ -209,15 +212,6 @@ const CreatePuzzles = () => {
     setGlLink(getGlLink());
   };
 
-  const handleEditModeClick = () => {
-    setEditMode(!editMode);
-    const newUserData = { ...data };
-    newUserData.editMode = (!editMode).toString();
-    newUserData.flipped = flipped;
-    setData(newUserData);
-    updateUrl(newUserData);
-  };
-
   const launchExternal = () => {
     const newUserData = { ...data };
     newUserData.editMode = (editMode).toString();
@@ -346,6 +340,15 @@ const CreatePuzzles = () => {
     initFromUrl();
   }, []);
 
+  const handleEditModeClick = () => {
+    setEditMode(!editMode);
+    const newUserData = { ...data };
+    newUserData.editMode = (!editMode).toString();
+    newUserData.flipped = flipped;
+    setData(newUserData);
+    updateUrl(newUserData);
+  };
+
   const handleFlipClick = () => {
     setFlipped(!flipped);
     const newUserData = { ...data };
@@ -376,7 +379,7 @@ const CreatePuzzles = () => {
   };
 
   let formattedAnswer = answer;
-  if (!showAnswer) {
+  if (!showAnswer || !answer) {
     formattedAnswer = '...';
   }
   const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
