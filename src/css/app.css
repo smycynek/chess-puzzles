@@ -446,12 +446,18 @@ input:checked + .slider:before {
 }
 
 .watermark {
-  font-size:smaller;
+  width: 30em;
+  height: 2.5em;
+  font-size:xx-small;
   display:flex;
-  line-height: 0.5em;
+  float:right;
+  position:absolute;
+  top: 25em;
+  left:27em;
+  line-height: 1.0em;
   transform: rotate(90deg);
   color: rgba(0,0,0,0.1);
   padding: 0px;
-  margin-top: 12em;
+  margin-top: 2em;
   margin-left: -1.5em;
 }

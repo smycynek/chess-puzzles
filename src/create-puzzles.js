@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable prefer-template */
 /* eslint-disable quotes */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -395,7 +396,9 @@ const CreatePuzzles = () => {
             clickCallback={editMode ? setUserDataHandler : () => {}}
             dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
           />
-          <div id="watermark" className="watermark-hidden">stevenvictor.net/chess</div>
+          <div id="watermark" className="watermark-hidden">
+            Solution: {' '} <i>{answer}</i>
+          </div>
           {!editMode && (
           <div className="rowQuestion">
             {question}
