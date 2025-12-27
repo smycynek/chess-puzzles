@@ -62,7 +62,7 @@ const About = () => (
     <h2 className="sub-heading">Created by</h2>
     <ul className="info-list info-item">
       <li>
-        Steven Victor Mycynek 2021
+        Steven Victor Mycynek 2021-2026
       </li>
       <li>
         <a className="normal-link" title="homepage" href="https://stevenvictor.net">
