@@ -6,7 +6,6 @@ import 'react-router-tabs/styles/react-router-tabs.css';
 
 import './css/app.css';
 
-import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import {
   HashRouter, Route, Switch,
@@ -23,9 +22,9 @@ function App() {
     <div className="container" style={{ padding: '0px' }}>
       <h1 className="banner">Chess Puzzles</h1>
       <HashRouter basename="/chess">
-        <NavTab title="Sample puzzles" exact strict={false} to="/">Samples</NavTab>
-        <NavTab title="View puzzles from others or create your own." exact strict={false} to="/create">View/Create</NavTab>
-        <NavTab title="About this site" exact strict={false} to="/about">About</NavTab>
+        <NavTab className="nav-tab" title="Sample puzzles" exact strict={false} to="/">Samples</NavTab>
+        <NavTab className="nav-tab" title="View puzzles from others or create your own." exact strict={false} to="/create">View/Create</NavTab>
+        <NavTab className="nav-tab" title="About this site" exact strict={false} to="/about">About</NavTab>
         <Switch>
           <Route exact strict={false} path="/">
             <StaticPuzzles />
@@ -45,4 +44,4 @@ function App() {
   );
 }
 
-export default hot(App);
+export default App;
