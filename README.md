@@ -2,7 +2,7 @@
 
 Version 0.1.1
 
-Copyright 2021 Steven Mycynek
+Copyright 2021-2026 Steven Mycynek
 
 Live demo: https://stevenvictor.net/chess
 
@@ -21,9 +21,9 @@ back-end or login.
 
 ## Usage
 
-```yarn install```
+```bun install```
 
-```yarn start```
+```bun start```
 
 ## More info
 
