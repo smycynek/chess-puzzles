@@ -1,7 +1,5 @@
 /* eslint-disable max-len */
-/* eslint-disable no-inner-declarations */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-console */
+
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 

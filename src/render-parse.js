@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 /* eslint-disable no-throw-literal */
 import {
   black, white, newBoard, units, fileSymbols,
@@ -9,7 +8,6 @@ const rot13Cipher = require('rot13-cipher');
 
 export const parseSquareString = (position) => {
   if (position.length !== 4) {
-    // eslint-disable-next-line no-console
     throw (`Error, bad position string ${position}`);
   }
 
@@ -26,7 +24,6 @@ export const parseSquareString = (position) => {
     fileSymbols.e, fileSymbols.f, fileSymbols.g, fileSymbols.h].includes(fileChar)
   || ![1, 2, 3, 4, 5, 6, 7, 8].includes(Number(rankChar))
   ) {
-    // eslint-disable-next-line no-console
     throw (`Error, bad position string ${position}`);
   }
   const color = colorChar === 'w' ? white : black;
@@ -42,7 +39,6 @@ export const parseSquareString = (position) => {
   };
 };
 
-// eslint-disable-next-line consistent-return
 export const parsePuzzleString = (puzzle) => {
   const board = newBoard();
   const puzzleData = puzzle.split(',');

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
