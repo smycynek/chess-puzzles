@@ -408,6 +408,11 @@ function CreatePuzzles() {
           <input type="checkbox" value={flipped} onClick={handleFlipClick} />
           <span className="slider">{flipped ? ' Black' : 'White'}</span>
         </label>
+
+        {!editMode && (
+          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
+        )}
+
       </div>
       <div className="row">
         {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
@@ -425,20 +430,13 @@ function CreatePuzzles() {
             slider to update puzzle
           </span>
         )}
-      </div>
-      <div className="row">
         {!editMode
       && (
-      <>
-        <div className="row">
-          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
-        </div>
-        <div className="row">
-          <span className="caption info-item">
-            {formattedAnswer}
-          </span>
-        </div>
-      </>
+      <div className="row">
+        <span className="caption info-item">
+          {formattedAnswer}
+        </span>
+      </div>
       )}
       </div>
       {
