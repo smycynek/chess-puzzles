@@ -382,6 +382,7 @@ function CreatePuzzles() {
   return (
     <div id="frame" className="border" ref={exportRef}>
       <div
+        style={{ marginBottom: '1em' }}
         onClick={() => (!editMode ? highlightEdit() : false)}
       >
         <Board
@@ -490,8 +491,12 @@ function CreatePuzzles() {
             <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
               <img title="Share to SMS/text" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
             </a>
-            {glLink && <img title="View in 3D" className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
-            {!isMobile && <img title="Save as PNG" className="side-link" onClick={() => elementToPngDownload(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="Save as PNG" src={png} />}
+            <span className="side-link">
+              {glLink && <img title="View in 3D" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
+            </span>
+            <span className="side-link">
+              {!isMobile && <img title="Save as PNG" onClick={() => elementToPngDownload(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="Save as PNG" src={png} />}
+            </span>
           </div>
 
         </>
