@@ -10,7 +10,9 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/app.css';
 
-import React, { useState, useEffect, useRef } from 'react';
+import {
+  React, useState, useEffect, useCallback, useRef,
+} from 'react';
 
 import { useLocation } from 'react-router-dom';
 import elementToPngDownload from './utils/elementToPngDownload';
@@ -63,7 +65,7 @@ function CreatePuzzles() {
       window.open(glLink, '_blank', 'noopener', 'noreferrer');
       setUpdated(false);
     }
-  });
+  }, [updated, glLink]);
 
   const highlightEdit = () => {
     setEditHint(true);
@@ -307,7 +309,7 @@ function CreatePuzzles() {
 
   const queryParmString = useLocation().search;
 
-  const initFromUrl = () => {
+  const initFromUrl = useCallback(() => {
     try {
       const queryParamDict = queryString.parse(queryParmString);
       if (queryParamDict.data) {
@@ -328,11 +330,11 @@ function CreatePuzzles() {
     } catch (e) {
       alert(e);
     }
-  };
+  }, [queryParmString]);
 
   useEffect(() => {
     initFromUrl();
-  }, []);
+  }, [initFromUrl]);
 
   const handleEditModeClick = () => {
     setEditMode(!editMode);
