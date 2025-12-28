@@ -382,7 +382,6 @@ function CreatePuzzles() {
   return (
     <div id="frame" className="border" ref={exportRef}>
       <div
-        style={{ marginBottom: '1em' }}
         onClick={() => (!editMode ? highlightEdit() : false)}
       >
         <Board
