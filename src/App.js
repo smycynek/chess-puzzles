@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="container" style={{ padding: '0px' }}>
       <h1 className="banner">Chess Puzzles</h1>
-      <HashRouter basename="/chess">
+      <HashRouter basename="/chess2">
         <NavTab className="nav-tab" title="Sample puzzles" exact strict={false} to="/">Samples</NavTab>
         <NavTab className="nav-tab" title="View puzzles from others or create your own." exact strict={false} to="/create">View/Create</NavTab>
         <NavTab className="nav-tab" title="About this site" exact strict={false} to="/about">About</NavTab>

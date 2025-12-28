@@ -107,3 +107,6 @@ chess/
 upload.sh
 .DS_Store
 build
+chess2/
+chess2.zip
+sitevars.sh
