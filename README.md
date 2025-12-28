@@ -1,8 +1,8 @@
 # Chess Puzzles
 
-Version 0.1.1
+Version 0.2.1
 
-Copyright 2021 Steven Mycynek
+Copyright 2021-2026 Steven Mycynek
 
 Live demo: https://stevenvictor.net/chess
 
@@ -19,11 +19,15 @@ your *share* button to post them to text, email, or social media.
 Since the sharing is peer to peer, there's no need for any 
 back-end or login.
 
+Updated for React 19, still using older react-scripts.
+
 ## Usage
 
-```yarn install```
+```bun install```
 
-```yarn start```
+```bun start```
+
+```deploy.sh``` (for hosted deploy only)
 
 ## More info
 

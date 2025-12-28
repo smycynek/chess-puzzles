@@ -1,16 +1,17 @@
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/prop-types */
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/app.css';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState, useEffect, useRef,
+} from 'react';
 
 import Board from './board';
 import puzzles from './puzzles/puzzles';
 import { newBoard } from './utility';
 
-const StaticPuzzles = () => {
+function StaticPuzzles() {
   const [index, setIndex] = useState(Math.floor(Math.random() * puzzles.length));
   const [showAnswer, setShowAnswer] = useState(false);
   const [data, setData] = useState(newBoard());
@@ -55,6 +56,6 @@ const StaticPuzzles = () => {
       </div>
     </>
   );
-};
+}
 
 export default StaticPuzzles;

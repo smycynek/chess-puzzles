@@ -1,20 +1,18 @@
-/* eslint-disable prefer-template */
-/* eslint-disable quotes */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable max-len */
+
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/prop-types */
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/app.css';
 
-import React, { useState, useEffect, useRef } from 'react';
+import {
+  React, useState, useEffect, useCallback, useRef,
+} from 'react';
 
 import { useLocation } from 'react-router-dom';
 import elementToPngDownload from './utils/elementToPngDownload';
@@ -41,7 +39,7 @@ const headline = 'Try%20this%20chess%20puzzle.';
 const twitterBase = 'http://twitter.com/share?text=';
 const facebookBase = 'https://www.facebook.com/sharer/sharer.php?u=';
 
-const CreatePuzzles = () => {
+function CreatePuzzles() {
   const [data, setData] = useState(newBoard());
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
@@ -67,7 +65,7 @@ const CreatePuzzles = () => {
       window.open(glLink, '_blank', 'noopener', 'noreferrer');
       setUpdated(false);
     }
-  });
+  }, [updated, glLink]);
 
   const highlightEdit = () => {
     setEditHint(true);
@@ -163,13 +161,11 @@ const CreatePuzzles = () => {
     setSelectedUnit(units.king);
   };
 
-  // eslint-disable-next-line no-unused-vars
   function randomChar() {
     const characters = 'abcdefghijklmnopqrstuvwxyz';
     return `${characters.charAt(Math.floor(Math.random() * characters.length))}`;
   }
 
-  // eslint-disable-next-line no-unused-vars
   function randomFive() {
     return `${randomChar()}${randomChar()}${randomChar()}${randomChar()}${randomChar()}`;
   }
@@ -313,7 +309,7 @@ const CreatePuzzles = () => {
 
   const queryParmString = useLocation().search;
 
-  const initFromUrl = () => {
+  const initFromUrl = useCallback(() => {
     try {
       const queryParamDict = queryString.parse(queryParmString);
       if (queryParamDict.data) {
@@ -334,11 +330,11 @@ const CreatePuzzles = () => {
     } catch (e) {
       alert(e);
     }
-  };
+  }, [queryParmString]);
 
   useEffect(() => {
     initFromUrl();
-  }, []);
+  }, [initFromUrl]);
 
   const handleEditModeClick = () => {
     setEditMode(!editMode);
@@ -384,44 +380,48 @@ const CreatePuzzles = () => {
   }
   const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
   return (
-    <>
-      <div id="frame" className="border" ref={exportRef}>
-        <div
-          onClick={() => (!editMode ? highlightEdit() : false)}
-        >
-          <Board
-            flipped={flipped}
-            data={data}
-            clickCallback={editMode ? setUserDataHandler : () => {}}
-            dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
-          />
-          {!editMode && (
+    <div id="frame" className="border" ref={exportRef}>
+      <div
+        onClick={() => (!editMode ? highlightEdit() : false)}
+      >
+        <Board
+          flipped={flipped}
+          data={data}
+          clickCallback={editMode ? setUserDataHandler : () => {}}
+          dragCallback={editMode ? setDragUseDataHandler : () => highlightEdit()}
+        />
+        {!editMode && (
           <div className="rowQuestion">
             {question}
           </div>
-          )}
-          {(editMode || !question) && (
+        )}
+        {(editMode || !question) && (
           <div className="rowQuestion">
             ...
           </div>
-          )}
-        </div>
-        <div className="row">
-          <label className="sliderbox">
-            <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
-            <span className="slider">{editMode ? ' Edit' : 'View'}</span>
-          </label>
-          <label className="sliderbox">
-            <input type="checkbox" value={flipped} onClick={handleFlipClick} />
-            <span className="slider">{flipped ? ' Black' : 'White'}</span>
-          </label>
-        </div>
-        <div className="row">
-          {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
-        </div>
+        )}
+      </div>
+      <div className="row">
+        <label className="sliderbox">
+          <input type="checkbox" value={editMode} onClick={handleEditModeClick} />
+          <span className="slider">{editMode ? ' Edit' : 'View'}</span>
+        </label>
+        <label className="sliderbox">
+          <input type="checkbox" value={flipped} onClick={handleFlipClick} />
+          <span className="slider">{flipped ? ' Black' : 'White'}</span>
+        </label>
 
-        <div className="row">
-          {editHint && (
+        {!editMode && (
+          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
+        )}
+
+      </div>
+      <div className="row">
+        {editMode && <span>Tap (or drag on desktop) the tools and squares. </span>}
+      </div>
+
+      <div className="row">
+        {editHint && (
           <span className="edit-hint">
             Toggle the
             <strong>
@@ -431,24 +431,17 @@ const CreatePuzzles = () => {
             </strong>
             slider to update puzzle
           </span>
-          )}
-        </div>
-        <div className="row">
-          {!editMode
+        )}
+        {!editMode
       && (
-      <>
-        <div className="row">
-          <button title="Hide/show answer" id="btn-answer" className="styled-button styled-button-textured" type="button" onClick={handleShowHideClick}>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button>
-        </div>
-        <div className="row">
-          <span className="caption info-item">
-            {formattedAnswer}
-          </span>
-        </div>
-      </>
+      <div className="row">
+        <span className="caption info-item">
+          {formattedAnswer}
+        </span>
+      </div>
       )}
-        </div>
-        {
+      </div>
+      {
       editMode
       && (
       <>
@@ -479,7 +472,7 @@ const CreatePuzzles = () => {
       )
 }
 
-        { !editMode && (
+      { !editMode && (
         <>
           <div className="row">
             <h3>Share</h3>
@@ -497,15 +490,18 @@ const CreatePuzzles = () => {
             <a className="side-link" href={textLink} target="_blank" rel="noopener noreferrer">
               <img title="Share to SMS/text" style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="share to sms" src={sms} />
             </a>
-            {glLink && <img title="View in 3D" className="side-link" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
-            {!isMobile && <img title="Save as PNG" className="side-link" onClick={() => elementToPngDownload(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="Save as PNG" src={png} />}
+            <span className="side-link">
+              {glLink && <img title="View in 3D" onClick={launchExternal} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="View in 3d" src={cube} />}
+            </span>
+            <span className="side-link">
+              {!isMobile && <img title="Save as PNG" onClick={() => elementToPngDownload(exportRef.current, `chess_puzzle_${Date.now()}`)} style={{ display: 'block', width: '1.75em', height: '1.75em' }} alt="Save as PNG" src={png} />}
+            </span>
           </div>
 
         </>
-        )}
-      </div>
-    </>
+      )}
+    </div>
   );
-};
+}
 
 export default CreatePuzzles;
