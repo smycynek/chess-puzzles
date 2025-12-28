@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './css/app.css';
 
 import React, {
-  useState, useEffect, useCallback, useRef,
+  useState, useEffect, useRef,
 } from 'react';
 
 import Board from './board';
@@ -24,12 +24,12 @@ function StaticPuzzles() {
     });
   };
   const btnRef = useRef(null);
-  const handleNextPuzzle = useCallback(() => {
+  const handleNextPuzzle = () => {
     setShowAnswer(false);
     newPuzzleIndex();
     setData(puzzles[index]());
     btnRef.current.blur();
-  }, [index]);
+  };
 
   const handleShowHideClick = () => {
     setShowAnswer(!showAnswer);
@@ -37,7 +37,7 @@ function StaticPuzzles() {
 
   useEffect(() => {
     handleNextPuzzle();
-  }, [handleNextPuzzle]);
+  }, []);
   return (
     <>
       <div className="border">

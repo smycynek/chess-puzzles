@@ -19,7 +19,7 @@ import About from './About';
 function App() {
   return (
     <div className="container" style={{ padding: '0px' }}>
-      <h1 className="banner">Chess Puzzles</h1>
+      <div className="banner">Chess Puzzles</div>
       <HashRouter basename="/chess2">
         <NavTab className="nav-tab" title="Sample puzzles" exact strict={false} to="/">Samples</NavTab>
         <NavTab className="nav-tab" title="View puzzles from others or create your own." exact strict={false} to="/create">View/Create</NavTab>
