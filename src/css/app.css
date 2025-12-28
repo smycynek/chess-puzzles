@@ -400,7 +400,7 @@ a:active {
   margin-left: 0.5em;
   position: relative;
   display: inline-block;
-  width: 68px;
+  width: 75px;
   height: 18px;
 }
 
@@ -447,7 +447,7 @@ a:active {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(55px);
-  -ms-transform: translateX(55px);
-  transform: translateX(55px);
+  -webkit-transform: translateX(58px);
+  -ms-transform: translateX(58px);
+  transform: translateX(58px);
 }

@@ -60,7 +60,7 @@ const Board = React.forwardRef((props, exportRef) => {
         <div className="row">
           { !flipped
             ? (
-              <div style={{ 'padding-left': '0px' }}>
+              <div style={{ paddingLeft: '0px' }}>
                 <div id="file-a" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">a</div>
                 <div id="file-b" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">b</div>
                 <div id="file-c" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">c</div>
@@ -72,7 +72,7 @@ const Board = React.forwardRef((props, exportRef) => {
               </div>
             )
             : (
-              <div style={{ 'padding-left': '0px' }}>
+              <div style={{ paddingLeft: '0px' }}>
                 <div id="file-h" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">h</div>
                 <div id="file-g" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">g</div>
                 <div id="file-f" onDragOver={(event) => allowDrop(event)} draggable onDrop={(event) => drop(event)} aria-label="file" className="labelHortz">f</div>
