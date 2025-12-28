@@ -170,7 +170,7 @@ function CreatePuzzles() {
     return `${randomChar()}${randomChar()}${randomChar()}${randomChar()}${randomChar()}`;
   }
 
-  const getCurrentURL = (newData) => `/chess2/#/chess2/create/${randomFive()}?${renderPuzzleString(newData)}`;
+  const getCurrentURL = (newData) => `/chess/#/chess/create/${randomFive()}?${renderPuzzleString(newData)}`;
 
   const getTwitterUrl = () => {
     const fullStr = encodeURIComponent(window.location);

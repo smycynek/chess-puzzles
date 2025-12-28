@@ -35,7 +35,10 @@ for tool in "${tools[@]}"; do
 done
 
 rm -rf build # Remove old build
-
+rm -rf chess # Remove old build
+rm -rf chess # Remove old build
+rm chess.zip
+rm chess.zip
 
 # build
 
