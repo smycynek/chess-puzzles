@@ -366,11 +366,9 @@ a:active {
 }
 
 .nav-tab.active {
-  background-color: rgba(117,97,68,0.7);
-  color: black;
+  background-color: rgba(117,97,68,0.3);
   border: 1.5px solid black;
   cursor: default;
-
 }
 
 .transparent-input {

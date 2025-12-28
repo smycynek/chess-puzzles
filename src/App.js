@@ -1,16 +1,12 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import 'bootstrap/dist/css/bootstrap.css';
-import 'react-router-tabs/styles/react-router-tabs.css';
-
 import './css/app.css';
 
 import React from 'react';
 import {
-  HashRouter, Route, Switch,
+  HashRouter, Route, Switch, NavLink,
 } from 'react-router-dom';
-
-import { NavTab } from 'react-router-tabs';
 
 import StaticPuzzles from './static-puzzles';
 import CreatePuzzles from './create-puzzles';
@@ -21,9 +17,9 @@ function App() {
     <div className="container" style={{ padding: '0px' }}>
       <div className="banner">Chess Puzzles</div>
       <HashRouter basename="/chess2">
-        <NavTab className="nav-tab" title="Sample puzzles" exact strict={false} to="/">Samples</NavTab>
-        <NavTab className="nav-tab" title="View puzzles from others or create your own." exact strict={false} to="/create">View/Create</NavTab>
-        <NavTab className="nav-tab" title="About this site" exact strict={false} to="/about">About</NavTab>
+        <NavLink className="nav-tab" title="Sample puzzles" exact strict={false} to="/">Samples</NavLink>
+        <NavLink className="nav-tab" title="View puzzles from others or create your own." exact strict={false} to="/create">View/Create</NavLink>
+        <NavLink className="nav-tab" title="About this site" exact strict={false} to="/about">About</NavLink>
         <Switch>
           <Route exact strict={false} path="/">
             <StaticPuzzles />
