@@ -1,0 +1,44 @@
+#! /bin/bash
+
+VARS=./sitevars.sh # user-supplied vars for SITE, APP, and FOLDER
+
+
+if [ ! -f "$VARS" ]; then
+   echo "You must supply app environment variables in $VARS to deploy"
+   exit 2
+fi
+
+source "$VARS"
+
+if [ -z "$SITE" ]; then
+    echo "no SITE"
+    exit 4
+fi
+if [ -z "$APP" ]; then
+    echo "no APP"
+    exit 4
+fi
+if [ -z "$FOLDER" ]; then
+    echo "no FOLDER"
+    exit 4
+fi
+
+
+
+tools=("zip" "scp" "ssh" "npm" "npx" "sed")
+
+for tool in "${tools[@]}"; do
+    if ! which "$tool" >/dev/null; then
+        echo "$tool" not found
+        exit 3
+    fi
+done
+
+
+
+# unzip zip at site, exit
+export SHELL_COMMAND="cd public_html; cd $APP; ls -l; cd assets; ls -l;"
+echo "$SHELL_COMMAND"
+ssh -t "$SITE" "$SHELL_COMMAND"
+cd ../..
+
